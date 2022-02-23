@@ -5,12 +5,10 @@ body{
 #container{
 	position:absolute;
 	height:100%;
-	background-color:;
 	top:0;
 	left:0;
 	width:100%;
 }
-
 
 #navigation_top{	
 	margin: 0 auto;
@@ -39,17 +37,14 @@ body{
 	float: right;
 	text-align:right;
 }
-
 nav{
 	text-align:right;
 	font-size:175%;	
 }
-
 a{
 	text-decoration:none;
-	color:white;
+	color:black;
 }
-
 nav a {
 	display: inline-block;
 	position: relative;
@@ -58,29 +53,34 @@ nav a {
 	font-family: comic sans ms;
 }
 
+
 #body{
 	margin: 30px auto;
 	overflow:hidden;
 	width:1100px;
 	max-width:95%;
 }
-
 #text{
 	float:left;
-	width:60%;	
-	background-color:;
+	width:72%;	
 	overflow:hidden;
 }
-
 #text1{
 	background-color:#E6E6FA;
 	padding:1%;
 }
 
+
 #text2{
-	overflow-x:scroll;
+	overflow-x:auto;
 	background-color: #F2F2F2;
-	padding-left:1%;
+	padding-left:6px;
+}
+
+#t{
+	margin-left:-6px;
+	overflow-x:auto;
+	border-bottom:1.6px solid black;
 }
 #text2-1{
 	float:left;
@@ -91,16 +91,22 @@ nav a {
 	float:right;
 	width:95%;
 }
-
-#t{
-	overflow-x:hidden;
-	border-bottom:1.6px solid black;
+.p1{
+	font-size:16.5px;
+	text-align:center;
+}
+.cpp{
+	font-family:'PT Sans', sans-serif;
+	font-size:16.5px;
+	line-height:1.5;
+	margin-left:;
 }
 
 #rightblock{
 	margin-top:30px;
+	padding-left:0.5%;
 	float:right;
-	width:30%;
+	width:26.5%;
 	border: 2px solid black;
 	background-color:#ebebeb;
 }
@@ -130,12 +136,12 @@ nav a {
 }
 
 h1{
-	font-size:230%;
+	font-size:210%;
 }
 
 p{
-	font-size:22px;
-	line-height:1.3;
+	font-size:18px;
+	line-height:1.5;
 }
 
 h2{
@@ -147,11 +153,55 @@ h3{
 }
 
 
-
-.c{
-	font-size:150%;
-	padding-left:30px;
+a:focus + .full {
+  display: block;
 }
+
+/* скрываем чекбоксы и блоки с содержанием */
+.hide {
+    display: none; 
+}
+.hide + label ~ div{
+    display: none;
+}
+/* оформляем текст label */
+.hide + label {
+    color: #0000dd;
+    cursor: pointer;
+}
+/* вид текста label при активном переключателе */
+.hide:checked + label {
+    color: #1E90FF;
+    border-bottom:0;
+
+}
+/* когда чекбокс активен показываем блоки с содержанием  */
+.hide:checked + label + div {
+    display: block; 
+    background: #F2F2F2;
+    -moz-box-shadow: inset 1px 1px 1px #7d8e8f;
+}
+
+
+table.iksweb{
+	width: 100%;
+	border-collapse:collapse;
+	border-spacing:0;
+}
+table.iksweb,table.iksweb td, table.iksweb th {
+	border: 1px solid #595959;
+}
+table.iksweb td,table.iksweb th {
+	padding: 10px 8px;
+	width: 100px;
+	height: 35px;
+}
+table.iksweb th {
+	background: #347c99; 
+	color: #fff; 
+	font-weight: normal;
+}
+
 
 .btn{
 	font-size:5vmax;
@@ -166,7 +216,6 @@ h3{
 .menu {
 	display:none;
 }
-
 .menu.open {
     transition: .2s visibility linear, .2s opacity linear;
     visibility: visible;
@@ -175,7 +224,7 @@ h3{
 	margin-left:-0.6vmax;
 	position:fixed;
 }
-.btn:hover{border: 0.2vmax solid #0000dd;}
+
 
 @media (hover) { 
 	nav a:hover{
@@ -232,6 +281,7 @@ h3{
 		opacity:0.5;
 		position:fixed;
 		z-index:0;
+	
 	}
 	#m{
 		width:100%;
@@ -248,19 +298,35 @@ h3{
 			margin-top:10vmax;
 	}
 	@media (hover) { 
-		nav a::after { 
-			height: 0.35vmax;
-		}
 		nav a:hover{
 			color:	#0000dd;
 		}
 		nav a::after { 
+			bottom: 6%;
 			height: 0.4vmax;
 			background:#0000dd;
 		}
 	}
 	.p{
-		font-size:1.5vmax;  /* bottom */
+		font-size:1.5vmax;  
 	}
-	p{font-size:18px;}
+	p{font-size:16px;}
+	#text2-1{
+		width:calc(2vmax + 12px);
+		float:left;
+	}
+	#text2-2{
+		width:35vmax;
+		float:left;
+		margin-left:1vmax;
+	}
+	.cpp{
+		font-size:calc(1.2vmax + 9px);
+	}
+	.p1{
+		font-size:	calc(1.2vmax + 9px);
+	}
+	table.iksweb td,table.iksweb th {
+			font-size:calc(1.2vmax + 9px);
+	}
 }
