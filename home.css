@@ -160,6 +160,8 @@ h3{
 	padding:0 0 0 0;
 	background-color:#191970;
 	border: 0.2vmax solid #191970;
+	-webkit-appearance: none;
+-moz-appearance:none;
 }
 .menu {
 	display:none;
