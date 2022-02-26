@@ -152,16 +152,22 @@ h3{
 }
 
 .btn{
-	width:6.7vmax;
-	height:6.7vmax;
-	font-size:4.5vmax;
+	color: #fff;
+    border:1px solid #222;
+    padding: 5px;
+    position: fixed;
+    top: 5px;
+    left: 5px;
+    cursor: pointer;
+    transition: left .23s;
+    width: 40px;
+	height:40px;
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
 	float:left;
-	color:white;
-	padding:0 0 0 0;
-	background-color:#191970;
-	border: 0.2vmax solid #191970;
-	-webkit-appearance: none;
--moz-appearance:none;
 }
 .menu {
 	display:none;
