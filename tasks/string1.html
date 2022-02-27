@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ 
+
+  <meta charset="utf-8">
+  
+  <title>Задачи по строкам. Уровень 1</title>
+ </head>
+ 
+ <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+ <link rel="stylesheet" type="text/css" href="D:\HTML\САЙТ\css\CSS.css">
+ 
+ <body>
+	<div id="container">
+			<nav class="darken"></nav>
+		<div id="navigation_top">
+			<div id="navigation_main">
+			<div id="m">
+				
+						<div class="bt"><img width="100%" src="t.png"></div>
+						
+					
+					<nav class="menu">
+						<div id="navigation">
+            <nav>
+							<a href="..\index.html" >Главная</a><br>
+							<a href="..\learning\learning.html"> Изучение</a><br>
+							<a href="tasks.html" style="color:#0000dd"> Задачи</a><br>
+							<a href="..\algorithms\algorithms.html">Алгоритмы</a><br>
+							</nav>	
+						</div>
+	
+					</nav>
+				
+					<script>const btnMenu = document.querySelector('.bt');
+const menu = document.querySelector('.menu');
+const darken = document.querySelector('.darken');
+
+
+const toggleMenu = function() {
+    menu.classList.toggle('open');
+	 darken.classList.toggle('open');
+}
+
+btnMenu.addEventListener('click', function(e) {
+    e.stopPropagation();
+    toggleMenu();
+});
+
+document.addEventListener('click', function(e) {
+    const target = e.target;
+    const its_menu = target == menu || menu.contains(target);
+    const its_btnMenu = target == btnMenu;
+    const menu_is_active = menu.classList.contains('open');
+    
+    if (!its_menu && !its_btnMenu && menu_is_active) {
+        toggleMenu();
+    }
+	
+});
+
+</script>
+
+					<div id = "name">
+						<a href="..\index.html" style=" font-family: sans-serif; color:white;"><b>Code.C</b></a>
+					</div>
+				</div>
+				
+				
+				<div id="pk">
+					<div id = "name">
+						<a href="..\index.html" style=" font-family: sans-serif; color:white;"><b>Code.C</b></a>
+					</div>
+					<div id="navigation">
+							<nav>
+							<a href="..\index.html" >Главная</a>
+							<a href="..\learning\learning.html">Изучение</a>
+							<a href="tasks.html" style = "color:#1e90ff; ">Задачи</a>
+							<a href="..\algorithms\algorithms.html">Алгоритмы</a>
+							</nav>		
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+		
+		
+		<div id="body">
+		<div id = "text">
+			<h1>Задачи по строкам. <font style = "font-size:25px">Уровень 1</font></h1>
+			
+				
+			<h2 id = "1">Задача 1. Ваня и любимые буквы:</h2>
+			<p>Вы знаете, что Ваня очень любит буквы f и d, поэтому он обрадуется, если в тексте задачи по программированию будут обе буквы. Вам показали текст до Вани, определите, обрадуется ли Ваня
+			или нет.<br>
+			<b>Входные данные:</b><br>
+			Первая строка содержит одно целое число <b>N</b> (1 &#8804 <b>N</b> &#8804 10^3) - длина строки.<br>
+			Вторая строка содержит строку.<br>
+			<b>Выходные данные:</b><br>
+			Выведите <b>yes</b>, если Ваня обрадуется, иначе <b>no</b>.
+			<p>Пример:</p>
+			
+			<table class="iksweb">
+				<tbody style="text-align:center">
+					<tr>
+						<td>Ввод </td>
+						<td>Вывод</td>
+					</tr>
+					<tr>
+						<td>8<br>
+						steDhfkd
+						</td>
+						<td>yes</td>
+					</tr>
+					<tr>
+						<td>7<br>
+						frwvFSn
+						</td>
+						<td>no</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			
+			</p>
+				
+			<div class="demo">
+				<input type="checkbox" id="hd-1" class="hide"/>
+				<label for="hd-1" style="-webkit-user-select: none;">
+					<h2>Решение</h2>
+					
+				</label>
+				<div>
+				<div id="text2">
+				<p>В этой задаче мы должны пройти по массиву символов и сравнить каждый элемент с символом 'f' и 'd'. Если находим хоть одну букву f, то 
+				меняем переменную num_f, аналогично с буквой d.
+				</p>
+				
+				<h3>Пример на Си:</h3>
+				
+				<div id="t">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23
+					<br>24<br>25<br>26<br>27</p></div>
+					<div id="text2-2">
+				
+					<pre class="cpp"><span style="color: #339900;">#define _CRT_SECURE_NO_WARNINGS</span>
+<span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+<span style="color: #339900;">#include&lt;string.h&gt;</span>
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> n, i, num_f, num_d<span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">char</span> S<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">1000</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>n<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">getchar</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>  <span style="color: #339900;">// чтобы не записался символ '\n' в строку S</span>
+	<span style="color: #0000dd;">gets</span><span style="color: #008000;">&#40;</span>S<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>  <span style="color: #339900;">// ввод строки S</span>
+	num_f <span style="color: #000080;">=</span> num_d <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>  <span style="color: #339900;">// стартовое значение</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>S<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">==</span> <span style="color: #FF0000;">'f'</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span> 
+			num_f <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+		<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>S<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">==</span> <span style="color: #FF0000;">'d'</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span> 
+			num_d <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>num_f <span style="color: #000080;">==</span> <span style="color: #0000dd;">1</span> <span style="color: #000040;">&amp;&amp;</span> num_d <span style="color: #000080;">==</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span> 
+		<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;yes&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">else</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;no&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+				</div>
+				</div>
+
+
+				</div>
+				</div>
+			</div>
+	
+			<br>
+			<div id="border1"></div>
+			
+				<h2 id = "2">Задача 2. Смена регистра:</h2>
+			<p>Вам дана строка длины <b>N</b>, необходимо поменять регистр каждой буквы. То есть, если буква маленькая, то нужно поменять ее на большую и наоборот.<br>
+			<b>Входные данные:</b><br>
+			Первая строка содержит одно целое число <b>N</b> (1 &#8804 <b>N</b> &#8804 10^3) - длина строки.<br>
+			Вторая строка содержит строку.<br>
+			<b>Выходные данные:</b><br>
+			Выведите новую строку после замены всех букв.
+			<p>Пример:</p>
+			
+			<table class="iksweb">
+				<tbody style="text-align:center">
+					<tr>
+						<td>Ввод </td>
+						<td>Вывод</td>
+					</tr>
+					<tr>
+						<td>4<br>
+						ASEr
+						</td>
+						<td>aseR</td>
+					</tr>
+					<tr>
+						<td>7<br>
+						AndROid
+						</td>
+						<td>aNDroID</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			
+			</p>
+				
+			<div class="demo">
+				<input type="checkbox" id="hd-2" class="hide"/>
+				<label for="hd-2" style="-webkit-user-select: none;">
+					<h2>Решение</h2>
+					
+				</label>
+				<div>
+				<div id="text2">
+				<p>Для решения задачи, нужно обратиться к таблице символов ASCII. Так как символы заглавных и строчных букв идут друг за другом,
+				то нужно просто прибавить или отнять число 32, чтобы поменять регистр.
+				</p>
+				
+				<h3>Пример на Си:</h3>
+				<div id="t">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21</p></div>
+					<div id="text2-2">
+				
+					<pre class="cpp">#define _CRT_SECURE_NO_WARNINGS
+<span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+<span style="color: #339900;">#include&lt;string.h&gt;</span>
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> n, i<span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">char</span> S<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">1000</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>n<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">getchar</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>  <span style="color: #339900;">// чтобы не записался символ '\n' в строку S</span>
+	<span style="color: #0000dd;">gets</span><span style="color: #008000;">&#40;</span>S<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>  <span style="color: #339900;">//  ввод строки S</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>S<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">&gt;=</span> <span style="color: #FF0000;">'a'</span> <span style="color: #000040;">&amp;&amp;</span> S<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">&lt;=</span> <span style="color: #FF0000;">'z'</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>  
+			S<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> S<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000040;">-</span> <span style="color: #0000dd;">32</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+		<span style="color: #0000ff;">else</span> <span style="color: #008000;">&#123;</span>
+			S<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> S<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000040;">+</span> <span style="color: #0000dd;">32</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+	<span style="color: #008000;">&#125;</span> 
+	<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%s&quot;</span>, S<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+				</div></div>
+				</div>
+				</div>
+			</div>
+	
+			<br>
+			<div id="border1"></div>
+			
+			<h2 id = "3">Задача 3. Проблемная клавиатура:</h2>
+			<p>У Маши сломалась одна из кнопок на клавиатуре. Эта кнопка вместо точки печатает вот такой символ '#'. Маша пишет большой доклад и просит вас помочь ей изменить все символы
+			'#' на точки.<br>
+			<b>Входные данные:</b><br>
+			Единственная строка содержит строку до 1000 символов.<br>
+			<b>Выходные данные:</b><br>
+			Выведите отформатированную строку.
+			<p>Пример:</p>
+			
+			<table class="iksweb">
+				<tbody style="text-align:center">
+					<tr>
+						<td>Ввод </td>
+						<td>Вывод</td>
+					</tr>
+					<tr>
+						<td>DFdr#ers#1e$fd#
+						</td>
+						<td>DFdr.ers.1e$fd.</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			
+			</p>
+				
+			<div class="demo">
+				<input type="checkbox" id="hd-3" class="hide"/>
+				<label for="hd-3" style="-webkit-user-select: none;">
+					<h2>Решение</h2>
+					
+				</label>
+				<div>
+				<div id="text2">
+				<p>Чтобы узнать длину строки, нужно воспользоваться функцией strlen(). Так же можно воспользоваться циклом while(S[i] != '\0'),
+				то есть цикл будет работать пока не закончится строка, не забывайте менять значение i.<br><br>
+				На каждом шаге цикла нужно сравнить текущий элемент с символом '#', если это он, то присвоить этому элементу символ <b>' . '</b> (точка).
+				</p>
+
+				</div>
+				</div>
+			</div>
+	
+			<br>
+			<div id="border1"></div>
+			
+				<h2 id = "4">Задача 4. Цифры:</h2>
+			<p>Вам дан текст, необходимо найти в нем количество цифр от 1 до 7 включительно.<br>
+			<b>Входные данные:</b><br>
+			Единственная строка содержит строку до 1000 символов.<br>
+			<b>Выходные данные:</b><br>
+			Выведите количество цифр.
+			<p>Пример:</p>
+			
+			<table class="iksweb">
+				<tbody style="text-align:center">
+					<tr>
+						<td>Ввод </td>
+						<td>Вывод</td>
+					</tr>
+					<tr>
+						<td>9rd fr4sd321rE
+						</td>
+						<td>4</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			
+			</p>
+				
+	
+			<br>
+			<div id="border1"></div>
+			
+			<h2 id = "5">Задача 5. Повторяющиеся пробелы:</h2>
+			<p>У Дениса залипает клавиша пробела, из-за этого в его тексте могут быть повторяющиеся пробелы. Вам нужно исправить текст Дениса, убрав все повтрояющиеся
+			пробелы. Пробелы в тексте не могут быть в начале или в конце.<br>
+			<b>Входные данные:</b><br>
+			Единственная строка содержит строку от 1 до 10^5 символов.<br>
+			<b>Выходные данные:</b><br>
+			Выведите отформатированную строку.
+			<p>Пример:</p>
+			
+			<table class="iksweb">
+				<tbody style="text-align:center">
+					<tr>
+						<td>Ввод </td>
+						<td>Вывод</td>
+					</tr>
+					<tr>
+						<td>gfh rh &nbsp re
+						</td>
+						<td>gfh rh re</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			
+			</p>
+				
+			<div id="border1"></div>
+			
+			<h2 id = "6">Задача 6. Собственный язык:</h2>
+			<p>Андрей с другом придумали свой язык для общения в соцсети, чтобы никто не смог прочитать их сообщения. Точнее
+			они просто придумали для некоторых букв новое написание. В их языке <br>B = #, D = @, G = *, h = &, n = $,
+			x = ~, s = %. Вам нужно придумать алгоритм, который расшифрует их сообщения.<br>
+			<b>Входные данные:</b><br>
+			Первая строка содержит одно целое число <b>n</b> (1 &#8804 <b>n</b> &#8804 1000) - количество сообщений.<br>
+			В следующих <b>n</b> строках записаны строки от 1 до 100 символов - сообщения друзей.<br>
+			<b>Выходные данные:</b><br>
+			Выведите расшифровку для каждого сообщения.
+			<p>Пример:</p>
+			
+			<table class="iksweb">
+				<tbody style="text-align:left">
+					<tr>
+						<td>Ввод </td>
+						<td>Вывод</td>
+					</tr>
+					<tr>
+						<td>2<br>
+						gh#G$%rwe<br>
+						*hjE~**DKr
+						</td>
+						<td>ghBGnsrwe<br>
+						GhjExGGDKr
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			
+			</p>
+				
+			<div class="demo">
+				<input type="checkbox" id="hd-6" class="hide"/>
+				<label for="hd-6" style="-webkit-user-select: none;">
+					<h2>Решение</h2>
+					
+				</label>
+				<div>
+				<div id="text2">
+				<p>
+					Для этой задачи нужен массив строк.
+				</p>
+				
+				<h3>Пример на Си:</h3>
+					<div id="t">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28
+					<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41</p></div>
+					<div id="text2-2">
+				
+					<pre class="cpp" ><span style="color: #339900;">#define _CRT_SECURE_NO_WARNINGS</span>
+<span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+<span style="color: #339900;">#include&lt;string.h&gt;</span>
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> n, l, i<span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">char</span> S<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">1000</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span><span style="color: #0000dd;">100</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>n<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">getchar</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> t <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> t <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> t<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000dd;">gets</span><span style="color: #008000;">&#40;</span>S<span style="color: #008000;">&#91;</span>t<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> t <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> t <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> t<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		l <span style="color: #000080;">=</span> <span style="color: #0000dd;">strlen</span><span style="color: #008000;">&#40;</span>S<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>  <span style="color: #339900;">// длина строки S</span>
+		<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> l<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>S<span style="color: #008000;">&#91;</span>t<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">==</span> <span style="color: #FF0000;">'#'</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+				S<span style="color: #008000;">&#91;</span>t<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #FF0000;">'B'</span><span style="color: #008080;">;</span>
+			<span style="color: #008000;">&#125;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>S<span style="color: #008000;">&#91;</span>t<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">==</span> <span style="color: #FF0000;">'@'</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+				S<span style="color: #008000;">&#91;</span>t<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #FF0000;">'D'</span><span style="color: #008080;">;</span>
+			<span style="color: #008000;">&#125;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>S<span style="color: #008000;">&#91;</span>t<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">==</span> <span style="color: #FF0000;">'*'</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+				S<span style="color: #008000;">&#91;</span>t<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #FF0000;">'G'</span><span style="color: #008080;">;</span>
+			<span style="color: #008000;">&#125;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>S<span style="color: #008000;">&#91;</span>t<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">==</span> <span style="color: #FF0000;">'&amp;'</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+				S<span style="color: #008000;">&#91;</span>t<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #FF0000;">'h'</span><span style="color: #008080;">;</span>
+			<span style="color: #008000;">&#125;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>S<span style="color: #008000;">&#91;</span>t<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">==</span> <span style="color: #FF0000;">'$'</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+				S<span style="color: #008000;">&#91;</span>t<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #FF0000;">'n'</span><span style="color: #008080;">;</span>
+			<span style="color: #008000;">&#125;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>S<span style="color: #008000;">&#91;</span>t<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">==</span> <span style="color: #FF0000;">'~'</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+				S<span style="color: #008000;">&#91;</span>t<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #FF0000;">'x'</span><span style="color: #008080;">;</span>
+			<span style="color: #008000;">&#125;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>S<span style="color: #008000;">&#91;</span>t<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">==</span> <span style="color: #FF0000;">'%'</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+				S<span style="color: #008000;">&#91;</span>t<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #FF0000;">'s'</span><span style="color: #008080;">;</span>
+			<span style="color: #008000;">&#125;</span>
+		<span style="color: #008000;">&#125;</span>
+		<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%s<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span>, S<span style="color: #008000;">&#91;</span>t<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+				</div></div>
+				
+				</div>
+				</div>
+			</div>
+	
+			<br>
+			<div id="border1"></div>
+			
+			
+			<h2 id = "7">Задача 7. Строка AB:</h2>
+			<p>Вам даны несколько текстов. Найти в каждом из них количество вхождений строки <b>AB</b>. Определите строку, в котрой подстрока AB встречается больше
+			всего раз. Гарантируется, что строка AB есть как минимум в одной строке.<br>
+			<b>Входные данные:</b><br>
+			Первая строка содержит одно целое число <b>n</b> (1 &#8804 <b>n</b> &#8804 100) - количество текстов.<br>
+			В следующих <b>n</b> строках записаны строки от 1 до 1000 символов - тексты.<br>
+			<b>Выходные данные:</b><br>
+			Выведите индекс строки, у которой больше всего вхождений строки AB. Нумерация начинается с 1.
+			<p>Пример:</p>
+			
+			<table class="iksweb">
+				<tbody style="text-align:left">
+					<tr>
+						<td>Ввод </td>
+						<td>Вывод</td>
+					</tr>
+					<tr>
+						<td>4<br>
+						rreABFAB<br>
+						ABArsq<br>
+						krABfksABJAB<br>
+						ABd<br>
+						</td>
+						<td>3
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			
+			</p>
+			
+			<div id="border1"></div>
+			
+			<h2 id = "8">Задача 8. Сумма цифр:</h2>
+			<p>Вам дан текст, определите сумму цифр в этом тексте.<br>
+			<b>Входные данные:</b><br>
+			Единственная строка содержит строку до 1000 символов.<br>
+			<b>Выходные данные:</b><br>
+			Выведите отформатированную строку.
+			<p>Пример:</p>
+			
+			<table class="iksweb">
+				<tbody style="text-align:center">
+					<tr>
+						<td>Ввод </td>
+						<td>Вывод</td>
+					</tr>
+					<tr>
+						<td>JK32e8gfS78d
+						</td>
+						<td>28</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			
+			</p>
+				
+			<div class="demo">
+				<input type="checkbox" id="hd-8" class="hide"/>
+				<label for="hd-8" style="-webkit-user-select: none;">
+					<h2>Решение</h2>
+					
+				</label>
+				<div>
+				<div id="text2">
+				<p>Чтобы от номера символа цифры перейти к самой цифре нужно отнять от номера символа 48, так как в таблице цифры начинаются с символа 0, а его номер равен 48.
+				</p>
+				
+				<h3>Пример на Си:</h3>
+				<div id="t">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18</p></div>
+					<div id="text2-2">
+				
+				<pre class="cpp" ><span style="color: #339900;">#define _CRT_SECURE_NO_WARNINGS</span>
+<span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+<span style="color: #339900;">#include&lt;string.h&gt;</span>
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> n, i, sum<span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">char</span> S<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">1000</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">gets</span><span style="color: #008000;">&#40;</span>S<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>  
+	n <span style="color: #000080;">=</span> <span style="color: #0000dd;">strlen</span><span style="color: #008000;">&#40;</span>S<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>  <span style="color: #339900;">// длина строки S</span>
+	sum <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>  <span style="color: #339900;">// стартовое значение</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>S<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">&gt;=</span> <span style="color: #FF0000;">'0'</span> <span style="color: #000040;">&amp;&amp;</span> S<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">&lt;=</span> <span style="color: #FF0000;">'9'</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			sum <span style="color: #000080;">=</span> sum <span style="color: #000040;">+</span> <span style="color: #008000;">&#40;</span>S<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000040;">-</span> <span style="color: #0000dd;">48</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+	<span style="color: #008000;">&#125;</span> 
+	<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, sum<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+				</div></div>
+				</div>
+				</div>
+			</div>
+	
+			<br>
+			<div id="border1"></div>
+			
+			<h2 id = "9">Задача 9. Разделительная L:</h2>
+			<p>Буква <b>L</b> считается разделительным символом, который делит строку на две части. Определите какая часть является наибольшей и выведите ее.<br>
+			<b>Входные данные:</b><br>
+			Единственная строка содержит строку от 3 до 1000 символов.<br>
+			<b>Выходные данные:</b><br>
+			В первой строке выведите размер наибольшей части. <br>
+			Во второй строке выведите наибольшую строку.<br>
+			<b>Или</b> в единственной строке выведите 0, если части равны.<br>
+			<p>Пример:</p>
+			
+			<table class="iksweb">
+				<tbody style="text-align:center">
+					<tr>
+						<td>Ввод </td>
+						<td>Вывод</td>
+					</tr>
+					<tr>
+						<td>JK32e<b>L</b>8gfS78d 
+						</td>
+						<td>7<br>8gfS78d </td>
+					</tr>
+				</tbody>
+			</table>
+			
+			
+			</p>
+			
+			<div id="border1"></div>
+			
+			
+			<h2 id = "10">Задача 10. Сломанная клавиатура:</h2>
+			<p>У Дениса опять проблемы с клавишой пробел, но в этот раз она вовсе сломалась. Поэтому он вместо пробела пишет две подряд идущих
+			буквы <b>ws</b> (whitespace). Так как Денис ваш друг, вам нужно помочь ему отредактировать текст. Гарантируется, что первым и последним символом не является пробел.<br>
+			<b>Входные данные:</b><br>
+			Единственная строка содержит строку от 4 до 10^5 символов.<br>
+			<b>Выходные данные:</b><br>
+			Выведите текст Дениса с пробелами.<br>
+			<p>Пример:</p>
+			
+			<table class="iksweb">
+				<tbody style="text-align:center">
+					<tr>
+						<td>Ввод </td>
+						<td>Вывод</td>
+					</tr>
+					<tr>
+						<td>RGrfwsder
+						</td>
+						<td>RGrf der</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			
+			</p>
+			<div id="border1"></div>
+			
+			<h2 id = "11">Задача 11. Перевод с/с:</h2>
+			<p>Вам даны числа в 16 системе счисления, вам нужно перевести каждое число из 16 с/с в 10 с/с.<br>
+			<b>Входные данные:</b><br>
+			Первая строка содержит одно целое число <b>t</b> (1 &#8804 <b>t</b> &#8804 100) - количество чисел.<br>
+			В следующих <b>t</b> строках записаны числа длины от 1 до 10.<br>
+			<b>Выходные данные:</b><br>
+			Выведите каждое число в 10 с/с.<br>
+			<p>Пример:</p>
+			
+			<table class="iksweb">
+				<tbody style="text-align:left">
+					<tr>
+						<td>Ввод </td>
+						<td>Вывод</td>
+					</tr>
+					<tr>
+						<td>4<br>
+						10F9<br>
+						6FB76C<br>
+						534<br>
+						413EA
+						</td>
+						<td>4345<br>
+						7321452<br>
+						1332<br>
+						267242
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			
+			</p>
+				
+			<div class="demo">
+				<input type="checkbox" id="hd-11" class="hide"/>
+				<label for="hd-11" style="-webkit-user-select: none;">
+					<h2>Решение</h2>
+	
+				</label>
+				<div>
+				<div id="text2">
+				
+				<h3>Пример на Си:</h3>
+				<div id="t">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25
+					<br>26<br>27<br>28<br>29<br>30</p></div>
+					<div id="text2-2">
+						<pre class="cpp"><span style="color: #339900;">#define _CRT_SECURE_NO_WARNINGS</span>
+<span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+<span style="color: #339900;">#include&lt;string.h&gt;</span>
+&nbsp;
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">char</span> S<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">101</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span><span style="color: #0000dd;">11</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">int</span> t, i, j, l, r<span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">long</span> <span style="color: #0000ff;">long</span> <span style="color: #0000ff;">int</span> sum<span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>t<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> d <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> d <span style="color: #000080;">&lt;</span> t<span style="color: #008080;">;</span> d<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%s&quot;</span>, S<span style="color: #008000;">&#91;</span>d<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> d <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> d <span style="color: #000080;">&lt;</span> t<span style="color: #008080;">;</span> d<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		l <span style="color: #000080;">=</span> <span style="color: #0000dd;">strlen</span><span style="color: #008000;">&#40;</span>S<span style="color: #008000;">&#91;</span>d<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>  <span style="color: #339900;">// длина строки S[d]</span>
+		r <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+		sum <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+		<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> l <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&gt;=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i<span style="color: #000040;">--</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>S<span style="color: #008000;">&#91;</span>d<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">&gt;=</span> <span style="color: #FF0000;">'0'</span> <span style="color: #000040;">&amp;&amp;</span> S<span style="color: #008000;">&#91;</span>d<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">&lt;=</span> <span style="color: #FF0000;">'9'</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+				sum <span style="color: #000040;">+</span><span style="color: #000080;">=</span> <span style="color: #008000;">&#40;</span>S<span style="color: #008000;">&#91;</span>d<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000040;">-</span> <span style="color: #0000dd;">48</span><span style="color: #008000;">&#41;</span> <span style="color: #000040;">*</span> r<span style="color: #008080;">;</span>
+			<span style="color: #008000;">&#125;</span>
+			<span style="color: #0000ff;">else</span> <span style="color: #008000;">&#123;</span>
+				sum <span style="color: #000040;">+</span><span style="color: #000080;">=</span> <span style="color: #008000;">&#40;</span>S<span style="color: #008000;">&#91;</span>d<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000040;">-</span> <span style="color: #0000dd;">55</span><span style="color: #008000;">&#41;</span> <span style="color: #000040;">*</span> r<span style="color: #008080;">;</span>
+			<span style="color: #008000;">&#125;</span>
+			r <span style="color: #000040;">*</span><span style="color: #000080;">=</span> <span style="color: #0000dd;">16</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+		<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span>, sum<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+				
+				</div></div>
+				</div>
+				</div>
+			</div>
+	
+			<br>
+			<div id="border1"></div>
+			
+			
+			<h2 id = "12">Задача 12. Длинные числа:</h2>
+			<p>Даны несколько текстов, нужно для каждого текста вывести самую длиную последовательность повторяющихся цифр. Гарантируется, что в каждом тексте 
+			есть самая большая такая последовательность.<br>
+			<b>Входные данные:</b><br>
+			Первая строка содержит одно целое число <b>t</b> (1 &#8804 <b>t</b> &#8804 100) - количество текстов.<br>
+			В следующих <b>t</b> строках записаны строки от 1 до 1000 символов.<br>
+			<b>Выходные данные:</b><br>
+			Выведите текст Дениса с пробелами.<br>
+			<p>Пример:</p>
+			
+			<table class="iksweb">
+				<tbody style="text-align:left">
+					<tr>
+						<td>Ввод </td>
+						<td>Вывод</td>
+					</tr>
+					<tr>
+						<td>3<br>
+						yr43erfd234t<br>
+						eter531<br>
+						r34RGS4g
+						</td>
+						<td>234<br>
+						531<br>
+						34
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			
+			</p>
+				
+
+			<div id="border1"></div>
+			
+			
+			<h2 id = "13">Задача 13. Отрезок:</h2>
+			<p>Вам дана строка, удалите отрезок между первым и последним вхождением буквы <b>F</b>. Гарантируется, что в строке есть как минимум две буквы <b>F</b>.<br>
+			<b>Входные данные:</b><br>
+			Единственная строка содержит строку от 3 до 1000 символов.<br>
+			<b>Выходные данные:</b><br>
+			Выведите строку без отрезка. Если такого отрезка не существует, выведите 0.
+			<p>Пример:</p>
+			
+			<table class="iksweb">
+				<tbody style="text-align:center">
+					<tr>
+						<td>Ввод </td>
+						<td>Вывод</td>
+					</tr>
+					<tr>
+						<td>S43FrEFdcFgwQ
+						</td>
+						<td>S43FFgwQ</td>
+					</tr>
+					<tr>
+						<td>56fdFFde
+						</td>
+						<td>0</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			
+			</p>
+				
+	
+			<br>
+			<div id="border1"></div>
+			
+			
+			<h2 id = "14">Задача 14. Римские числа:</h2>
+			<p>Вам даны <b>n</b> строк, содержащие буквы <b>I</b>(1), <b>V</b>(5), <b>X</b>(10), <b>L</b>(50). Если бо́льшая цифра стоит 
+			перед меньшей, то они складываются, если же меньшая стоит перед большей, то меньшая вычитается из большей.
+			Необходимо для каждой строки перевести число из римской с/с в арабскую. <br>
+			<b>Входные данные:</b><br>
+			Первая строка содержит одно целое число <b>t</b> (1 &#8804 <b>t</b> &#8804 100) - количество строк.<br>
+			В следующих <b>t</b> строках записаны строки до 10 символов.<br>
+			<b>Выходные данные:</b><br>
+			Для каждого запроса выведите ответ.
+			<p>Пример:</p>
+			
+			<table class="iksweb">
+				<tbody>
+					<tr>
+						<td>Ввод </td>
+						<td>Вывод</td>
+					</tr>
+					<tr>
+						<td>4<br>
+						XI<br>
+						XXIV<br>
+						XLI<br>
+						III
+						</td>
+						<td>11<br>
+						24<br>
+						41<br>
+						3
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			
+			</p>
+
+			</div>
+				<div id="rightblock">
+				<p> <b><font style="font-size:140%">Задачи:</font></b><br>
+					<a href="#1"> 1. Ваня и любимые буквы</a><br>
+					<a href="#2"> 2. Смена регистра</a><br>
+					<a href="#3"> 3. Проблемная клавиатура</a><br>
+					<a href="#4"> 4. Цифры</a><br>
+					<a href="#5"> 5. Повторяющиеся пробелы</a><br>
+					<a href="#6"> 6. Собственный язык</a><br>
+					<a href="#7"> 7. Строка AB</a><br>
+					<a href="#8"> 8. Сумма цифр</a><br>
+					<a href="#9"> 9. Разделительная L</a><br>
+					<a href="#10"> 10. Сломанная клавиатура:</a><br>
+					<a href="#11"> 11. Перевод с/с</a><br>
+					<a href="#12"> 12. Длинные числа</a><br>
+					<a href="#13"> 13. Отрезок</a><br>
+					<a href="#14"> 14. Римские числа</a><br> </p>
+					<div style="margin-left:-2%; width:105%" id="border1"></div>
+					<p><b>Таблицу символов можно</font> посмотреть <a style="color:#0000dd" href= "D:\HTML\САЙТ\navigation\Символы и строки\string.html">здесь</a></b>
+				</p>
+				</div>
+		</div>
+
+		<div id="border2"></div>
+				<div id ="bottomblock">
+		<p class="p" style="text-align:center"><a href = "..\index.html" style = "font-family:bookman old style; color: #0000dd"><b>Code.C</b></a>
+		&#169 Copyright Павел Калашников 2021
+		<br>
+		обратная связь <span style="color:#0000dd">code.c@mail.ru</span></p><br>
+		</div>
+		
+	</div>
+ </body>
+</html>
