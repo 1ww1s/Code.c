@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ 
+ 
+ 
+
+  <meta charset="utf-8">
+  
+  <title>Циклы</title>
+ </head>
+ 
+ <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+ <link rel="stylesheet" type="text/css" href="CSS.css">
+ 
+ <body>
+	<div id="container">
+		<nav class="darken"></nav>
+		<div id="navigation_top">
+			<div id="navigation_main">
+			<div id="m">
+				
+						<div class="bt"><img width="100%" src="t.png"></div>
+						
+					
+					<nav class="menu">
+						<div id="navigation">
+							<nav>
+							<a href="..\index.html" >Главная</a><br>
+							<a href="learning.html" style="color:#0000dd"> Изучение</a><br>
+							<a href="..\tasks\tasks.html"> Задачи</a>	<br>
+							<a href="..\algorithms\algorithms.html">Алгоритмы</a><br>
+							</nav>
+						</div>
+	
+					</nav>
+				
+					<script>const btnMenu = document.querySelector('.bt');
+const menu = document.querySelector('.menu');
+const darken = document.querySelector('.darken');
+
+
+const toggleMenu = function() {
+    menu.classList.toggle('open');
+	 darken.classList.toggle('open');
+}
+
+btnMenu.addEventListener('click', function(e) {
+    e.stopPropagation();
+    toggleMenu();
+});
+
+document.addEventListener('click', function(e) {
+    const target = e.target;
+    const its_menu = target == menu || menu.contains(target);
+    const its_btnMenu = target == btnMenu;
+    const menu_is_active = menu.classList.contains('open');
+    
+    if (!its_menu && !its_btnMenu && menu_is_active) {
+        toggleMenu();
+    }
+	
+});
+
+</script>
+
+					<div id = "name">
+						<a href="..\index.html" style=" font-family: sans-serif; color:white;"><b>Code.C</b></a>
+					</div>
+				</div>
+				
+				
+				<div id="pk">
+					<div id = "name">
+						<a href="..\index.html" style=" font-family: sans-serif; color:white;"><b>Code.C</b></a>
+					</div>
+					<div id="navigation">
+							<nav>
+							<a href="..\index.html" >Главная</a>
+							<a href="learning.html" style="color:#1e90ff"> Изучение</a>
+							<a href="..\tasks\tasks.html"> Задачи</a>	
+							<a href="..\algorithms\algorithms.html">Алгоритмы</a>
+							</nav>	
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+		
+		<div id="body">
+			<div id = "text">
+				<h1>Циклы</h1>
+					<p>При решении практических задач постоянно возникает необходимость 
+					в повторении действия заданное количество раз или до достижения какого-либо условия. </p>				
+		
+			<div id="text1">
+				<p>В языке Си существуют такие виды циклов:</p>
+				<p><span style="color: #0000ff;"><b>while</b></span>  — цикл с предусловием;</p>
+				
+				<p><span style="color: #0000ff;"><b>for</b></span>  — параметрический цикл (цикл с заданным числом повторений).</p>
+			</div>
+
+			
+				<h2 id="1">Цикл с предусловием  <span style="color: #0000ff;">while</span></h2>
+				<p>Общая форма записи:</p>
+				<div style="margin-left:10px">
+					<pre class = "cpp"><span style="color: #0000ff;">while</span> <span style="color: #008000;">&#40;</span>Условие<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	Блок операций<span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre></div>
+			
+				<p>Операции в цикле будут выполняться до тех пор, пока условие будет верно.</p>
+				<p>При построении цикла <span style="color: #0000ff;">while</span> в блок операций необходимо включить конструкции, изменяющие величину проверяемого
+				выражения, так, чтобы в конце концов оно стало ложным. 
+				Иначе выполнение цикла будет осуществляться бесконечно(бесконечный цикл).</p>
+				<h3>Рассмотрим цикл с предусловием</h3>
+				
+	
+				<div id="t" style="margin-left:10px">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12</p></div>
+					<div id="text2-2">
+<pre class="cpp"><span style="color: #339900;">#define _CRT_SECURE_NO_WARNINGS</span>
+<span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> i<span style="color: #008080;">;</span>
+	i <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">while</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">&lt;=</span> <span style="color: #0000dd;">10</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>  <span style="color:  #339900">// пока i меньше или равен 10 выполняем действия</span>
+		<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span>, i<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span> 
+		i<span style="color: #000040;">++</span><span style="color: #008080;">;</span>              
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+					</div>
+				</div>		
+				
+				
+				
+				<p>Этот цикл выполняется до тех пор, пока истинно условие. Тело цикла - это две строки, одна выводит число, вторая изменяет его. Очевидно,
+				что этот цикл будет выполнен 10 раз и выведет на экран это:</p>
+				
+					<img width="100%" src="code1.jpg">
+				
+				<p><span style="color: #0000ff;">while</span> — цикл с предусловием, поэтому вполне возможно, что тело цикла не будет выполнено
+				ни разу, если в момент первой проверки проверяемое условие окажется ложным.</p>
+
+			
+				<h2 id="2">Параметрический цикл <span style="color: #0000ff;">for</span> </h2>
+				<p>Общая форма записи:</p>
+				
+				<div style="margin-left:10px">
+				<pre class="cpp"><span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>Инициализация<span style="color: #008080;">;</span> Условие<span style="color: #008080;">;</span> Изменение счётчика<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	Блок операций<span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre></div>
+
+		<br>
+		<div id ="text1">
+
+				<p>&#8227 <b>Инициализация</b> - присваивание параметру цикла начального значения;<br>
+			&#8227 <b>Условие</b> - проверка условия повторения цикла, чаще всего - сравнение величины параметра с некоторым граничным значением;<br>
+			&#8227 <b>Изменение счётчика</b> - изменение значения параметра для следующего прохождения тела цикла.</p>
+		</div>
+
+			
+			<h3>Пример с циклом <span style="color: #0000ff;"><b>for</b></span>:</h3>
+			<p><b>Задача:</b> посчитать сумму чисел от 1 до введенного N.</p>
+			
+			<div id="t" style="margin-left:10px">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12<br>13</p></div>
+					<div id="text2-2">
+					<pre class="cpp"><span style="color: #339900;">#define _CRT_SECURE_NO_WARNINGS</span>
+<span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> N, sum, i<span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>N<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	sum <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>  <span style="color:  #339900">// начальное значение sum</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;=</span> N<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>  <span style="color:  #339900">// цикл от 1 до N с шагом 1</span>
+		sum <span style="color: #000080;">=</span> sum <span style="color: #000040;">+</span> i<span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;sum = %i&quot;</span>, sum<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+					</div>
+				</div>		
+			
+			
+			<h2 id="3">Вложенные циклы</h2>
+			
+			<p>В Си допускаются вложенные циклы, то есть когда один цикл находится внутри другого:</p>
+			
+			<div style="margin-left:10px">
+			<pre class="cpp"><span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i<span style="color: #000080;">&lt;</span>n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>  <span style="color: #339900;">// внешний цикл - Цикл1     </span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>j <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> j<span style="color: #000080;">&lt;</span>n<span style="color: #008080;">;</span> j<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>   <span style="color: #339900;">// вложенный цикл - Цикл2</span>
+		<span style="color: #339900;">// блок операций Цикла2</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #339900;">// блок операций Цикла1;</span>
+<span style="color: #008000;">&#125;</span></pre>
+			</div>
+			
+			<p>Вложенных циклов может быть и больше, но тогда время выполнения задачи будет сильно увеличиваться.</p>
+			<h3>Пример:</h3>
+			<p><b>Задача:</b> вывести таблицу умножения до 10*10.</p>
+			
+			
+			
+			<div id="t" style="margin-left:10px">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12<br>13</p></div>
+					<div id="text2-2">
+					<pre class="cpp"><span style="color: #339900;">#define _CRT_SECURE_NO_WARNINGS</span>
+<span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> i, j<span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;=</span> <span style="color: #0000dd;">10</span><span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span> 
+		<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>j <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span> j <span style="color: #000080;">&lt;=</span> <span style="color: #0000dd;">10</span><span style="color: #008080;">;</span> j<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span> 
+			<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%3d &quot;</span>, i <span style="color: #000040;">*</span> j<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+		<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>  <span style="color:  #339900">// перевод строки</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+					</div>
+				</div>		
+			
+			<h3>Результат работы программы:</h3>
+			<img width="100%" src="code2.jpg">
+	
+			
+			<br>
+			
+			<h2 id="4">Оператор <span style="color: #0000ff;">break</span> - оператор прерывания цикла</h2>
+			<p>Оператор <span style="color: #0000ff;">break</span> позволяет выйти из цикла, не дожидаясь ложного уловия.</p>
+			<p><b>Задача:</b> Даны числа от A до B включительно. Нужно вывести первое число, которое делится на 2 и на 3.</p>
+			
+			<h3>Решение с циклом  <span style="color: #0000ff;">for:</span></h3>
+			
+				<div id="t" style="margin-left:10px">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12<br>13<br>14</p></div>
+					<div id="text2-2">
+					<pre class="cpp"><span style="color: #339900;">#define _CRT_SECURE_NO_WARNINGS</span>
+<span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> A, B, i<span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i%i&quot;</span>, <span style="color: #000040;">&amp;</span>A, <span style="color: #000040;">&amp;</span>B<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> A<span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;=</span> B<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>  <span style="color:  #339900">// цикл от A до B с шагом 1 </span>
+		<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000040;">%</span> <span style="color: #0000dd;">2</span> <span style="color: #000080;">==</span> <span style="color: #0000dd;">0</span> <span style="color: #000040;">&amp;&amp;</span> i <span style="color: #000040;">%</span> <span style="color: #0000dd;">3</span> <span style="color: #000080;">==</span> <span style="color: #0000dd;">0</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>  <span style="color:  #339900">// если условие верно, то выходим из цикла</span>
+			<span style="color: #0000ff;">break</span><span style="color: #008080;">;</span>                     
+		<span style="color: #008000;">&#125;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, i<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre> 
+					</div>
+				</div>	
+			
+			
+			<h3>Решение с циклом  <span style="color: #0000ff;">while:</span></h3>
+			
+				<div id="t" style="margin-left:10px">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12<br>13<br>14<br>15</p></div>
+					<div id="text2-2">
+					<pre class="cpp"><span style="color: #339900;">#define _CRT_SECURE_NO_WARNINGS</span>
+<span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> A, B<span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i%i&quot;</span>, <span style="color: #000040;">&amp;</span>A, <span style="color: #000040;">&amp;</span>B<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">while</span> <span style="color: #008000;">&#40;</span>A <span style="color: #000080;">&lt;=</span> B<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>  <span style="color:  #339900">// цикл пока A <= B с шагом 1</span>
+		<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>A <span style="color: #000040;">%</span> <span style="color: #0000dd;">2</span> <span style="color: #000080;">==</span> <span style="color: #0000dd;">0</span> <span style="color: #000040;">&amp;&amp;</span> A <span style="color: #000040;">%</span> <span style="color: #0000dd;">3</span> <span style="color: #000080;">==</span> <span style="color: #0000dd;">0</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>  <span style="color:  #339900">// проверка условия</span>
+			<span style="color: #0000ff;">break</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+		A<span style="color: #000040;">++</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, A<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+					</div>
+				</div>	
+		
+			<h2 id="5">Оператор <span style="color: #0000ff;">continue</span></h2>
+		<p>Этот опертор предназначен для того, чтобы преждевременно закончить данную итерацию цикла и приступить к следующей после проверки условия цикла. Допустим нам нужно из последовательности
+		выводить только нечетные числа. Для этого напишем следующую программу:</p>
+		
+			<div id="t" style="margin-left:10px">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12<br>13<br>14<br>15</p></div>
+					<div id="text2-2">
+					<pre class="cpp"><span style="color: #339900;">#define _CRT_SECURE_NO_WARNINGS</span>
+<span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> N, a<span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>N<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> N<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>a<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>a <span style="color: #000040;">%</span> <span style="color: #0000dd;">2</span> <span style="color: #000080;">==</span> <span style="color: #0000dd;">0</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>  <span style="color:  #339900">// если условие верно, то пропускаем остальную часть</span>
+			<span style="color: #0000ff;">continue</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+		<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i &quot;</span>, a<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+					</div>
+				</div>	
+		
+		
+		
+		
+		
+		</div>
+		<div id="rightblock">
+				<p><b><font style="font-size:125%">Навигация по странице:</font></b><br>
+				<a href="#1">1. Цикл с предусловием while</a><br>
+				<a href="#2">2. Параметрический цикл for</a><br>
+				<a href="#3">3. Вложенные циклы</a><br>
+				<a href="#4">4. Оператор break </a><br>
+				<a href="#5">5. Оператор continue</a><br>
+				</p>
+				</div>
+	</div>
+
+		<br>
+		<div id="border2"></div>
+		<div id ="bottomblock">
+		<p class="p" style="text-align:center"><a href = "..\index.html" style = "font-family:bookman old style; color: #0000dd"><b>Code.C</b></a>
+		&#169 Copyright Павел Калашников 2021
+		<br>
+		обратная связь <span style="color:#0000dd">code.c@mail.ru</span></p><br>
+		</div>
+		
+	</div>
+ </body>
+</html>
