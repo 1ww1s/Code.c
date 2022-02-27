@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ 
+ 
+ 
+
+  <meta charset="utf-8">
+  
+  <title>Символы и строки</title>
+ </head>
+ 
+ <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+ <link rel="stylesheet" type="text/css" href="CSS.css">
+ 
+ <body>
+	<div id="container">
+		<nav class="darken"></nav>
+		<div id="navigation_top">
+			<div id="navigation_main">
+			<div id="m">
+				
+						<div class="bt"><img width="100%" src="t.png"></div>
+						
+					
+					<nav class="menu">
+						<div id="navigation">
+							<nav>
+							<a href="..\index.html" >Главная</a><br>
+							<a href="learning.html" style="color:#0000dd"> Изучение</a><br>
+							<a href="..\tasks\tasks.html"> Задачи</a>	<br>
+							<a href="..\algorithms\algorithms.html">Алгоритмы</a><br>
+							</nav>		
+						</div>
+	
+					</nav>
+				
+					<script>const btnMenu = document.querySelector('.bt');
+const menu = document.querySelector('.menu');
+const darken = document.querySelector('.darken');
+
+
+const toggleMenu = function() {
+    menu.classList.toggle('open');
+	 darken.classList.toggle('open');
+}
+
+btnMenu.addEventListener('click', function(e) {
+    e.stopPropagation();
+    toggleMenu();
+});
+
+document.addEventListener('click', function(e) {
+    const target = e.target;
+    const its_menu = target == menu || menu.contains(target);
+    const its_btnMenu = target == btnMenu;
+    const menu_is_active = menu.classList.contains('open');
+    
+    if (!its_menu && !its_btnMenu && menu_is_active) {
+        toggleMenu();
+    }
+	
+});
+
+</script>
+
+					<div id = "name">
+						<a href="..\index.html" style=" font-family: sans-serif; color:white;"><b>Code.C</b></a>
+					</div>
+				</div>
+				
+				
+				<div id="pk">
+					<div id = "name">
+						<a href="..\index.html" style=" font-family: sans-serif; color:white;"><b>Code.C</b></a>
+					</div>
+					<div id="navigation">
+							<nav>
+							<a href="..\index.html" >Главная</a>
+							<a href="learning.html" style="color:#1e90ff"> Изучение</a>
+							<a href="..\tasks\tasks.html"> Задачи</a>	
+							<a href="..\algorithms\algorithms.html">Алгоритмы</a>
+							</nav>	
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+		
+		<div id="body">
+		<div id = "text">
+			<h1 id="1">Символы</h1>
+				<p>Тип данных, используемый для записи символов называется <b>char</b>. Для считывания ввода/вывода символа используется спецификатор <b>%c</b> 
+				в командах <b>scanf/printf</b>. 
+				Пример ввода символа:</p>
+				<b><pre class="cpp"><span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%c&quot;</span>, <span style="color: #000040;">&amp;</span>symbol<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span></pre></b>
+				<p>
+
+				Под одну переменныю типа char отводится в памяти место в 8 бит, это значит,
+				что значение перменной может быть в пределах от -128 до 127. В переменной по факту хранится номер символа в таблице символов <b>ASCII</b> (таблицу можно посмотреть в интернете).<br>
+				<b id="2">Часть таблицы ASCII:</b></p>
+					<img style="margin-left:5px" width="100%" src="ascii.jpg">
+				<p>Чтобы использовать номер символа, нужно написать этот символ в одинарных кавычках, например: ’$’. Это обозначение интерпретируется программой как номер
+				символа $, то есть '$' = 36.</p>
+				<p><b>Задача:</b> вводится символ, если это заглавная английская буква C, то вывести yes, иначе no. </p>		
+				<p><b>Решение:</b> У нас есть два варианта как сравнить символы. Первый - это воспользоваться таблицей ASCII, в ней номер символа C равен 67. Второй - это воспользоваться одинарными ковычками: 'C'. 
+				Естественно второй способ кажется нам проще(нам не нужно узнавать номер требуемого символа), но бывают задачи, в которых нужно воспользоваться данной таблицей. Такая задача есть чуть ниже.</p>
+				
+				<b><p>Первый способ:</p></b>
+				
+				<div id="t" style="margin-left:10px">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12<br>13<br>14</p></div>
+					<div id="text2-2">
+					<pre class="cpp"><span style="color: #339900;">#define _CRT_SECURE_NO_WARNINGS</span>
+<span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">char</span> symbol<span style="color: #008080;">;</span> <span style="color: #339900">// переменная типа char</span>
+	<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%c&quot;</span>, <span style="color: #000040;">&amp;</span>symbol<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>symbol <span style="color: #000080;">==</span> <span style="color: #0000dd;">67</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>  
+		<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;YES&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">else</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;NO&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+					</div>
+				</div>
+				
+				<p><b>Второй способ:</b></p>
+				<div id="t" style="margin-left:10px">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12<br>13<br>14</p></div>
+					<div id="text2-2">
+					<pre class="cpp"><span style="color: #339900;">#define _CRT_SECURE_NO_WARNINGS</span>
+<span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">char</span> symbol<span style="color: #008080;">;</span> <span style="color: #339900">// переменная типа char</span>
+	<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%c&quot;</span>, <span style="color: #000040;">&amp;</span>symbol<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>symbol <span style="color: #000080;">==</span> <span style="color: #FF0000;">'C'</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>  <span style="color: #339900">// напоминаем, что 'C' равен 67</span>
+		<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;YES&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">else</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;NO&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+					</div>
+				</div>
+				<br>
+				<div id="text1">
+
+					<h3 id="3">Важно!</h3>
+						<p>Так как в переменной хранится номер символа, то это значит, что к переменной применимы все операции сложения, умножения, разности и деления как и для обычных
+						чисел. Эти операции будут производится для номеров символов.</p>
+				</div>
+
+
+				<p><b>Задача:</b> вводится заглавная буква английского языка, нужно вывести ее же, но только строчную.</p>
+				<p><b>Решение:</b> Давайте посмотрим на таблицу символов, мы видим, что заглавные и строчные буквы идут по порядку от ’A’(номер 65) до ’Z’(номер 90)
+				и прописные тоже от ’a’(номер 97) до ’z’(номер 122). Поэтому, чтобы перейти от любой заглавной буквы к соответсвующей ей строчной букве нужно прибавить
+				к её номеру 32. Код на Си:
+				</p>
+				<div id="t">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10</p></div>
+						<div id="text2-2">
+					<pre class="cpp"><span style="color: #339900;">#define _CRT_SECURE_NO_WARNINGS</span>
+<span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">char</span> symbol<span style="color: #008080;">;</span> <span style="color: #339900">// переменная типа char</span>
+	<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%c&quot;</span>, <span style="color: #000040;">&amp;</span>symbol<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	symbol <span style="color: #000080;">=</span> symbol <span style="color: #000040;">+</span> <span style="color: #0000dd;">32</span><span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%c&quot;</span>, symbol<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+						</div>
+					</div>
+				
+			<h1 id="4">Строки</h1>
+				<p>В языке Си нет отдельного типа строк. Поэтому для записи строк используют массив типа char, то есть каждый элемент массива 
+				это какой-нибудь символ. Количество элементов массива будет являться максимальным размером строки. Важно помнить, что даже
+				пробел это отдельный символ и он будет записан в массив.</p>
+				<p>Давайте попробуем ввести строку. Можно воспользоваться привычной уже нам функцией ввода <b>scanf()</b> вместе с спецификатором <b>%s</b>: </p>
+				<pre class="cpp"><span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%s&quot;</span>, <span style="color: #000040;">&amp;</span>string<span style="color: #008000;">&#41;</span>, где string это массив типа char.</pre>
+				<p>Но, используя <b>scanf()</b>, ввод строки будет осуществляться только до пустого символа, которым может быть и пробел. Поэтому, чтобы
+				ввести полностью строку(до символа перевода строки), используется функция <b>gets():</b></p>
+				<pre class="cpp"><span style="color: #0000dd;">gets</span><span style="color: #008000;">&#40;</span>string<span style="color: #008000;">&#41;</span>, где string это массив типа char.</pre>
+				<p>Последним элементом строки являться <b>нуль символ</b>, он обозначается так: <b>'\0'</b>. Этот символ нужен, чтобы понимать, где закончилась
+				строка, а также, чтобы правильно работали функции для работы со строками.</p>
+				<p>Вот так выглядит строка "string", записанная в массив array:</p>
+
+					<img width="80%" src="string.jpg">
+				<br>
+				<h3>Функции putchar() и getchar()</h3>
+				<p>Эти функции служат для ввода и вывода только одного символа.</p>
+				<h3 id="5">getchar()</h3>
+				<p>Функция <b>getchar()</b> служит для ввода одного символа и возвращет его. Пример ввода символа с помощью <b>getchar()</b>:</p>
+				
+				<pre class="cpp" style="margin-left:10px"><span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">char</span> a<span style="color: #008080;">;</span>
+	a <span style="color: #000080;">=</span> <span style="color: #0000dd;">getchar</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+
+
+				<p>Если достигнут конец файла, то getchar() возвращается EOF. Этот факт можно использовать для ввода строки. Например вам нужно 
+				вывести только цифры из заданой строки. Часть кода на Си:</p>
+				<div style="margin-left:10px"><pre class="cpp"><span style="color: #0000ff;">char</span> s<span style="color: #008080;">;</span>
+<span style="color: #0000ff;">while</span> <span style="color: #008000;">&#40;</span><span style="color: #008000;">&#40;</span>s <span style="color: #000080;">=</span> <span style="color: #0000dd;">getchar</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span> <span style="color: #000040;">!</span><span style="color: #000080;">=</span> <span style="color: #0000ff;">EOF</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>s <span style="color: #000080;">&gt;=</span> <span style="color: #FF0000;">'0'</span> <span style="color: #000040;">&amp;&amp;</span> s <span style="color: #000080;">&lt;=</span> <span style="color: #FF0000;">'9'</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000dd;">putchar</span><span style="color: #008000;">&#40;</span>s<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+<span style="color: #008000;">&#125;</span></pre></div>
+				<div id="text1">
+				<h3 id="6">Важно!</h3>
+				<p>Часто в задачах нам нужно ввести что-то через функцую ввода <b>scanf()</b>, а после нее вести строку. Но <b>scanf()</b> не считывает символ перевод строки <b>'\n'</b>, 
+				поэтому <b>gets()</b>, следуя за <b>scanf()</b>, считает пустую строку. Для решения этой проблемы нам как раз может пригодиться <b>getchar()</b>. Он и считает этот одиночный 
+				символ перевода строки <b>'\n'</b>. 
+				<b>Задача:</b> водится размер строки и сама строка, нужно вывести строку. Код на Си:</p>
+					<div id="t">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12</p></div>
+						<div id="text2-2">
+					<pre class="cpp"><span style="color: #339900;">#define _CRT_SECURE_NO_WARNINGS</span>
+<span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">char</span> S<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">10</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">int</span> n<span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>n<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">getchar</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">gets</span><span style="color: #008000;">&#40;</span>S<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%s&quot;</span>, S<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+						</div>
+					</div>
+				</div>
+				
+				<h3 id="7">putchar()</h3>
+				<p>Если нам нужно вывести символ, то мы можем использовать не <b>printf()</b>, а <b>putchar()</b>. Пример ввода с помощью <b>getchar()</b> и 
+				вывода с помощью <b>putchar()</b>:</p>
+				
+				<pre class="cpp" style="margin-left:10px"><span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">char</span> a<span style="color: #008080;">;</span>
+	a <span style="color: #000080;">=</span> <span style="color: #0000dd;">getchar</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">putchar</span><span style="color: #008000;">&#40;</span>a<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+				
+				<h3 id="8">Основные функции для строк</h3>
+				<p>Существуют разные функции для строк, полностью про все функции рассказано в разделе <b><a style = "color:#0000dd" href = "D:\HTML\САЙТ\navigation\Библиотеки в Си\библиотеки.html">Основные библиотеки в Си</a></b>. 
+				<b>Ниже приведены часто используемые функции:</b><br>
+				<b>1) Длина строки.</b> В переменную length будет записана длина строки S.</p>
+			<b>	<pre class="cpp" style = "margin-top:-15px; margin-left:10px"><span style="color: #0000ff;">int</span> length <span style="color: #000080;">=</span> <span style="color: #0000dd;">strlen</span><span style="color: #008000;">&#40;</span>S<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span></pre></b>
+				<p><b>2) Сравнение строк.</b> Если S1 > S2, то в переменную compare возвратиться 1, если S1 == S2, то 0,<br> если S1 < S2,  то -1. Функция
+				сравнивает две строки посимвольно.</p>
+				<b><pre class="cpp" style = "margin-top:-15px; margin-left:10px"><span style="color: #0000ff;">int</span> compare <span style="color: #000080;">=</span> <span style="color: #0000dd;">strcmp</span><span style="color: #008000;">&#40;</span>S1, S2<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span></pre></b>
+				<p><b>3) Копирование строки.</b> Эта функция копирует строку string2 в string1, то есть после применения этой функции строка string1 будет равена string2.</p>
+				<b><pre class="cpp" style = "margin-top:-15px; margin-left:10px"><span style="color: #0000dd;">strcpy</span><span style="color: #008000;">&#40;</span>string1, string2<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span></pre></b>
+				<p><b>4) Присоединение строк.</b> Эта функция присоединяет строку string2 к строке string1, возвращает string1, при этом строка string2 остается прежней.</p>
+				<p><b>5) Поиск подстроки.</b> Эта функция ищет первое вхождение строки string2 в string1. Возвращает указатель на первый символ строки string2 в string1. Если 
+				строки string2 нет в string1, то возвращает NULL.</p>
+				<pre class="cpp" style = "margin-top:-15px; margin-left:10px"><span style="color: #0000ff;">char</span><span style="color: #000040;">*</span> ans<span style="color: #008080;">;</span>  <span style="color: #339900;">// указатель на первое вхождение</span>
+ans <span style="color: #000080;">=</span> <span style="color: #0000dd;">strstr</span><span style="color: #008000;">&#40;</span>string1, string2<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>ans <span style="color: #000080;">==</span> <span style="color: #0000ff;">NULL</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;string not found&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span>
+<span style="color: #0000ff;">else</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, ans <span style="color: #000040;">-</span> string1<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+				<p>Если строка string1 = "32451", а строка string2 = "45", то алгоритм выведет 2.</p>
+				<p>Чтобы закрепить материал можете прорешать 1 уровень задач по <a href="D:\HTML\САЙТ\Задачи\Строки\string1.html" style="color:#0000dd">строкам</a>.</p>
+		</div>
+		
+				<div id="rightblock">
+				<p><b><font style="font-size:125%">Навигация по странице:</font></b><br>
+				<b><a href="#1">1. Символы</a></b><br>
+				<a href="#2">2. Часть таблицы ASCII</a><br>
+				<a href="#3">3. Важное замечание по символу</a><br>
+				<b><a href="#4">4. Строки</a></b><br>
+				<a href="#5">5. Функция getchar()</a><br>
+				<a href="#6">6. Важное замечание по вводу</a><br>
+				<a href="#7">7. Функция putchar()</a><br>
+				<a href="#8">8. Основные функции для строк</a><br>
+				</p>
+					<div style="margin-left:-2%; width:105%" id="border1"></div>
+				<p>
+				<b><font style="font-size:125%">Задачи на строки:</font></b><br>
+				<a href="D:\HTML\САЙТ\Задачи\Строки\string1.html"> &#8227 Уровень 1</a><br>
+				<a href="D:\HTML\САЙТ\Задачи\Строки\string2.html"> &#8227 Уровень 2</a><br>
+				</p>
+				</div>
+	
+		</div>
+		<div id="border2"></div>
+		<div id ="bottomblock">
+		<p class="p" style="text-align:center"><a href = "..\index.html" style = "font-family:bookman old style; color: #0000dd"><b>Code.C</b></a>
+		&#169 Copyright Павел Калашников 2021
+		<br>
+		обратная связь <span style="color:#0000dd">code.c@mail.ru</span></p><br>
+		</div>
+	</div>
+ </body>
+</html>
