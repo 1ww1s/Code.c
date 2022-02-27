@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ 
+ 
+ 
+
+  <meta charset="utf-8">
+  
+  <title>Основные библиотеки в Си</title>
+ </head>
+ 
+ <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+ <link rel="stylesheet" type="text/css" href="CSS.css">
+ 
+ <body>
+	<div id="container">
+			<nav class="darken"></nav>
+		<div id="navigation_top">
+			<div id="navigation_main">
+			<div id="m">
+				
+						<div class="bt"><img width="100%" src="t.png"></div>
+						
+					
+					<nav class="menu">
+						<div id="navigation">
+							<nav>
+							<a href="..\index.html" >Главная</a><br>
+							<a href="learning.html" style="color:#0000dd"> Изучение</a><br>
+							<a href="..\tasks\tasks.html"> Задачи</a>	<br>
+							<a href="..\algorithms\algorithms.html">Алгоритмы</a><br>
+							</nav>
+						</div>
+	
+					</nav>
+				
+					<script>const btnMenu = document.querySelector('.bt');
+const menu = document.querySelector('.menu');
+const darken = document.querySelector('.darken');
+
+
+const toggleMenu = function() {
+    menu.classList.toggle('open');
+	 darken.classList.toggle('open');
+}
+
+btnMenu.addEventListener('click', function(e) {
+    e.stopPropagation();
+    toggleMenu();
+});
+
+document.addEventListener('click', function(e) {
+    const target = e.target;
+    const its_menu = target == menu || menu.contains(target);
+    const its_btnMenu = target == btnMenu;
+    const menu_is_active = menu.classList.contains('open');
+    
+    if (!its_menu && !its_btnMenu && menu_is_active) {
+        toggleMenu();
+    }
+	
+});
+
+</script>
+
+					<div id = "name">
+						<a href="..\index.html" style=" font-family: sans-serif; color:white;"><b>Code.C</b></a>
+					</div>
+				</div>
+				
+				
+				<div id="pk">
+					<div id = "name">
+						<a href="..\index.html" style=" font-family: sans-serif; color:white;"><b>Code.C</b></a>
+					</div>
+					<div id="navigation">
+							<nav>
+							<a href="..\index.html" >Главная</a>
+							<a href="learning.html" style="color:#1e90ff"> Изучение</a>
+							<a href="..\tasks\tasks.html"> Задачи</a>	
+							<a href="..\algorithms\algorithms.html">Алгоритмы</a>
+							</nav>	
+					</div>
+				</div>
+				
+			</div>
+		</div>
+
+		
+		
+		<div id="body">
+			
+			
+			<div id="text">
+			<h1> Основные библиотеки в Си </h1>
+			<p>В языке Си стандартные функции собраны в различных библиотеках. Для использования 
+			этих функций необходимо подключить к проекту соотаетствующие библиотеки с помощью конструкции #include. Например #include&lt;stdio.h&gt;</p>
+			<h2>Названия библиотек и их свойства</h2>
+			<table class="iksweb">
+					<tbody>
+						<tr>
+							<td>stdio.h</td>
+							<td>Библиотека ввода-вывода.</td>
+						
+						</tr>
+						<tr>
+							<td>stdlib.h</td>
+							<td >Вспомогательные функции, которые могут быть использованы в разнообразных программах</td>
+							
+						</tr>
+						<tr>
+							<td>math.h</td>
+							<td >Математическая библиотека.</td>
+							
+						</tr>
+						<tr>
+							<td>string.h</td>
+							<td>Работа с строками(массивами символов).</td>
+							
+						</tr>
+						<tr>
+							<td>time.h</td>
+							<td>Функции по работе с датами и временем, в том числе текущим.</td>
+					
+						</tr>
+					
+					</tbody>
+				</table>
+				
+			<h1>Составы библиотек</h1>
+			
+			<h2 id = "k1">Состав stdio.h</h2>
+				<h3>Функции для файловых операций:</h3>
+			
+					<table class="iksweb">
+					<tbody>
+						<tr>
+							<td>Имя функции</td>
+							<td> Описание</td>
+						
+						</tr>
+						<tr>
+							<td>fclose</td>
+							<td >закрывает файл, ассоциированный с переданным ей значением FILE *</td>
+							
+						</tr>
+						<tr>
+							<td>fopen, freopen, fdopen</td>
+							<td >	открывают файл для определенных типов чтения и записи</td>
+							
+						</tr>
+						<tr>
+							<td>remove</td>
+							<td>удаляет файл (стирая его)</td>
+							
+						</tr>
+						<tr>
+							<td>rename</td>
+							<td>переименовывает файл</td>
+					
+						</tr>
+						<tr>
+							<td>rewind</td>
+							<td>работает аналогично fseek(stream, SEEK_SET), вызванному для потока, со сбросом индикатора ошибок</td>
+					
+						</tr>
+						<tr>
+							<td>tmpfile</td>
+							<td>создает и открывает временный файл, удаляемый при закрытии через fclose()</td>
+					
+						</tr>
+					</tbody>
+				</table>
+				
+				<h3>Функции для операций ввода-вывода:</h3>
+					
+					<table class="iksweb">
+						<tbody>
+							<tr>
+								<td>clearerr</td>
+								<td>очищает eof и индикаторы ошибок для данного потока</td>
+							</tr>
+							<tr>
+								<td>feof</td>
+								<td>проверяет, установлен ли индикатор eof для данного потока</td>
+							</tr>
+							<tr>
+								<td>ferror</td>
+								<td>проверяет, установлен ли индикатор ошибок для данного потока</td>
+							</tr>
+							<tr>
+								<td>fflush</td>
+								<td>принудительно записывает вывод, предназначенный для помещения в буфер, в файл, ассоциированный с данным потоком</td>
+							</tr>
+							<tr>
+								<td>fgetpos</td>
+								<td>сохраняет позицию указателя файла потока, ассоциированный с его первым аргументом (file *), в его второй аргумент (fpos_t *)</td>
+							</tr>
+							<tr>
+								<td>fgetc</td>
+								<td>возвращает один символ из файла</td>
+							</tr>
+							<tr>
+								<td>fgets</td>
+								<td>получает строку из файла (оканчивающуюся символом перевода строки или конца файла)</td>
+							</tr>
+							<tr>
+								<td>fputc</td>
+								<td>записывает один символ в файл</td>
+							</tr>
+							<tr>
+								<td>fputs</td>
+								<td>записывает строку в файл</td>
+							</tr>
+							<tr>
+								<td>ftell</td>
+								<td>возвращает указатель позиции файла, который может быть передан fseek</td>
+							</tr>
+							<tr>
+								<td>fseek</td>
+								<td>производит поиск по файлу</td>
+							</tr>
+							<tr>
+								<td>fsetpos</td>
+								<td>устанавливает указатель позиции файла потока, ассоциированный с его первым аргументом (file *), как хранимый во втором его аргументе (fpos_t *)</td>
+							</tr>
+							<tr>
+								<td>fread</td>
+								<td>читает данные из файла</td>
+							</tr>
+							<tr>
+								<td>fwrite</td>
+								<td>записывает данные в файл</td>
+							</tr>
+							<tr>
+								<td>getc</td>
+								<td>считывает и возвращает символ из данного потока и изменяет укащатель позиции файла; позволяет использоваться как макрос с теми же эффектами, что и fgetc, кроме того, что может вычислять поток более одного раза</td>
+							</tr>
+							<tr>
+								<td>getchar</td>
+								<td>имеет аналогичный эффект, что и getc(stdin)</td>
+							</tr>
+							<tr>
+								<td>gets</td>
+								<td>считывает символы из stdin до символа перевода строки и хранит их в своем единственном аргументе</td>
+							</tr>
+							<tr>
+								<td>printf, vprintf</td>
+								<td>используются для вывода в стандартный поток вывода</td>
+							</tr>
+							<tr>
+								<td>fprintf, vfprintf</td>
+								<td>используются для вывода в файл</td>
+							</tr>
+							<tr>
+								<td>sprintf, snprintf, vsprintf</td>
+								<td>используются для вывода в массив типа char (строка в языке си)</td>
+							</tr>
+							<tr>
+								<td>perror</td>
+								<td>записывает сообщение об ошибке в stderr</td>
+							</tr>
+							<tr>
+								<td>putc</td>
+								<td>записывает и возвращает символ в поток и изменяет указатель позиции файла на него; можно использовать как макрос с теми же свойствами, что и fputc, кроме того, что он может обрабатывать поток более одного раза</td>
+							</tr>
+							<tr>
+								<td>putchar, fputchar</td>
+								<td>аналогичны putc(stdout)</td>
+							</tr>
+							<tr>
+								<td>scanf, vscanf</td>
+								<td>используются для ввода из стандартного потока ввода</td>
+							</tr>
+							<tr>
+								<td>fscanf, vfscanf</td>
+								<td>используются для ввода из файла</td>
+							</tr>
+							<tr>
+								<td>sscanf, vsscanf</td>
+								<td>используются для ввода из массива char (то есть строка в языке си)</td>
+							</tr>
+							<tr>
+								<td>setvbuf</td>
+								<td>устанавливает режим буферизации для данного потока</td>
+							</tr>
+							<tr>
+								<td>tmpnam</td>
+								<td>создает временное имя файла</td>
+							</tr>
+							<tr>
+								<td>ungetc</td>
+								<td>помещает символ обратно в поток</td>
+							</tr>
+							<tr>
+								<td>puts</td>
+								<td>выводит символьную строку в stdout</td>
+								</tr>
+					   </tbody>
+					</table>	
+					
+					<h2 id = "k2">Состав библиотеки stdlib.h</h2>
+					<table class="iksweb">
+					<tbody>
+						<tr>
+							<td>имя функции</td>
+							<td>описание</td>
+						</tr>
+						<tr>
+							<td>abort</td>
+							<td>ненормальное завершение программы</td>
+						</tr>
+						<tr>
+							<td>abs</td>
+							<td>модуль целого числа</td>
+						</tr>
+						<tr>
+							<td>assert</td>
+							<td>макроопределение для вывода отладочных диагностических сообщений</td>
+						</tr>
+						<tr>
+							<td>atexit</td>
+							<td>запрос вызова функции при завершении работы программы</td>
+						</tr>
+						<tr>
+							<td>atof, atoff</td>
+							<td>преобразование строки в значение типа double или float</td>
+						</tr>
+						<tr>
+							<td>atii, atol</td>
+							<td>строка в целое</td>
+							</tr>
+						<tr>
+							<td>atol</td>
+							<td>преобразовывает строку в long</td>
+						</tr>
+						<tr>
+							<td>bsearsh</td>
+							<td>двоичный поиск</td>
+						</tr>
+						<tr>
+							<td>calloc</td>
+							<td>выделяет пространство для массивов</td>
+						</tr>
+						<tr>
+							<td>div</td>
+							<td>деление двух целых</td>
+						</tr>
+						<tr>
+							<td>ecvt, ecvtf, fcvt, fcvtf</td>
+							<td>преобразование double или float в строку</td>
+						</tr>
+						<tr>
+							<td>gvcvt, gcvtf</td>
+							<td>форматируют double и float как строку</td>
+						</tr>
+						<tr>
+							<td>ecvtbuf, fcvtbuf</td>
+							<td>double или float в строку</td>
+						</tr>
+						<tr>
+							<td>exit</td>
+							<td>завершение выполнения программы</td>
+						</tr>
+						<tr>
+							<td>getenv</td>
+							<td>поиск переменной окружения</td>
+						</tr>
+						<tr>
+							<td>labs</td>
+							<td>модуль длинного целого</td>
+						</tr>
+						<tr>
+							<td>ldiv</td>
+							<td>деление двyх длинных целых</td>
+						</tr>
+						<tr>
+							<td>malloc, realloc, free</td>
+							<td>управление памятью</td>
+						</tr>
+						<tr>
+							<td>mbtowc</td>
+							<td>минимальный преобразователь мультибайтов в широкие символы</td>
+						</tr>
+						<tr>
+							<td>qsort</td>
+							<td>сортировка массива</td>
+						</tr>
+						<tr>
+							<td>rand, srand</td>
+							<td>псевдо-случайные числа</td>
+						</tr>
+						<tr>
+							<td>strtod, strtodf</td>
+							<td>строка в double или float</td>
+						</tr>
+						<tr>
+							<td>strtol</td>
+							<td>строка в long</td>
+						 
+						</tr>
+						<tr>
+							<td>strtoul</td>
+							<td>строка в unsigned long</td>
+						   
+						</tr>
+						<tr>
+							<td>system</td>
+							<td>выполняет командную строку</td>
+							
+						</tr>
+						<tr>
+							<td>wctomb</td>
+							<td>минимальный преобразователь широких символов в мультибайты</td>
+						 
+						</tr>
+						</tbody>
+					</table>
+					
+					<h2 id = "k3">Состав библиотеки math.h</h2>
+					
+					<table class="iksweb">
+					<tbody>
+						 <tr>
+        <td>имя функции</td>
+        <td>описание</td>
+    </tr>
+    <tr>
+        <td>acos</td>
+        <td>арккосинус</td>
+    </tr>
+    <tr>
+        <td>asin</td>
+        <td>арксинус</td>
+    </tr>
+    <tr>
+        <td>atan</td>
+        <td>арктангенс</td>
+    </tr>
+    <tr>
+        <td>atan2</td>
+        <td>арктангенс с двумя параметрами</td>
+    </tr>
+    <tr>
+        <td>ceil</td>
+        <td>округление до ближайшего большего целого числа</td>
+    </tr>
+    <tr>
+        <td>cos</td>
+        <td>косинус</td>
+    </tr>
+    <tr>
+        <td>cosh</td>
+        <td>гиперболический косинус</td>
+    </tr>
+    <tr>
+        <td>exp</td>
+        <td>вычисление экспоненты</td>
+    </tr>
+    <tr>
+        <td>fabs</td>
+        <td>абсолютная величина (числа с плавающей точкой)</td>
+    </tr>
+    <tr>
+        <td>floor</td>
+        <td>округление до ближайшего меньшего целого числа</td>
+    </tr>
+    <tr>
+        <td>fmod</td>
+        <td>вычисление остатка от деления нацело для чисел с плавающей точкой</td>
+    </tr>
+    <tr>
+        <td>frexp</td>
+        <td>разбивает число с плавающей точкой на мантиссу и показатель степени.</td>
+    </tr>
+    <tr>
+        <td>ldexp</td>
+        <td>умножение числа с плавающей точкой на целую степень двух</td>
+    </tr>
+    <tr>
+        <td>log</td>
+        <td>натуральный логарифм</td>
+    </tr>
+    <tr>
+        <td>log10</td>
+        <td>логарифм по основанию 10</td>
+    </tr>
+    <tr>
+        <td>modf(x,p)</td>
+        <td>извлекает целую и дробную части (с учетом знака) из числа с плавающей точкой</td>
+    </tr>
+    <tr>
+        <td>pow(x,y)</td>
+        <td>результат возведения x в степень y, xy</td>
+    </tr>
+    <tr>
+        <td>sin</td>
+        <td>синус</td>
+    </tr>
+    <tr>
+        <td>sinh</td>
+        <td>гиперболический синус</td>
+    </tr>
+    <tr>
+        <td>sqrt</td>
+        <td>квадратный корень</td>
+    </tr>
+    <tr>
+        <td>tan</td>
+        <td>тангенс</td>
+    </tr>
+    <tr>
+        <td>tanh</td>
+        <td>гиперболический тангенс</td>
+    </tr></tbody></table></td>
+						 
+						
+					<h2 id = "k4">Состав библиотеки string.h</h2>
+  
+  
+						<table class="iksweb">
+					<tbody>
+						<tr>
+        <td>имя функции</td>
+        <td>описание</td>
+    </tr>
+    <tr>
+        <td>void *memcpy(void *dest, const void *src, size_t n);</td>
+        <td>копирует n байт из области памяти src в dest, которые не должны пересекаться, в противном случае результат неопределен (возможно как правильное копирование, так и нет)</td>
+    </tr>
+    <tr>
+        <td>void *memmove(void *dest, const void *src, size_t n);</td>
+        <td>копирует n байт из области памяти src в dest, которые в отличие от memcpy могут перекрываться</td>
+    </tr>
+    <tr>
+        <td>void *memchr(const void *s, char c, size_t n);</td>
+        <td>возвращает указатель на первое вхождение c в первых n байтах s, или null, если не найдено</td>
+    </tr>
+    <tr>
+        <td>int memcmp(const void *s1, const void *s2, size_t n);</td>
+        <td>сравнивает первые n символов в областях памяти</td>
+    </tr>
+    <tr>
+        <td>void *memset(void *, int z, size_t);</td>
+        <td>заполняет область памяти одним байтом z</td>
+    </tr>
+    <tr>
+        <td>char *strcat(char *dest, const char *src);</td>
+        <td>дописывает строку src в конец dest</td>
+    </tr>
+    <tr>
+        <td>char *strncat(char *, const char *, size_t);</td>
+        <td>дописывает не более n начальных симолов строки src (или всю src, если ее длина меньше) в конец dest</td>
+    </tr>
+    <tr>
+        <td>char *strchr(const char *, int);</td>
+        <td>ищет символ в строке, начиная с головы и возращает его адрес, или null если не найден</td>
+    </tr>
+    <tr>
+        <td>char *strrchr(const char *, int);</td>
+        <td>ищет символ в строке, начиная с хвоста и возращает его адрес, или null если не найден</td>
+    </tr>
+    <tr>
+        <td>int strcmp(const char *, const char *);</td>
+        <td>лексикографическое сравнение строк</td>
+    </tr>
+    <tr>
+        <td>int strncmp(const char *, const char *, size_t);</td>
+        <td>лексикографическое сравнение первых n байтов строк</td>
+    </tr>
+    <tr>
+        <td>int strcoll(const char *, const char *);</td>
+        <td>лексикографическое сравнение строк с учетом локали collating order</td>
+    </tr>
+    <tr>
+        <td>char *strcpy(char *tohere, const char *fromhere);</td>
+        <td>копирует строку из одного места в другое</td>
+    </tr>
+    <tr>
+        <td>char *strncpy(char *tohere, const char *fromhere, size_t);</td>
+        <td>копирует до n байт строки из одного места в другое</td>
+    </tr>
+    <tr>
+        <td>char *strerror(int);</td>
+        <td>возвращает строковое представление сообщения об ошибке errno (не потоко-безопасная)</td>
+    </tr>
+    <tr>
+        <td>size_t strlen(const char *);</td>
+        <td>возвращает длину строки</td>
+    </tr>
+    <tr>
+        <td>size_t strspn(const char *s, const char *accept);</td>
+        <td>определяет максимальную длину начальной подстроки, состоящей исключительно из байтов, перечисленных в accept</td>
+    </tr>
+    <tr>
+        <td>size_t strcspn(const char *s, const char *reject);</td>
+        <td>определяет максимальную длину начальной подстроки, состоящей исключительно из байтов, не перечисленных в reject</td>
+    </tr>
+    <tr>
+        <td>char *strpbrk(const char *s, const char *accept);</td>
+        <td>находит первое вхождение любого символа, не перечисленного в accept</td>
+    </tr>
+    <tr>
+        <td>char *strstr(const char *haystack, const char *needle);</td>
+        <td>находит первое вхождение строки needle в haystack</td>
+    </tr>
+    <tr>
+        <td>char *strtok(char *, const char *);</td>
+        <td>преобразует строку в последовательность токенов. не потоко-безопасная, нереентрантная.</td>
+    </tr>
+    <tr>
+        <td>size_t strxfrm(char *dest, const char *src, size_t n);</td>
+        <td>создает оттранслированную копию строки, такую, что дословное сравнение ее (strcmp) будет эквивалентно сравнению с коллатором.<br><br></td>
+    </tr></tbody></table>
+					
+			</div>
+			
+			<div id="rightblock">
+			<p><b><font style="font-size:125%">Навигация по странице:</font></b><br>
+			<a href="#k1">1. Состав stdio.h</a><br>
+			<a href="#k2">2. Состав stdlib.h</a><br>
+			<a href="#k3">3. Состав math.h</a><br>
+			<a href="#k4">4. Состав string.h</a><br>
+			</p>
+			</div>
+			
+		</div>
+	
+		<br>
+		<div id="border2"></div>
+		<div id ="bottomblock">
+		<p class="p" style="text-align:center"><a href = "..\index.html" style = "font-family:bookman old style; color: #0000dd"><b>Code.C</b></a>
+		&#169 Copyright Павел Калашников 2021
+		<br>
+		обратная связь <span style="color:#0000dd">code.c@mail.ru</span></p><br>
+		</div>
+		
+	</div>
+ </body>
+</html>
