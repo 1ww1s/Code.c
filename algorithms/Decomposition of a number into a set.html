@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ 
+ 
+ 
+
+  <meta charset="utf-8">
+  
+  <title >Алгоритмы на языке Си</title>
+ </head>
+ 
+ <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+ <link rel="stylesheet" type="text/css" href="CSS.css">
+ 
+ <body>
+	<div id="container">
+		<nav class="darken"></nav>
+		<div id="navigation_top">
+			<div id="navigation_main">
+			<div id="m">
+				
+					<div class="bt"><img width="100%" src="t.png"></div>
+						
+					
+					<nav class="menu">
+						<div id="navigation">
+							<nav>
+							<a href="..\index.html" >Главная</a><br>
+							<a href="..\learning\learning.html"> Изучение</a><br>
+							<a href="..\tasks\tasks.html"> Задачи</a><br>
+							<a href="algorithms.html" style="color:#0000dd">Алгоритмы</a><br>
+							</nav>	
+						</div>
+	
+					</nav>
+				
+					<script>const btnMenu = document.querySelector('.bt');
+const menu = document.querySelector('.menu');
+const darken = document.querySelector('.darken');
+
+
+const toggleMenu = function() {
+    menu.classList.toggle('open');
+	 darken.classList.toggle('open');
+}
+
+btnMenu.addEventListener('click', function(e) {
+    e.stopPropagation();
+    toggleMenu();
+});
+
+document.addEventListener('click', function(e) {
+    const target = e.target;
+    const its_menu = target == menu || menu.contains(target);
+    const its_btnMenu = target == btnMenu;
+    const menu_is_active = menu.classList.contains('open');
+    
+    if (!its_menu && !its_btnMenu && menu_is_active) {
+        toggleMenu();
+    }
+	
+});
+
+</script>
+
+					<div id = "name">
+						<a href="..\index.html" style=" font-family: sans-serif; color:white;"><b>Code.C</b></a>
+					</div>
+				</div>
+				
+				
+				<div id="pk">
+					<div id = "name">
+						<a href="..\index.html" style=" font-family: sans-serif; color:white;"><b>Code.C</b></a>
+					</div>
+					<div id="navigation">
+							<nav>
+							<a href="..\index.html" >Главная</a>
+							<a href="..\learning\learning.html">Изучение</a>
+							<a href="..\tasks\tasks.html">Задачи</a>
+							<a href="algorithms.html" style = "color:#1e90ff">Алгоритмы</a>
+							</nav>	
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+		
+		<div id="body">
+			
+			
+			<div id="text">
+			<h1>Разложение числа на множетели</h1>
+			<p>Любое натуральное число <b>n</b>, большее единицы, можно разложить 
+			в произведение простых чисел, причём это разложение единственно 
+			с точностью до порядка следования сомножителей. Алгоритм заключается в том, чтобы поэтапно, начиная с <b>i</b> = 2, 
+			находить делители числа  <b>n</b>. Мы делим число  <b>n</b> на <b>i</b> до тех пор, пока это возможно. Если число
+			<b>n</b> не делится на <b>i</b> без
+			остатка, то увеличиваем <b>i</b> на 1 и продолжаем.</p>
+			<h3>Пример:</h3>
+			<div id ="t">
+				<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+				<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19</p></div>
+				<div id="text2-2">
+					<pre class="cpp"><span style="color: #339900;">#define _CRT_SECURE_NO_WARNINGS</span>
+<span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+&nbsp;
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> n, i<span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>n<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	i <span style="color: #000080;">=</span> <span style="color: #0000dd;">2</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">while</span> <span style="color: #008000;">&#40;</span>n <span style="color: #000040;">!</span><span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>n <span style="color: #000040;">%</span> i <span style="color: #000080;">==</span> <span style="color: #0000dd;">0</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i &quot;</span>, i<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+			n <span style="color: #000080;">=</span> n <span style="color: #000040;">/</span> i<span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+		<span style="color: #0000ff;">else</span> <span style="color: #008000;">&#123;</span>
+			i<span style="color: #000040;">++</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+				</div>
+			</div>
+			</div>
+		</div>
+
+		<div id="border2"></div>
+				<div id ="bottomblock">
+		<p class="p" style="text-align:center"><a href = "..\index.html" style = "font-family:bookman old style; color: #0000dd"><b>Code.C</b></a>
+		&#169 Copyright Павел Калашников 2021
+		<br>
+		обратная связь <span style="color:#0000dd">code.c@mail.ru</span></p><br>
+		</div>
+		
+		
+	</div>
+ </body>
+</html>
