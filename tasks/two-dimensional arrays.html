@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ 
+ 
+ 
+
+  <meta charset="utf-8">
+  
+  <title>Задачи по двумерным массивам</title>
+ </head>
+ 
+ <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+ <link rel="stylesheet" type="text/css" href="CSS.css">
+ 
+ <body>
+	<div id="container">
+		<nav class="darken"></nav>
+		<div id="navigation_top">
+			<div id="navigation_main">
+			<div id="m">
+				
+						<div class="bt"><img width="100%" src="t.png"></div>
+						
+					
+					<nav class="menu">
+						<div id="navigation">
+							<nav>
+							<a href="..\index.html" >Главная</a><br>
+							<a href="..\learning\learning.html"> Изучение</a><br>
+							<a href="tasks.html" style="color:#0000dd"> Задачи</a><br>
+							<a href="..\algorithms\algorithms.html">Алгоритмы</a><br>
+							</nav>
+						</div>
+	
+					</nav>
+				
+					<script>const btnMenu = document.querySelector('.bt");
+const menu = document.querySelector('.menu');
+const darken = document.querySelector('.darken');
+
+
+const toggleMenu = function() {
+    menu.classList.toggle('open');
+	 darken.classList.toggle('open');
+}
+
+btnMenu.addEventListener('click', function(e) {
+    e.stopPropagation();
+    toggleMenu();
+});
+
+document.addEventListener('click', function(e) {
+    const target = e.target;
+    const its_menu = target == menu || menu.contains(target);
+    const its_btnMenu = target == btnMenu;
+    const menu_is_active = menu.classList.contains('open');
+    
+    if (!its_menu && !its_btnMenu && menu_is_active) {
+        toggleMenu();
+    }
+	
+});
+
+</script>
+
+					<div id = "name">
+						<a href="..\index.html" style=" font-family: sans-serif; color:white;"><b>Code.C</b></a>
+					</div>
+				</div>
+				
+				
+				<div id="pk">
+					<div id = "name">
+						<a href="..\index.html" style=" font-family: sans-serif; color:white;"><b>Code.C</b></a>
+					</div>
+					<div id="navigation">
+							<nav>
+							<a href="..\index.html" >Главная</a>
+							<a href="..\learning\learning.html">Изучение</a>
+							<a href="tasks.html" style = "color:#1e90ff; ">Задачи</a>
+							<a href="..\algorithms\algorithms.html">Алгоритмы</a>
+							</nav>	
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+		
+		
+		<div id="body">
+		<div id = "text">
+			<h1>Задачи по двумерным массивам</h1>
+			<h2>Уровень 1</h2>
+				
+			<h2 id = "1">Задача 1. Четность и нечетность столбца:</h2>
+				<p>Дан двумерный массив. Если у элемента четный индекс столбца, то прибвавьте к нему 10, иначе умножьте этот элемент на 2.
+ 				<br> 
+				<b>Входные данные:</b><br>
+				Первая строка содержит два целых числа <b>n</b> (1 &#8804 <b>n</b> &#8804 100) и <b>m</b> (1 &#8804 <b>m</b> &#8804 100) - количество строк и столбцов соответственно.<br>
+				Далее идет ввод матрицы. Каждый элемент не превосходит 10^9.<br>
+				<b>Выходные данные:</b><br>
+				Вывести получившейся массив.
+				</p>
+				<p>Пример:</p>
+			
+				<table class="iksweb">
+					<tbody style="text-align:left">
+						<tr>
+							<td>Ввод </td>
+							<td>Вывод</td>
+						</tr>
+						<tr>
+							<td>3 3<br>
+							8 12 4<br>
+							14 2 18<br>
+							16 34 13<br>							
+							</td>
+							<td>
+							18 24 14<br>
+							24 4 28<br>
+							26 68 23
+							</td>
+						</tr>
+					</tbody>
+				</table>	
+					
+				<div class="demo">
+					<input type="checkbox" id="hd-1" class="hide"/>
+					<label for="hd-1" style="-webkit-user-select: none;">
+						<h2>Решение</h2>
+						
+					</label>
+					<div>
+					<div id="text2">
+					<p>
+						 
+					</p>
+					
+					<h3>Пример на Си:</h3>
+					<div id="t">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23
+					<br>24<br>25</p></div>
+					<div id="text2-2">
+				<pre class="cpp" ><span style="color: #339900;">#define _CRT_SECURE_NO_WARNINGS</span>
+<span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> A<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">100</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span><span style="color: #0000dd;">100</span><span style="color: #008000;">&#93;</span>, i, j, n, m<span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i%i&quot;</span>, <span style="color: #000040;">&amp;</span>n, <span style="color: #000040;">&amp;</span>m<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>j <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> j <span style="color: #000080;">&lt;</span> m<span style="color: #008080;">;</span> j<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>j <span style="color: #000040;">%</span> <span style="color: #0000dd;">2</span> <span style="color: #000080;">==</span> <span style="color: #0000dd;">0</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+				A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span> <span style="color: #000040;">+</span><span style="color: #000080;">=</span> <span style="color: #0000dd;">10</span><span style="color: #008080;">;</span>
+			<span style="color: #008000;">&#125;</span>
+			<span style="color: #0000ff;">else</span> <span style="color: #008000;">&#123;</span>
+				A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span> <span style="color: #000040;">*</span><span style="color: #000080;">=</span> <span style="color: #0000dd;">2</span><span style="color: #008080;">;</span>
+			<span style="color: #008000;">&#125;</span>
+		<span style="color: #008000;">&#125;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>j <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> j <span style="color: #000080;">&lt;</span> m<span style="color: #008080;">;</span> j<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i &quot;</span>, A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+		<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+					
+				</div>
+				</div>
+						
+					</div>
+					</div>
+					</div>
+	
+				<br>
+				<div id="border1"></div>
+			
+			<h2 id = "2">Задача 2. Найди максимум и минимум:</h2>
+				<p>Дан двумерный массив. Найдите в нем максимальный и минимальный элемент и его индексы. Если ответов несколько, то выведите любой из них.
+ 				<br> 
+				<b>Входные данные:</b><br>
+				Первая строка содержит два целых числа <b>n</b> (1 &#8804 <b>n</b> &#8804 100) и <b>m</b> (1 &#8804 <b>m</b> &#8804 100) - количество строк и столбцов соответственно.<br>
+				Далее идет ввод матрицы. Каждый элемент не превосходит 10^9.<br>
+				<b>Выходные данные:</b><br>
+				В первой строке выведите максимальный элемент и его индексы(сначала номер строки, потом номер столбца);<br>
+				Во второй строке выведите минимальный элемент и его индексы(сначала номер строки, потом номер столбца).<br>
+				</p>
+				<p>Пример:</p>
+			
+				<table class="iksweb">
+					<tbody style="text-align:left">
+						<tr>
+							<td>Ввод </td>
+							<td>Вывод</td>
+						</tr>
+						<tr>
+							<td>4 6<br>
+							3 12 4 1 1 7<br>
+							4 5 2 8 14 6<br>
+							16 11 4 2 8 3<br>
+							14 4 2 13 32 17
+							
+							</td>
+							<td>
+							32 4 5<br>
+							1 1 4
+							</td>
+						</tr>
+					</tbody>
+				</table>	
+					
+				<div class="demo">
+					<input type="checkbox" id="hd-2" class="hide"/>
+					<label for="hd-2" style="-webkit-user-select: none;">
+						<h2>Решение</h2>
+						
+					</label>
+					<div>
+					<div id="text2">
+					<p>
+						 
+					</p>
+					
+					<h3>Пример на Си:</h3>
+						<div id="t">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23
+					<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31</p></div>
+					<div id="text2-2">
+					<pre class="cpp" ><span style="color: #339900;">#define _CRT_SECURE_NO_WARNINGS</span>
+<span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> A<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">100</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span><span style="color: #0000dd;">100</span><span style="color: #008000;">&#93;</span>, i, j, n, m<span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i%i&quot;</span>, <span style="color: #000040;">&amp;</span>n, <span style="color: #000040;">&amp;</span>m<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>j <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> j <span style="color: #000080;">&lt;</span> m<span style="color: #008080;">;</span> j<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">int</span> max <span style="color: #000080;">=</span> A<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #008000;">&#93;</span>, min <span style="color: #000080;">=</span> A<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">int</span> ind_i_max <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>, ind_j_max <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>, ind_i_min <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>, ind_j_min <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>j <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> j <span style="color: #000080;">&lt;</span> m<span style="color: #008080;">;</span> j<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>max <span style="color: #000080;">&lt;</span> A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+				max <span style="color: #000080;">=</span> A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+				ind_i_max <span style="color: #000080;">=</span> i <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+				ind_j_max <span style="color: #000080;">=</span> j <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+			<span style="color: #008000;">&#125;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>min <span style="color: #000080;">&gt;</span> A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+				min <span style="color: #000080;">=</span> A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+				ind_i_min<span style="color: #000080;">=</span> i <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+				ind_j_min <span style="color: #000080;">=</span> j <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+			<span style="color: #008000;">&#125;</span>
+		<span style="color: #008000;">&#125;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i %i %i<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span>, max, ind_i_max, ind_j_max<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i %i %i&quot;</span>, min, ind_i_min, ind_j_min<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+				
+				</div>
+				</div>
+						
+					</div>
+					</div>
+					</div>
+	
+				<br>
+				<div id="border1"></div>
+				
+				
+				<h2 id = "3">Задача 3. Сильно большой элемент:</h2>
+				<p>Дан двумерный массив. Элемент считается сильно большим, если все его соседи строго меньше его. Элемент считается соседним, если он расположен справа, или слева, или сверху, или снизу.
+				Нужно посчитать количество таких элементов.
+ 				<br> 
+				<b>Входные данные:</b><br>
+				Первая строка содержит два целых числа <b>n</b> (1 &#8804 <b>n</b> &#8804 100) и <b>m</b> (1 &#8804 <b>m</b> &#8804 100) - количество строк и столбцов соответственно.<br>
+				Далее идет ввод матрицы. Каждый элемент больше 0 и не превосходит 10^9.<br>
+				<b>Выходные данные:</b><br>
+				Вывести ответ.
+				</p>
+				<p>Пример:</p>
+			
+				<table class="iksweb">
+					<tbody style="text-align:left">
+						<tr>
+							<td>Ввод </td>
+							<td>Вывод</td>
+						</tr>
+						<tr>
+							<td>5 4<br>
+							<b>8</b> 4 3 5<br>
+							7 12 8 <b>15</b><br>
+							4 <b>16</b> 7 9<br>
+							3 1 6 4<br>
+							5 <b>24</b> 19 12
+							
+							</td>
+							<td>
+							4<br>
+							</td>
+						</tr>
+					</tbody>
+				</table>	
+					
+				<div class="demo">
+					<input type="checkbox" id="hd-3" class="hide"/>
+					<label for="hd-3" style="-webkit-user-select: none;">
+						<h2>Решение</h2>
+						
+					</label>
+					<div>
+					<div id="text2">
+					<p>
+						 
+					</p>
+					
+					<h3>Пример на Си: </h3>
+					<div id="t">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31
+					<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48</p></div>
+						<div id="text2-2">
+						<pre class="cpp"><span style="color: #339900;">#define _CRT_SECURE_NO_WARNINGS</span>
+<span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+&nbsp;
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> A<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">100</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span><span style="color: #0000dd;">100</span><span style="color: #008000;">&#93;</span>, i, j, n, m, k, H, ans <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i%i&quot;</span>, <span style="color: #000040;">&amp;</span>n, <span style="color: #000040;">&amp;</span>m<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>j <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> j <span style="color: #000080;">&lt;</span> m<span style="color: #008080;">;</span> j<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>j <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> j <span style="color: #000080;">&lt;</span> m<span style="color: #008080;">;</span> j<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			H <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>  <span style="color: #339900;">// сколько всего соседий у этого элемента</span>
+			k <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> <span style="color: #339900;">// количество элементов, которые меньше проверяемого</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>j <span style="color: #000080;">&gt;</span> <span style="color: #0000dd;">0</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+				H<span style="color: #000040;">++</span><span style="color: #008080;">;</span>
+				<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span> <span style="color: #000080;">&gt;</span> A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+					k<span style="color: #000040;">++</span><span style="color: #008080;">;</span>
+				<span style="color: #008000;">&#125;</span>
+			<span style="color: #008000;">&#125;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>j <span style="color: #000080;">&lt;</span> m <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+				H<span style="color: #000040;">++</span><span style="color: #008080;">;</span>
+				<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span> <span style="color: #000080;">&gt;</span> A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+					k<span style="color: #000040;">++</span><span style="color: #008080;">;</span>
+				<span style="color: #008000;">&#125;</span>
+			<span style="color: #008000;">&#125;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">&gt;</span> <span style="color: #0000dd;">0</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+				H<span style="color: #000040;">++</span><span style="color: #008080;">;</span>
+				<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span> <span style="color: #000080;">&gt;</span> A<span style="color: #008000;">&#91;</span>i <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+					k<span style="color: #000040;">++</span><span style="color: #008080;">;</span>
+				<span style="color: #008000;">&#125;</span>
+			<span style="color: #008000;">&#125;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">&lt;</span> n <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+				H<span style="color: #000040;">++</span><span style="color: #008080;">;</span>
+				<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span> <span style="color: #000080;">&gt;</span> A<span style="color: #008000;">&#91;</span>i <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+					k<span style="color: #000040;">++</span><span style="color: #008080;">;</span>
+				<span style="color: #008000;">&#125;</span>
+			<span style="color: #008000;">&#125;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>k <span style="color: #000080;">==</span> H<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+				ans<span style="color: #000040;">++</span><span style="color: #008080;">;</span>
+			<span style="color: #008000;">&#125;</span>
+		<span style="color: #008000;">&#125;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, ans<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+
+						</div>
+						</div>
+					</div>
+					</div>
+				</div>
+	
+		
+			<br>
+			<div id="border1"></div>
+				
+				
+				<h2 id = "4">Задача 4. Заполнение матрицы:</h2>
+				<p>Вам нужно заполнить матрицу размером n*n вот таким образом:</p>
+
+				<img width="25%" src ="task1.jpg">
+				<p style="margin-top:-8px">...</p>
+				
+				<p>Каждый следующий элемент отличается на 1.
+				<p>Пример такой матрицы для n = 3:<br>
+				1 2 3<br>
+				6 5 4<br>
+				7 8 9
+				
+ 				<br> 
+				<b>Входные данные:</b><br>
+				Первая строка содержит одно целое число <b>n</b> (1 &#8804 <b>n</b> &#8804 100) - количество строк и столбцов.<br>
+				<b>Выходные данные:</b><br>
+				Вывести матрицу.
+				</p>
+				<p>Пример:</p>
+			
+				<table class="iksweb">
+					<tbody style="text-align:left">
+						<tr>
+							<td>Ввод </td>
+							<td>Вывод</td>
+						</tr>
+						<tr>
+							<td>4<br>
+											
+							</td>
+							<td>
+							1 2 3 4<br>
+							8 7 6 5<br>
+							9 10 11 12<br>
+							16 15 14 13
+							</td>
+						</tr>
+					</tbody>
+				</table>	
+					
+			
+	
+		
+			<br>
+			<div id="border1"></div>
+				
+				<h2 id = "5">Задача 5. Удаление столбца:</h2>
+				<p>Дан двумерный массив размером n*m. Удалить столбец, у которого из всех столбцов самая большая сумма элементов. Гарантируется, что такой столбец есть.
+ 				<br> 
+				<b>Входные данные:</b><br>
+				Первая строка содержит два целых числа<b>n</b> (1 &#8804 <b>n</b> &#8804 100) и <b>m</b> (2 &#8804 <b>m</b> &#8804 100)- количество строк и столбцов соответственно.<br>
+				Далее идет ввод матрицы. Каждый элемент больше -10^9 и не превосходит 10^9.<br>
+				<b>Выходные данные:</b><br>
+				Вывести матрицу после удаления нужного столбца.
+				</p>
+				<p>Пример:</p>
+			
+				<table class="iksweb">
+					<tbody style="text-align:left">
+						<tr>
+							<td>Ввод </td>
+							<td>Вывод</td>
+						</tr>
+						<tr>
+							<td>
+							3 4<br>
+							2 <b>8</b> 3 1<br>
+							8 <b>7</b> 5 4<br>
+							6 <b>3</b> 1 12
+							</td>
+							<td>
+							2 3 1<br>
+							8 5 4<br>
+							6 1 12
+							</td>
+						</tr>
+					</tbody>
+				</table>	
+					
+				<div class="demo">
+					<input type="checkbox" id="hd-5" class="hide"/>
+					<label for="hd-5" style="-webkit-user-select: none;">
+						<h2>Решение</h2>
+						
+					</label>
+					<div>
+					<div id="text2">
+					<p>
+
+					</p>
+					
+					<h3>Пример на Си:</h3>
+					<div id="t">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31
+					<br>32<br>33<br>34<br>35<br>36</p></div>
+						<div id="text2-2">
+						<pre class="cpp"><span style="color: #339900;">#define _CRT_SECURE_NO_WARNINGS</span>
+<span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> A<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">100</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span><span style="color: #0000dd;">100</span><span style="color: #008000;">&#93;</span>, i, j, n, m<span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i%i&quot;</span>, <span style="color: #000040;">&amp;</span>n, <span style="color: #000040;">&amp;</span>m<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>j <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> j <span style="color: #000080;">&lt;</span> m<span style="color: #008080;">;</span> j<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">int</span> max <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>, sum, ind <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> m<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		sum <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+		<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>j <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> j <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> j<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			sum <span style="color: #000040;">+</span><span style="color: #000080;">=</span> A<span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+		<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>max <span style="color: #000080;">&lt;</span> sum<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			max <span style="color: #000080;">=</span> sum<span style="color: #008080;">;</span> 
+			ind <span style="color: #000080;">=</span> i<span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> ind<span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> m <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>j <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> j <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> j<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			A<span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> A<span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>i <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+	<span style="color: #008000;">&#125;</span>
+	m<span style="color: #000040;">--</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>j <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> j <span style="color: #000080;">&lt;</span> m<span style="color: #008080;">;</span> j<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i &quot;</span>, A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+		<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+						</div>
+						</div>
+					</div>
+						
+					</div>
+					</div>
+	
+		
+			<br>
+			<div id="border1"></div>
+				
+				
+				<h2 id = "6">Задача 6. Заполнение матрицы:</h2>
+				<p>Вам нужно заполнить матрицу размером n*n вот таким образом:</p>
+
+				<img width="18%" src ="task2.jpg">
+				<p style="margin-top:-8px">...</p>
+				
+				<p>Каждый следующий элемент отличается на 1.
+				<p>Пример такой матрицы для n = 3:<br>
+				 1 2 5<br>
+				 4 3 6<br>
+				 9 8 7
+ 				<br> 
+				<b>Входные данные:</b><br>
+				Первая строка содержит одно целое число <b>n</b> (1 &#8804 <b>n</b> &#8804 100) - количество строк и столбцов.<br>
+				<b>Выходные данные:</b><br>
+				Вывести матрицу.
+				</p>
+				<p>Пример:</p>
+			
+				<table class="iksweb">
+					<tbody style="text-align:left">
+						<tr>
+							<td>Ввод </td>
+							<td>Вывод</td>
+						</tr>
+						<tr>
+							<td>
+							3
+							</td>
+							<td>
+							1 2 5<br>
+							4 3 6<br>
+							9 8 7
+							</td>
+						</tr>
+						<tr>
+							<td>
+							4
+							</td>
+							<td>
+							1 2 5 10<br>
+							4 3 6 11<br>
+							9 8 7 12<br>
+							16 15 14 13
+							</td>
+						</tr>
+					</tbody>
+				</table>	
+					
+				<div class="demo">
+					<input type="checkbox" id="hd-6" class="hide"/>
+					<label for="hd-6" style="-webkit-user-select: none;">
+						<h2>Решение</h2>
+						
+					</label>
+					<div>
+					<div id="text2">
+					<p>
+					Для красивого вывода можно использовать спецификатор %2d или %3d и так далее. Цифры обозначают количество выделяемых мест под наше число.
+					</p>
+					
+					<h3>Пример на Си:</h3>
+					<div id="t">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31
+					<br>32<br>33<br>34<br>35<br>36</p></div>
+						<div id="text2-2">
+						<pre class="cpp"><span style="color: #339900;">#define _CRT_SECURE_NO_WARNINGS</span>
+<span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+&nbsp;
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> A<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">100</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span><span style="color: #0000dd;">100</span><span style="color: #008000;">&#93;</span>, i, j, n, num <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>, max_j, max_i<span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>n<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	A<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> num<span style="color: #008080;">;</span>
+	num<span style="color: #000040;">++</span><span style="color: #008080;">;</span>
+	i <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+	max_i <span style="color: #000080;">=</span> <span style="color: #0000dd;">2</span><span style="color: #008080;">;</span>
+	max_j <span style="color: #000080;">=</span> <span style="color: #0000dd;">2</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">while</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">&lt;</span> n<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>  <span style="color: #339900;">// столбцы</span>
+		j <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+		<span style="color: #0000ff;">while</span> <span style="color: #008000;">&#40;</span>j <span style="color: #000080;">&lt;</span> max_j<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>  <span style="color: #339900;">// стороки</span>
+			A<span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> num<span style="color: #000040;">++</span><span style="color: #008080;">;</span>
+			j<span style="color: #000040;">++</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+		i<span style="color: #000040;">--</span><span style="color: #008080;">;</span>
+		j<span style="color: #000040;">--</span><span style="color: #008080;">;</span>
+		<span style="color: #0000ff;">while</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">&gt;=</span> <span style="color: #0000dd;">0</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			A<span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> num<span style="color: #000040;">++</span><span style="color: #008080;">;</span>
+			i<span style="color: #000040;">--</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+		max_j<span style="color: #000040;">++</span><span style="color: #008080;">;</span>
+		i <span style="color: #000080;">=</span> max_i<span style="color: #008080;">;</span>
+		max_i<span style="color: #000040;">++</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>j <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> j <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> j<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i &quot;</span>, A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+		<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+						</div>
+						</div>
+					</div>
+					</div>
+				</div>
+	
+		
+			<br>
+			<div id="border1"></div>
+				
+				<h2 id = "7">Задача 7. Вывод простой строки:</h2>
+				<p>Дана строка размером n*m. Нужно найти строку, у которой все ее элементы простые числа. 
+ 				<br> 
+				<b>Входные данные:</b><br>
+				Первая строка содержит два целых числа<b>n</b> (1 &#8804 <b>n</b> &#8804 30) и <b>m</b> (1 &#8804 <b>m</b> &#8804 30)- количество строк и столбцов соответственно.<br>
+				Далее идет ввод матрицы. Каждый элемент больше 1 и не превосходит 10^8.<br>
+				<b>Выходные данные:</b><br>
+				Если такая строка есть, то выведите <b>yes</b> и эту строку через символ '\n'. Иначе <b>no</b>. Если строк несколько,
+				то выведите любую из них.
+				
+				</p>
+				<p>Пример:</p>
+			
+				<table class="iksweb">
+					<tbody style="text-align:left">
+						<tr>
+							<td>Ввод </td>
+							<td>Вывод</td>
+						</tr>
+						<tr>
+							<td>
+							3 4<br>
+							7 3 2 29<br>
+							37 8 401 35<br>
+							68 5 4 15
+							</td>
+							<td>
+							yes <br>
+							7 3 2 29
+							</td>
+						</tr>
+						<tr>
+							<td>
+							3 3<br>
+							7 6 2<br>
+							37 8 404<br>
+							68 5 4 
+							</td>
+							<td>
+							no
+							</td>
+						</tr>
+					</tbody>
+				</table>	
+					
+				
+	
+		
+			<br>
+			<div id="border1"></div>
+				
+				<h2>Уровень 2</h2>
+			
+				
+						
+			<h2 id = "8">Задача 1. Поиск числа:</h2>
+				<p>Дан двумерный массив размером n*m. Нужно определить наличие в массиве числа <b>K</b>, которое может быть элементом массива или может быть составлено из всех элементов 
+				одной строки или одного столбца. <br>
+				Давайте рассмотрим данный массив размером 2*4:<br>
+				2 4 5 3<br>
+				6 8 2 7<br>
+				Из строк можно составить числа 2453 и 6827, из столбцов 26, 48, 52, 37.
+ 				<br> 
+				<b>Входные данные:</b><br>
+				Первая строка содержит три целых числа <b>n</b> (1 &#8804 <b>n</b> &#8804 100), <b>m</b> (1 &#8804 <b>m</b> &#8804 100) и <b>K</b> (1 &#8804 <b>K</b> &#8804 10^12) 
+				- количество строк, столбцов и искомое число соответственно.<br>
+				Далее идет ввод матрицы. Каждый элемент больше 0 и не превосходит 10^9.<br>
+				<b>Выходные данные:</b><br>
+				Выведите <b>yes</b>, если в массиве есть число <b>K</b> в любом виде, иначе <b>no</b>.
+				</p>
+				<p>Пример:</p>
+			
+				<table class="iksweb">
+					<tbody style="text-align:left">
+						<tr>
+							<td>Ввод </td>
+							<td>Вывод</td>
+						</tr>
+						<tr>
+							<td>2 4 48<br>
+							2 4 5 3<br>
+							6 8 2 7
+							</td>
+							<td>
+							yes
+							</td>
+						</tr>
+						<tr>
+							<td>2 4 5<br>
+							2 1 5 4<br>
+							6 8 2 7
+							</td>
+							<td>
+							yes
+							</td>
+						</tr>
+						<tr>
+							<td>2 4 9<br>
+							2 4 5 3<br>
+							6 8 8 7
+							</td>
+							<td>
+							no
+							</td>
+						</tr>
+					</tbody>
+				</table>	
+				
+				
+				
+				
+			</div>
+				<div id="rightblock">
+				<p> <b><font style="font-size:140%">Задачи:</font></b><br>
+					<b>Уровень 1:</b><br>
+					<a href="#1"> 1. Четность и нечетность столбца</a><br>
+					<a href="#2"> 2. Найди максимум и минимум</a><br>
+					<a href="#3"> 3. Сильно большой элемент</a><br>
+					<a href="#4"> 4. Заполнение матрицы 1</a><br>
+					<a href="#5"> 5. Удаление столбца</a><br>
+					<a href="#6"> 6. Заполнение матрицы 2</a><br>
+					<a href="#7"> 7. Вывод простой строки</a><br>
+					<b>Уровень 2:</b><br>
+					<a href="#8"> 1. Поиск числа</a><br>
+				</p>
+			
+				</div>
+		</div>
+
+		<div id="border2"></div>
+			<div id ="bottomblock">
+		<p class="p" style="text-align:center"><a href = "..\index.html" style = "font-family:bookman old style; color: #0000dd"><b>Code.C</b></a>
+		&#169 Copyright Павел Калашников 2021
+		<br>
+		обратная связь <span style="color:#0000dd">code.c@mail.ru</span></p><br>
+		</div>
+		
+	</div>
+ </body>
+</html>
