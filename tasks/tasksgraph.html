@@ -133,62 +133,7 @@ document.addEventListener('click', function(e) {
 			
 			</p>
 				
-			<div class="demo">
-				<input type="checkbox" id="hd-1" class="hide"/>
-				<label for="hd-1" style="-webkit-user-select: none;">
-					<h2>Решение</h2>
-					
-				</label>
-				<div>
-				<div id="text2">
-				<p>В этой задаче мы должны пройти по массиву символов и сравнить каждый элемент с символом 'f' и 'd'. Если находим хоть одну букву f, то 
-				меняем переменную num_f, аналогично с буквой d.
-				</p>
-				
-				<h3>Пример на Си:</h3>
-				
-				<div id="t">
-					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
-					<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23
-					<br>24<br>25<br>26<br>27</p></div>
-					<div id="text2-2">
-				
-					<pre class="cpp"><span style="color: #339900;">#define _CRT_SECURE_NO_WARNINGS</span>
-<span style="color: #339900;">#include&lt;stdio.h&gt;</span>
-<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
-<span style="color: #339900;">#include&lt;string.h&gt;</span>
-<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
-	<span style="color: #0000ff;">int</span> n, i, num_f, num_d<span style="color: #008080;">;</span>
-	<span style="color: #0000ff;">char</span> S<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">1000</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
-	<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>n<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
-	<span style="color: #0000dd;">getchar</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>  <span style="color: #339900;">// чтобы не записался символ '\n' в строку S</span>
-	<span style="color: #0000dd;">gets</span><span style="color: #008000;">&#40;</span>S<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>  <span style="color: #339900;">// ввод строки S</span>
-	num_f <span style="color: #000080;">=</span> num_d <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>  <span style="color: #339900;">// стартовое значение</span>
-	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
-		<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>S<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">==</span> <span style="color: #FF0000;">'f'</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span> 
-			num_f <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
-		<span style="color: #008000;">&#125;</span>
-		<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>S<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">==</span> <span style="color: #FF0000;">'d'</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span> 
-			num_d <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
-		<span style="color: #008000;">&#125;</span>
-	<span style="color: #008000;">&#125;</span>
-	<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>num_f <span style="color: #000080;">==</span> <span style="color: #0000dd;">1</span> <span style="color: #000040;">&amp;&amp;</span> num_d <span style="color: #000080;">==</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span> 
-		<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;yes&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
-	<span style="color: #008000;">&#125;</span>
-	<span style="color: #0000ff;">else</span> <span style="color: #008000;">&#123;</span>
-		<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;no&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
-	<span style="color: #008000;">&#125;</span>
-	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
-<span style="color: #008000;">&#125;</span></pre>
-				</div>
-				</div>
 
-
-				</div>
-				</div>
-			</div>
-	
-			<br>
 			<div id="border1"></div>
 			
 			<h2>Задача 2:</h2>
