@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ 
+ 
+ 
+
+  <meta charset="utf-8">
+  
+  <title>Типы данных и операции</title>
+ </head>
+ 
+ <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+ <link rel="stylesheet" type="text/css" href="CSS.css">
+ 
+ <body>
+	<div id="container">
+		<nav class="darken"></nav>
+		<div id="navigation_top">
+			<div id="navigation_main">
+			<div id="m">
+				
+						<div class="bt"><img width="100%" src="t.png"></div>
+						
+					
+					<nav class="menu">
+						<div id="navigation">
+							<nav>
+							<a href="..\index.html" >Главная</a><br>
+							<a href="learning.html" style="color:#0000dd"> Изучение</a><br>
+							<a href="..\tasks\tasks.html"> Задачи</a>	<br>
+							<a href="..\algorithms\algorithms.html">Алгоритмы</a><br>
+							</nav
+						</div>
+	
+					</nav>
+				
+					<script>const btnMenu = document.querySelector('.bt');
+const menu = document.querySelector('.menu');
+const darken = document.querySelector('.darken');
+
+
+const toggleMenu = function() {
+    menu.classList.toggle('open');
+	 darken.classList.toggle('open');
+}
+
+btnMenu.addEventListener('click', function(e) {
+    e.stopPropagation();
+    toggleMenu();
+});
+
+document.addEventListener('click', function(e) {
+    const target = e.target;
+    const its_menu = target == menu || menu.contains(target);
+    const its_btnMenu = target == btnMenu;
+    const menu_is_active = menu.classList.contains('open');
+    
+    if (!its_menu && !its_btnMenu && menu_is_active) {
+        toggleMenu();
+    }
+	
+});
+
+</script>
+
+					<div id = "name">
+						<a href="..\index.html" style=" font-family: sans-serif; color:white;"><b>Code.C</b></a>
+					</div>
+				</div>
+				
+				
+				<div id="pk">
+					<div id = "name">
+						<a href="..\index.html" style=" font-family: sans-serif; color:white;"><b>Code.C</b></a>
+					</div>
+					<div id="navigation">
+							<nav>
+							<a href="..\index.html" >Главная</a>
+							<a href="learning.html" style="color:#1e90ff"> Изучение</a>
+							<a href="..\tasks\tasks.html"> Задачи</a>	
+							<a href="..\algorithms\algorithms.html">Алгоритмы</a>
+							</nav>	
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+			<div id="body">
+
+			
+			
+			<div id="text">
+			<h1>Переменные и типы данных</h1>
+			<p>Тип переменной – характеристика, определяющая формат
+				представления данных в памяти компьютера, множество допустимых
+				значений этих данных и совокупность операций над ними. Зная тип
+				переменной, компилятор выделит для нее необходимое количество
+				ячеек памяти и будет знать, какого рода данные будут храниться в
+				этой переменной.
+				</p>
+
+				<div id="text1">
+
+				<p>
+				<b>В языке Си имеется несколько базовых типов:</b><br>
+				<b>char</b> – символ;<br>
+				<b>int</b> – целое число;<br>
+				<b>float</b> – число с плавающей точкой одинарной точности;<br>
+				<b>double</b> – число с плавающей точкой двойной точности.
+				</p>
+				</div>
+
+				<p>
+				Также имеется несколько квалификаторов, которые используются вместе
+				с базовыми типами. Квалификаторы <b>short</b> и <b>long</b> применяются к целому типу <b>int</b>.
+				Квалификатор <b>short</b> применяется в тех случаях, когда заранее известно, 
+				что переменная будет принимать достаточно небольшие целые значения.
+				Если переменная может принимать большие целые значения, то используется
+				квалификатор <b>long</b>. 
+				
+				Ниже приводится таблица базовых типов данных с указанием
+				требуемого количества памяти и диапазона значений. 
+				</p>
+				<table class="iksweb">
+					<tbody>
+						<tr>
+							<td style="text-align:center; width:60px ">Тип </td>
+							<td style="text-align:center">Размер(в байтах)</td>
+							<td style="text-align:center">Диапазон</td>
+						</tr>
+						<tr>
+							<td>char</td>
+							<td style="text-align:center">1 </td>
+							<td>-128 – 127</td>
+						</tr>
+						<tr>
+							<td>short</td>
+							<td style="text-align:center">2</td>
+							<td>-32 768 – 32 767</td>
+						</tr>
+						<tr>
+							<td>int</td>
+							<td style="text-align:center">4</td>
+							<td>-2 147 483 648 – 2 147 483 647</td>
+						</tr>
+						<tr>
+							<td>long long int</td>
+							<td style="text-align:center">8 </td>
+							<td>-9 223 372 036 854 775 808 – <br>9 223 372 036 854 775 807</td>
+						</tr>
+						<tr>
+							<td>float</td>
+							<td style="text-align:center">4</td>
+							<td>1.2e-38 – 3.4e+38</td>
+						</tr>
+						<tr>
+							<td>double</td>
+							<td style="text-align:center">8</td>
+							<td>2.2e-308 – 1.7e+308</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<p>Разница между типами заключается в их свойствах. Например <b>float</b> нужен для дробных чисел, 
+				а <b>int</b> для целых. Нужно с умом выбирать тип переменных, иначе пожете потерять данные.
+				Также не используйте большие типы данных по типу <b>long</b>, если число маленькое.
+				</p>
+				
+				<h1>Операции и выражения</h1>
+				<h2>Арифметические операции</h2>
+				<p>К арифметическим операциям относят сложение(<b>+</b>), вычитание(<b>-</b>), умножение(<b>*</b>), 
+				деление(<b>/</b>), остаток от деления(<b>%</b>). Деление целых чисел сопровождается отбрасыванием 
+				дробной части. Выражение <b>a % b</b> дает остаток при делении <b>a</b> на <b>b</b>. Например, 
+				после выполнения следующей части программы:</p>
+					<pre class="cpp"><ol><li style="font-weight: normal; vertical-align:top;"><div style="font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;"><span style="color: #0000ff;">int</span> a <span style="color: #000080;">=</span> <span style="color: #0000dd;">5</span>, b <span style="color: #000080;">=</span> <span style="color: #0000dd;">3</span>, q, r<span style="color: #008080;">;</span></div></li><li style="font-weight: normal; vertical-align:top;"><div style="font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;">q <span style="color: #000080;">=</span> a <span style="color: #000040;">/</span> b<span style="color: #008080;">;</span></div></li><li style="font-weight: normal; vertical-align:top;"><div style="font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;">r <span style="color: #000080;">=</span> a <span style="color: #000040;">%</span> b<span style="color: #008080;">;</span></div></li></ol></pre>
+				<p>Переменная <b>q</b> будет иметь значение 1, а <b>r</b> будет равна 2.
+				Заметим, что операция <b>%</b> применяется только к целым числам.</p>
+				<p>Если мы хотим произвести деление с остатком, то все переменные должны 
+				быть типа <b>float</b> или <b>double</b>, иначе можем потерять данные.
+				</p>
+				<h2>Операции сравнения и логические операции</h2>
+				<p>
+				К операциям
+				сравнения относят следующие операции: больше или равно (>=),
+				больше (>), меньше или равно (<=), меньше (<), равно (==), не равно
+				(!=), а к логическим операциям – логическое И (&&), логическое
+				ИЛИ (||), отрицание НЕ (!).
+				<br><br>
+				Выражения, между которыми находятся операции && и ||, вычисляются слева 
+				направо, причем вычисление значения выражения
+				прекращается сразу же, как только становится ясно, каким будет результат
+				– истинным или ложным. Заметим, что приоритет операции
+				&& выше приоритета операции ||.
+				
+				</p>
+				<h2>Операция присваивания</h2>
+				<p> Общий вид операции присваивания следующий:<br>
+				<p1 style="padding-left:30px">имя переменной = выражение;</p1><br>
+				Например:
+				</p>
+			    	<pre class="cpp"><ol><li style="font-weight: normal; vertical-align:top;"><div style="font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;"><span style="color: #0000ff;">float</span> a, b, c<span style="color: #008080;">;</span> <span style="color: #339900;">// объявляем три переменные</span></div></li><li style="font-weight: normal; vertical-align:top;"><div style="font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;">a <span style="color: #000080;">=</span> <span style="color:#800080;">0.3</span><span style="color: #008080;">;</span> <span style="color: #339900;">// переменной a присваиваем значение 0.3</span></div></li><li style="font-weight: normal; vertical-align:top;"><div style="font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;">b <span style="color: #000080;">=</span> <span style="color:#800080;">0.4</span><span style="color: #008080;">;</span> <span style="color: #339900;">// переменной b присваиваем значение 0.3</span></div></li><li style="font-weight: normal; vertical-align:top;"><div style="font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;">c <span style="color: #000080;">=</span> a <span style="color: #000040;">+</span> b<span style="color: #008080;">;</span> <span style="color: #339900;">// переменной c присваиваем сумму a и b</span></div></li></ol></pre>
+				<p>
+				В языке Си для компактной записи выражений, где участвуют
+				операция присваивания, имеются следующие специальные арифметические операции:
+				</p>
+				<table class="iksweb">
+				
+					<tbody style="text-align:center">
+						<tr style="text-align:center">
+							<td> Операция </td>
+							<td>Пример</td>
+							<td>Эквивалент</td>
+						</tr>
+						<tr>
+							<td>+=</td>
+							<td style="text-align:center">a += 10;</td>
+							<td>a = a + 10;</td>
+						</tr>
+						<tr>
+							<td>-=</td>
+							<td style="text-align:center">a -= 2;</td>
+							<td>a =  a - 2;</td>
+						</tr>
+						<tr>
+							<td>*=</td>
+							<td style="text-align:center">a *= 5;</td>
+							<td>a = a * 5;</td>
+						</tr>
+						<tr>
+							<td>/=</td>
+							<td style="text-align:center">a /= 10;</td>
+							<td>a = a / 10;</td>
+						</tr>
+						<tr>
+							<td>%=</td>
+							<td style="text-align:center">a %= 3;</td>
+							<td>a = a % 3;</td>
+						</tr>
+					</tbody>
+				</table>
+			
+				<h2>Операции инкремента и декремента</h2>
+				<p>
+				Очень часто в программах к переменной прибавляется или из нее вычитается единица. Увеличение значения 
+				на 1 называется инкрементом, а уменьшение на 1 – декрементом. Для данных действий предусмотрены
+				специальные операции: операция инкремента (++), которая увеличивает значение переменной на 1, 
+				и операция декремента (--), которая, в свою очередь, уменьшает значение переменной на 1.
+				</p>
+				<p>
+				Следующие три выражения приведут к одному и тому же результату:<br><br>
+				x++; x = x + 1; x += 1;<br><br>
+				ИЛИ<br><br>
+				x--; x = x - 1; x -= 1;
+				</p>
+			</div>
+			
+			
+		</div>
+		<div id="border2"></div>
+				<div id ="bottomblock">
+		<p class="p" style="text-align:center"><a href = "..\index.html" style = "font-family:bookman old style; color: #0000dd"><b>Code.C</b></a>
+		&#169 Copyright Павел Калашников 2021
+		<br>
+		обратная связь <span style="color:#0000dd">code.c@mail.ru</span></p><br>
+		</div>
+	</div>
+ </body>
+</html>
