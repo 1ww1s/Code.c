@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+ <head>
+
+
+
+
+  <meta charset="utf-8">
+
+  <title>Сортировки</title>
+ </head>
+
+ <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+ <link rel="stylesheet" type="text/css" href="CSS.css">
+
+ <body>
+	<div id="container">
+		<nav class="darken"></nav>
+		<div id="navigation_top">
+			<div id="navigation_main">
+			<div id="m">
+				
+						<div class="bt"><img width="100%" src="t.png"></div>
+						
+					
+					<nav class="menu">
+						<div id="navigation">
+							<nav>
+							<a href="..\index.html" >Главная</a><br>
+							<a href="..\learning\learning.html"> Изучение</a><br>
+							<a href="..\tasks\tasks.html"> Задачи</a><br>
+							<a href="algorithms.html" style="color:#0000dd">Алгоритмы</a><br>
+							</nav>	
+						</div>
+	
+					</nav>
+				
+					<script>const btnMenu = document.querySelector('.bt');
+const menu = document.querySelector('.menu');
+const darken = document.querySelector('.darken');
+
+
+const toggleMenu = function() {
+    menu.classList.toggle('open');
+	 darken.classList.toggle('open');
+}
+
+btnMenu.addEventListener('click', function(e) {
+    e.stopPropagation();
+    toggleMenu();
+});
+
+document.addEventListener('click', function(e) {
+    const target = e.target;
+    const its_menu = target == menu || menu.contains(target);
+    const its_btnMenu = target == btnMenu;
+    const menu_is_active = menu.classList.contains('open');
+    
+    if (!its_menu && !its_btnMenu && menu_is_active) {
+        toggleMenu();
+    }
+	
+});
+
+</script>
+
+					<div id = "name">
+						<a href="..\index.html" style=" font-family: sans-serif; color:white;"><b>Code.C</b></a>
+					</div>
+				</div>
+				
+				
+				<div id="pk">
+					<div id = "name">
+						<a href="..\index.html" style=" font-family: sans-serif; color:white;"><b>Code.C</b></a>
+					</div>
+					<div id="navigation">
+							<nav>
+							<a href="..\index.html" >Главная</a>
+							<a href="..\learning\learning.html">Изучение</a>
+							<a href="..\tasks\tasks.html">Задачи</a>
+							<a href="algorithms.html" style = "color:#1e90ff">Алгоритмы</a>
+							</nav>	
+					</div>
+				</div>
+				
+			</div>
+		</div>
+
+
+		<div id="body">
+			<div id = "text">
+
+				<h1>Сортировки</h1>
+				<p>Крайне часто в задачах нужно отсортировать массив, но как это сделать? Существует много разных алгоритмов. Давайте поговорим про некоторые алгоритмы и их время выполнения.</p>
+				<p>Сначало проговорим о самых простых алгоритмах, у которых время выполнения равна <b>O(n<sup>2</sup>)</b>. Такие алгоритмы эффективны только для небольших массивов.</p>
+				<h3 id="1">Сортировка пузырьком</h3>
+				<p>Алгоритм основан на поэтапном сравнении двух соседних элементов массива. Если нам нужно отсортировать массив по неубыванию, то при каждом прохождении внешнего цикла максимальный из
+				оставшихся элементов будет смещаться в конец массива, то есть "сплывать", как пузырёк.<br> Давайте посмотрим на алгоритм:</p>
+				<div id="t">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+						<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23</p></div>
+					<div id="text2-2">
+<pre class="cpp"><span style="color: #339900;">#define _CRT_SECURE_NO_WARNINGS</span>
+<span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> n, i, j, r, A<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">100</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>n<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>j <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> j <span style="color: #000080;">&lt;</span> n <span style="color: #000040;">-</span> i <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span> j<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>A<span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span> <span style="color: #000080;">&gt;</span> A<span style="color: #008000;">&#91;</span>j <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+				r <span style="color: #000080;">=</span> A<span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+				A<span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> A<span style="color: #008000;">&#91;</span>j <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+				A<span style="color: #008000;">&#91;</span>j <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> r<span style="color: #008080;">;</span>
+			<span style="color: #008000;">&#125;</span>
+		<span style="color: #008000;">&#125;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i &quot;</span>, A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+					</div>
+				</div>
+				<p>Так как последние элементы по ходу выполнения уже будут отсортированны, то их не нужно проверять в следующие разы, поэтому внутренний цикл
+				до n - i - 1.</p>
+				<p>Чтобы отсортировать по невозрастанию, нужно в строчке 12 поменять знак больше(>) на меньше(<). Теперь минимальные элементы
+				будут смещаться в конец массива.</p>
+
+				<h3 id="2">Сортировка выбором</h3>
+				<p>Основная суть: берем первый элемент и сравниваем с наименьшим элементом из оставшейся части, если первый элемент больше, то меняем местами эти элементы.
+				Потом берем второй элемент и также сравниваем с наименьшим элементом из оставшейся части и т.д.<br>
+				Давайте посмотрим на алгоритм:
+				</p>
+				<div  id="t">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+						<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28</p></div>
+					<div id="text2-2">
+					<pre class="cpp"><span style="color: #339900;">#define _CRT_SECURE_NO_WARNINGS</span>
+<span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> n, i, j, r, min, index, A<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">100</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>n<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		min <span style="color: #000080;">=</span> A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+		<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>j <span style="color: #000080;">=</span> i <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span> j <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> j<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>A<span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span> <span style="color: #000080;">&lt;</span> min<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+				min <span style="color: #000080;">=</span> A<span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+				index <span style="color: #000080;">=</span> j<span style="color: #008080;">;</span>
+			<span style="color: #008000;">&#125;</span>
+		<span style="color: #008000;">&#125;</span>
+		<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>min <span style="color: #000080;">&lt;</span> A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			r <span style="color: #000080;">=</span> A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+			A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> A<span style="color: #008000;">&#91;</span>index<span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+			A<span style="color: #008000;">&#91;</span>index<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> r<span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i &quot;</span>, A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+					</div>
+				</div>
+				<h3 id="3">Быстрая сортировка</h3>
+				<p>Само название говорит о быстроте этой сортировки, действительно, эта сортировка является одной из самых быстрых сортировок. В языке Си есть функция данной сортировки 
+				под названием <b>qsort()</b>. Эта функция находится в библиотеке <b>stdlib.h</b>. </p>
+				<p>Параметры функции <b>qsort()</b>:<br>
+				<span style ="margin-left:10px">1. Указатель на первый элемент массива;<br></span>
+				<span style ="margin-left:10px">2. Количество сортируемых элементов;<br></span>
+				<span style ="margin-left:10px">3. Размер одного элемента массива в байтах; <br></span>
+				<span style ="margin-left:10px">4. Название функции, которую будет вызывать qsort() для сравнении элементов.</span>
+				</p>
+				<p>
+				Вот так выглядит функция <b>qsort()</b> для массива <b>A</b> из <b>n</b> целых элементов:
+				</p>
+				<div  style="margin-left:10px">
+					<pre class="cpp"><span style="color: #0000dd;">qsort</span><span style="color: #008000;">&#40;</span>A, n, <span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span><span style="color: #008000;">&#41;</span>, sort<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span></pre>
+				</div>
+				<p>Функция <b>qsort()</b> передает функции <b>sort</b> указатили на два элемента, которые нужно сравнить.
+				Функция <b>sort</b> возвращает 1, если x1 > x2, 0, если x1 = x2, -1, если x1 < x2.</p>
+				<p>
+				Вот так выглядит функция <b>sort</b>:
+				</p>
+				<div  style="margin-left:10px">
+					<pre class="cpp"><span style="color: #0000ff;">int</span> sort<span style="color: #008000;">&#40;</span><span style="color: #0000ff;">const</span> <span style="color: #0000ff;">void</span><span style="color: #000040;">*</span> x1, <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">void</span><span style="color: #000040;">*</span> x2<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #000040;">*</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span><span style="color: #000040;">*</span><span style="color: #008000;">&#41;</span>x1 <span style="color: #000040;">-</span> <span style="color: #000040;">*</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span><span style="color: #000040;">*</span><span style="color: #008000;">&#41;</span>x2<span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+				</div>
+					<p>Чтобы отсортировать массив по невозрастанию, нужно поменять элементы местами:<br>
+					<span style="color: #0000ff;margin-left:10px">return</span> <span style="color: #000040;">*</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span><span style="color: #000040;">*</span><span style="color: #008000;">&#41;</span>x2 <span style="color: #000040;">-</span> <span style="color: #000040;">*</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span><span style="color: #000040;">*</span><span style="color: #008000;">&#41;</span>x1<span style="color: #008080;">;</span>.</p>
+
+				<h3>Примеры</h3>
+				<p><b>Сортировка массива целых чисел по неубыванию:</b></p>
+				<div  id="t" >
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+						<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20</p></div>
+					<div id="text2-2">
+					<pre class="cpp"><span style="color: #339900;">#define _CRT_SECURE_NO_WARNINGS</span>
+<span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+&nbsp;
+<span style="color: #0000ff;">int</span> sort<span style="color: #008000;">&#40;</span><span style="color: #0000ff;">const</span> <span style="color: #0000ff;">void</span><span style="color: #000040;">*</span> x1, <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">void</span><span style="color: #000040;">*</span> x2<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #000040;">*</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span><span style="color: #000040;">*</span><span style="color: #008000;">&#41;</span>x1 <span style="color: #000040;">-</span> <span style="color: #000040;">*</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span><span style="color: #000040;">*</span><span style="color: #008000;">&#41;</span>x2<span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span>
+&nbsp;
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> n, i, A<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">100</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>n<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000dd;">qsort</span><span style="color: #008000;">&#40;</span>A, n, <span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span><span style="color: #008000;">&#41;</span>, sort<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i &quot;</span>, A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+					</div>
+				</div>
+				
+				
+			<h3 id="4">Лексикографическая сортировка строк</h3>
+			<p>Даны <b>n</b> строк до 20 символов в каждой. Пример сортировки по неубыванию строк на Си:</p>
+				<div  id="t">
+				<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>
+				11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24</p></div>
+					<div id="text2-2">
+					<pre class="cpp"><span style="color: #339900;">#define _CRT_SECURE_NO_WARNINGS</span>
+<span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+<span style="color: #339900;">#include&lt;string.h&gt;</span>
+&nbsp;
+<span style="color: #0000ff;">int</span> sort<span style="color: #008000;">&#40;</span><span style="color: #0000ff;">const</span> <span style="color: #0000ff;">void</span><span style="color: #000040;">*</span> x1, <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">void</span><span style="color: #000040;">*</span> x2<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">strcmp</span><span style="color: #008000;">&#40;</span><span style="color: #000040;">*</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">char</span><span style="color: #000040;">**</span><span style="color: #008000;">&#41;</span>x1, <span style="color: #000040;">*</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">char</span><span style="color: #000040;">**</span><span style="color: #008000;">&#41;</span>x2<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span>
+&nbsp;
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> n, i<span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">char</span><span style="color: #000040;">*</span> str<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">10</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>n<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">getchar</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		str<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">malloc</span><span style="color: #008000;">&#40;</span><span style="color: #0000dd;">20</span><span style="color: #000040;">*</span><span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">char</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		<span style="color: #0000dd;">gets</span><span style="color: #008000;">&#40;</span>str<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000dd;">qsort</span><span style="color: #008000;">&#40;</span>str, n, <span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">char</span><span style="color: #000040;">*</span><span style="color: #008000;">&#41;</span>, sort<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%s<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span>, str<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+					</div>
+				</div>
+			<p>Если нам нужно сортировать еще и по длине строк, то изменим функцию <b>sort</b>:<br>
+			<div  style="margin-left:10px">
+			<pre class="cpp" ><span style="color: #0000ff;">int</span> sort<span style="color: #008000;">&#40;</span><span style="color: #0000ff;">const</span> <span style="color: #0000ff;">void</span><span style="color: #000040;">*</span> x1, <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">void</span><span style="color: #000040;">*</span> x2<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span><span style="color: #0000dd;">strlen</span><span style="color: #008000;">&#40;</span><span style="color: #000040;">*</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">char</span><span style="color: #000040;">**</span><span style="color: #008000;">&#41;</span>x1<span style="color: #008000;">&#41;</span> <span style="color: #000080;">&gt;</span> <span style="color: #0000dd;">strlen</span><span style="color: #008000;">&#40;</span><span style="color: #000040;">*</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">char</span><span style="color: #000040;">**</span><span style="color: #008000;">&#41;</span>x2<span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span><span style="color: #0000dd;">strlen</span><span style="color: #008000;">&#40;</span><span style="color: #000040;">*</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">char</span><span style="color: #000040;">**</span><span style="color: #008000;">&#41;</span>x1<span style="color: #008000;">&#41;</span> <span style="color: #000080;">&lt;</span> <span style="color: #0000dd;">strlen</span><span style="color: #008000;">&#40;</span><span style="color: #000040;">*</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">char</span><span style="color: #000040;">**</span><span style="color: #008000;">&#41;</span>x2<span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000ff;">return</span> <span style="color: #000040;">-</span><span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">strcmp</span><span style="color: #008000;">&#40;</span><span style="color: #000040;">*</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">char</span><span style="color: #000040;">**</span><span style="color: #008000;">&#41;</span>x1, <span style="color: #000040;">*</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">char</span><span style="color: #000040;">**</span><span style="color: #008000;">&#41;</span>x2<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+			</div>
+			</p>
+			
+			<h3 id="5">Сортировка струкутуры</h3>
+			<p>Структура удобный инстумент для выполнения задач. Пусть у нас будет структура <b>p</b>, которая хранит имя и возраст человека:</p>
+			<pre class="cpp" style="margin-left:10px"><span style="color: #0000ff;">struct</span> <span style="color: #009999"><b>p</b></span> <span style="color: #008000;">&#123;</span>  
+	<span style="color: #0000ff;">char</span> name<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">10</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">int</span> age<span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span><span style="color: #008080;">;</span></pre>
+			<p>
+			Часто в задачах нужно сортировать струкутуру по какому-то параметру.<br>
+			Во-первых для этого передаем функции sort всю структуру:</p>
+			<div  style="margin-left:10px">
+					<pre class="cpp"><span style="color: #0000dd;">qsort</span><span style="color: #008000;">&#40;</span>A, n, <span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">struct <span style="color: #009999"><b>p</b></span></span><span style="color: #008000;">&#41;</span>, sort<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span></pre>
+			</div>
+			<p>Во-вторых изменяем функцию <b>sort</b>:</p>
+			<pre class="cpp" style="margin-left:10px"><span style="color: #0000ff;">int</span> sort<span style="color: #008000;">&#40;</span><span style="color: #0000ff;">const</span> <span style="color: #0000ff;">void</span><span style="color: #000040;">*</span> x1, <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">void</span><span style="color: #000040;">*</span> x2<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">struct</span> <span style="color: #009999"><b>p</b></span> a <span style="color: #000080;">=</span> <span style="color: #000040;">*</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">struct</span> <span style="color: #009999"><b>p</b></span><span style="color: #000040;">*</span><span style="color: #008000;">&#41;</span>x1<span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">struct</span> <span style="color: #009999"><b>p</b></span> b <span style="color: #000080;">=</span> <span style="color: #000040;">*</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">struct</span> <span style="color: #009999"><b>p</b></span><span style="color: #000040;">*</span><span style="color: #008000;">&#41;</span>x2<span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">return</span> a.<span style="color: #007788;">age</span> <span style="color: #000040;">-</span> b.<span style="color: #007788;">age</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+			<p>В данном примере мы сортируем по неубыванию возраст людей. Полный код программы:</p>
+				<div id="t">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29</p></div>
+					<div id="text2-2">
+						<pre class="cpp" ><span style="color: #339900;">#define _CRT_SECURE_NO_WARNINGS</span>
+<span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+<span style="color: #339900;">#include&lt;string.h&gt;</span>
+&nbsp;
+<span style="color: #0000ff;">struct</span> <span style="color: #009999"><b>p</b></span> <span style="color: #008000;">&#123;</span>  
+	<span style="color: #0000ff;">char</span> name<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">10</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">int</span> age<span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span><span style="color: #008080;">;</span>
+&nbsp;
+<span style="color: #0000ff;">int</span> sort<span style="color: #008000;">&#40;</span><span style="color: #0000ff;">const</span> <span style="color: #0000ff;">void</span><span style="color: #000040;">*</span> x1, <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">void</span><span style="color: #000040;">*</span> x2<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">struct</span> <span style="color: #009999"><b>p</b></span> a <span style="color: #000080;">=</span> <span style="color: #000040;">*</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">struct</span> p<span style="color: #000040;">*</span><span style="color: #008000;">&#41;</span>x1<span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">struct</span> <span style="color: #009999"><b>p</b></span> b <span style="color: #000080;">=</span> <span style="color: #000040;">*</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">struct</span> p<span style="color: #000040;">*</span><span style="color: #008000;">&#41;</span>x2<span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">return</span> a.<span style="color: #007788;">age</span> <span style="color: #000040;">-</span> b.<span style="color: #007788;">age</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span>
+&nbsp;
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> n, i<span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">struct</span> <span style="color: #009999"><b>p</b></span> A<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">100</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>n<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%s%i&quot;</span>, <span style="color: #000040;">&amp;</span>A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span>.<span style="color: #007788;">name</span>, <span style="color: #000040;">&amp;</span>A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span>.<span style="color: #007788;">age</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000dd;">qsort</span><span style="color: #008000;">&#40;</span>A, n, <span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">struct</span> <span style="color: #009999"><b>p</b></span><span style="color: #008000;">&#41;</span>, sort<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%s %i<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span>, A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span>.<span style="color: #007788;">name</span>, A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span>.<span style="color: #007788;">age</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+					</div>
+				</div>
+			
+			</div>
+		
+				<div id="rightblock">
+				<p><b><font style="font-size:125%">Навигация по странице:</font></b><br>
+				<a href="#1">1. Сортировка пузырьком</a><br>
+				<a href="#2">2. Сортировка выбором</a><br>
+				<a href="#3">3. Быстрая сортировка</a><br>
+				<a href="#4">4. Лексикографическая<br>сортировка строк</a><br>
+				<a href="#5">5. Сортировка струкутуры</a><br>
+				</p>
+				</div>
+			</div>
+		<div id="border2"></div>
+				<div id ="bottomblock">
+		<p class="p" style="text-align:center"><a href = "..\index.html" style = "font-family:bookman old style; color: #0000dd"><b>Code.C</b></a>
+		&#169 Copyright Павел Калашников 2021
+		<br>
+		обратная связь <span style="color:#0000dd">code.c@mail.ru</span></p><br>
+		</div>
+
+	</div>
+ </body>
+</html>
