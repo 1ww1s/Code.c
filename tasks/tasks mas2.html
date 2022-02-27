@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ 
+ 
+ 
+
+  <meta charset="utf-8">
+  
+  <title>Задачи по массивам. Уровень 2</title>
+ </head>
+ 
+ <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+ <link rel="stylesheet" type="text/css" href="CSS.css">
+ 
+ <body>
+	<div id="container">
+		<nav class="darken"></nav>
+		<div id="navigation_top">
+			<div id="navigation_main">
+			<div id="m">
+				
+						<div class="bt"><img width="100%" src="t.png"></div>
+						
+					
+					<nav class="menu">
+						<div id="navigation">
+							<nav>
+							<a href="..\index.html" >Главная</a><br>
+							<a href="..\learning\learning.html"> Изучение</a><br>
+							<a href="tasks.html" style="color:#0000dd"> Задачи</a><br>
+							<a href="..\algorithms\algorithms.html">Алгоритмы</a><br>
+							</nav>	
+						</div>
+	
+					</nav>
+				
+					<script>const btnMenu = document.querySelector('.bt');
+const menu = document.querySelector('.menu');
+const darken = document.querySelector('.darken');
+
+
+const toggleMenu = function() {
+    menu.classList.toggle('open');
+	 darken.classList.toggle('open');
+}
+
+btnMenu.addEventListener('click', function(e) {
+    e.stopPropagation();
+    toggleMenu();
+});
+
+document.addEventListener('click', function(e) {
+    const target = e.target;
+    const its_menu = target == menu || menu.contains(target);
+    const its_btnMenu = target == btnMenu;
+    const menu_is_active = menu.classList.contains('open');
+    
+    if (!its_menu && !its_btnMenu && menu_is_active) {
+        toggleMenu();
+    }
+	
+});
+
+</script>
+
+					<div id = "name">
+						<a href="..\index.html" style=" font-family: sans-serif; color:white;"><b>Code.C</b></a>
+					</div>
+				</div>
+				
+				
+				<div id="pk">
+					<div id = "name">
+						<a href="..\index.html" style=" font-family: sans-serif; color:white;"><b>Code.C</b></a>
+					</div>
+					<div id="navigation">
+							<nav>
+							<a href="..\index.html" >Главная</a>
+							<a href="..\learning\learning.html">Изучение</a>
+							<a href="tasks.html" style = "color:#1e90ff; ">Задачи</a>
+							<a href="..\algorithms\algorithms.html">Алгоритмы</a>
+							</nav>	
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+		
+		
+		<div id="body">
+		<div id = "text">
+			<h1>Задачи по массивам. <font style = "font-size:25px">Уровень 2</font></h1>
+			
+				
+			<h2 id="1">Задача 1. <font style="font-size:100%">Минимальный и максимальный элемент:</font></h2>
+			<p>Дан массив из <b>N</b> целых чисел, нужно посчитать сумму между минимальным и максимальным элементами массива (мин. и макс. элементы не включительно). Гарантируется, 
+			что минимальный и максимальный элемент только один.<br>
+			<b>Входные данные:</b><br>
+			Первая строка содержит одно целое число <b>N</b> (2 &#8804 <b>N</b> &#8804 1000) - количество элементов массива.<br>
+			Вторая строка содержит <b>N</b> целых чисел <b>a<sub>i</sub></b> (0 &#8804 <b>a<sub>i</sub></b> &#8804 10^9), разделенных пробелами — элементы массива.<br>
+			<b>Выходные данные:</b><br>
+			Вывести сумму между минимальным и максимальным элементами массива.
+			<p>Пример:</p>
+			
+			<table class="iksweb">
+				<tbody>
+					<tr>
+						<td>Ввод </td>
+						<td>Вывод</td>
+					</tr>
+					<tr>
+						<td>8 <br>
+						12 7 4 9 5 15 8 13
+						</td>
+						<td>14</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			
+			</p>
+				
+			<div class="demo">
+				<input type="checkbox" id="hd-1" class="hide"/>
+				<label for="hd-1" style="-webkit-user-select: none;">
+					<h2>Решение</h2>
+					
+				</label>
+				<div>
+				<div id="text2">
+				<h3>Пример на Си:</h3>
+				
+					<div id="t" style="font-size:10px">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26
+					<br>27<br>28<br>29<br>30<br>31<br>32</p></div>
+					<div id="text2-2">
+					<pre class="cpp" ><span style="color: #339900;">#define _CRT_SECURE_NO_WARNINGS</span>
+<span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> A<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">1000</span><span style="color: #008000;">&#93;</span>, N, i, ind_min, ind_max, sum<span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>N<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> N<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	ind_max <span style="color: #000080;">=</span> ind_min <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> N<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>A<span style="color: #008000;">&#91;</span>ind_max<span style="color: #008000;">&#93;</span> <span style="color: #000080;">&lt;</span> A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			ind_max <span style="color: #000080;">=</span> i<span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+		<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>A<span style="color: #008000;">&#91;</span>ind_min<span style="color: #008000;">&#93;</span> <span style="color: #000080;">&gt;</span> A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			ind_min <span style="color: #000080;">=</span> i<span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+	<span style="color: #008000;">&#125;</span>
+	sum <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>ind_max <span style="color: #000080;">&gt;</span> ind_min<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> ind_min <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> ind_max<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			sum <span style="color: #000080;">=</span> sum <span style="color: #000040;">+</span> A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">else</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> ind_max <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> ind_min<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			sum <span style="color: #000080;">=</span> sum <span style="color: #000040;">+</span> A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, sum<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+					</div>
+				</div>
+
+				</div>
+				</div>
+			</div>
+	
+			<br>
+			<div id="border1"></div>
+			
+				
+			<h2 id="2">Задача 2. Простые числа:</h2>
+				<p>Дан массив из <b>N</b> целых чисел. Найдите количество простых чисел в массиве. Посторайтесь максимально оптимизировать поиск простых чисел.<br>
+				<b>Входные данные:</b><br>
+				Первая строка содержит одно целое число <b>N</b> (1 &#8804 <b>N</b> &#8804 100) - количество элементов массива.<br>
+				Вторая строка содержит <b>N</b> целых чисел <b>a<sub>i</sub></b> (2 &#8804 <b>a<sub>i</sub></b> &#8804 10^6), разделенных пробелами — элементы массива.<br>
+				<b>Выходные данные:</b><br>
+				Вывести количество простых чисел.
+				</p>
+				<p>Пример:</p>
+			
+				<table class="iksweb">
+					<tbody>
+						<tr>
+							<td>Ввод </td>
+							<td>Вывод</td>
+						</tr>
+						<tr>
+							<td>10<br>
+							54 3 978 19 66 24 131 89 12 991
+							</td>
+							<td>5</td>
+						</tr>
+						<tr>
+							<td>3<br>
+							12 2 3
+							</td>
+							<td>2</td>
+						</tr>
+					</tbody>
+				</table>	
+										
+				<div class="demo">
+					<input type="checkbox" id="hd-2" class="hide"/>
+					<label for="hd-2" style="-webkit-user-select: none;">
+						<h2>Решение</h2>
+						
+					</label>
+					<div>
+					<div id="text2">
+					<p>
+					Мы знаем, что у простого числа только два делителя: единица и само это число.
+					Чтобы понять, что число не простое нам нужно проверить есть ли у этого числа другие делители, но эта процедура очень долгая. Чтобы ускорить данный процесс,
+					нам нужно искать делители от 2 до корня этого числа включительно. Так как если число не простое, то оно имеет как минимум два множителя, которые должны быть 
+					меньше либо равны корня из исходного числа, иначе их произведение было бы больше этого числа, поэтому нет смысла перебирать делители больше корня.
+					</p>
+					
+					<h3>Пример на Си:</h3>
+					
+					<div id="t">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26
+					<br>27<br>28</p></div>
+					<div id="text2-2">
+					<pre class="cpp"><span style="color: #339900;">#define _CRT_SECURE_NO_WARNINGS</span>
+<span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+<span style="color: #339900;">#include&lt;math.h&gt;</span>
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> N, A<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">100</span><span style="color: #008000;">&#93;</span>, i, j, ans, flag<span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>N<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> N<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	ans <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> N<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000040;">!</span><span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			flag <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+			<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>j <span style="color: #000080;">=</span> <span style="color: #0000dd;">2</span><span style="color: #008080;">;</span> j <span style="color: #000080;">&lt;=</span> <span style="color: #0000dd;">sqrt</span><span style="color: #008000;">&#40;</span>A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span> j<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+				<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000040;">%</span> j <span style="color: #000080;">==</span> <span style="color: #0000dd;">0</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>  
+					flag <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+					<span style="color: #0000ff;">break</span><span style="color: #008080;">;</span>
+				<span style="color: #008000;">&#125;</span>
+			<span style="color: #008000;">&#125;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>flag <span style="color: #000080;">==</span> <span style="color: #0000dd;">0</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+				ans<span style="color: #000040;">++</span><span style="color: #008080;">;</span>
+			<span style="color: #008000;">&#125;</span>
+		<span style="color: #008000;">&#125;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, ans<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+					</div>
+				</div>
+					
+					
+					</div>
+					</div>
+					</div>
+	
+			<br>
+			<div id="border1"></div>
+			
+			
+			
+				
+			<h2 id="3">Задача 3. Перевод числа:</h2>
+				<p>Дан массив из <b>N</b> целых чисел в 10-ой системе счисления. Найдите количество элементов, у которых ровно два нуля в 2-ой сисетме счисления.<br>
+				<b>Входные данные:</b><br>
+				Первая строка содержит одно целое число <b>N</b> (1 &#8804 <b>N</b> &#8804 1000) - количество элементов массива.<br>
+				Вторая строка содержит <b>N</b> целых чисел <b>a<sub>i</sub></b> (1 &#8804 <b>a<sub>i</sub></b> &#8804 10^9), разделенных пробелами — элементы массива.<br>
+				<b>Выходные данные:</b><br>
+				Вывести количество элементов, у которых ровна два нуля в 2 с/с.
+				</p>
+				<p>Пример:</p>
+			
+				<table class="iksweb">
+					<tbody>
+						<tr>
+							<td>Ввод </td>
+							<td>Вывод</td>
+						</tr>
+						<tr>
+							<td>7<br>
+							53 105 11 12 63486 27 246
+							</td>
+							<td>4</td>
+						</tr>
+					</tbody>
+				</table>
+				
+				<h3>Пояснение к примеру</h3>
+					<p>
+					
+					53<sub>10</sub> = 110101<sub>2</sub><br>
+					12<sub>10</sub> = 1100<sub>2</sub><br>
+					63486<sub>10</sub> = 1111011111111110<sub>2</sub><br>
+					246<sub>10</sub> = 11110110<sub>2</sub><br>
+					</p>
+					
+					
+					
+				<div class="demo">
+					<input type="checkbox" id="hd-3" class="hide"/>
+					<label for="hd-3" style="-webkit-user-select: none;">
+						<h2>Решение</h2>
+						
+					</label>
+					<div>
+					<div id="text2">
+					<p>Для решения нам нужно вспомнить как мы обычно переводим число из 10 с/с в 2 с/с.<br><br>
+					<img width = "300"src = "task2.2.jpg"><br><br>
+					</p>
+					
+					<h3>Пример на Си:</h3>
+					
+						<div id="t">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26
+					<br>27<br>28<br>29</p></div>
+					<div id="text2-2">
+					<pre class="cpp"><span style="color: #339900;">#define _CRT_SECURE_NO_WARNINGS</span>
+<span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> N, A<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">1000</span><span style="color: #008000;">&#93;</span>, i, ans, R, k<span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>N<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> N<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	ans <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> 
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> N<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		k <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> 
+		<span style="color: #0000ff;">while</span> <span style="color: #008000;">&#40;</span>A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">&gt;</span> <span style="color: #0000dd;">0</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			R <span style="color: #000080;">=</span> A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000040;">%</span> <span style="color: #0000dd;">2</span><span style="color: #008080;">;</span>  <span style="color:#339900">// считаем остаток от деления на 2 </span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>R <span style="color: #000080;">==</span> <span style="color: #0000dd;">0</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span> 
+				k<span style="color: #000040;">++</span><span style="color: #008080;">;</span>
+			<span style="color: #008000;">&#125;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>k <span style="color: #000080;">&gt;</span> <span style="color: #0000dd;">2</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>  <span style="color:#339900">// нам нет смысла продолжать дальше, так как k уже больше 2</span>
+				<span style="color: #0000ff;">break</span><span style="color: #008080;">;</span>
+			<span style="color: #008000;">&#125;</span>
+			A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000040;">/</span> <span style="color: #0000dd;">2</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+		<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>k <span style="color: #000080;">==</span> <span style="color: #0000dd;">2</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			ans<span style="color: #000040;">++</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, ans<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+					</div>
+				</div>
+
+					</div>
+					</div>
+					</div>
+	
+			<div id="border1"></div>
+		
+		
+			<h2 id="4">Задача 4. Удаление числа:</h2>
+				<p>Дан массив из <b>N</b> целых чисел. Нужно удалить элементы массива, у которых более одного нуля в записи числа.<br>
+				<b>Входные данные:</b><br>
+				Первая строка содержит одно целое число <b>N</b> (1 &#8804 <b>N</b> &#8804 1000) - количество элементов массива.<br>
+				Вторая строка содержит <b>N</b> целых чисел <b>a<sub>i</sub></b> (1 &#8804 <b>a<sub>i</sub></b> &#8804 10^9), разделенных
+				пробелами — элементы массива.
+				<br><b>Выходные данные:</b><br>
+				Вывести размер получившегося массива и на следующей строке сам массив.
+				</p>
+				<p>Пример:</p>
+			
+				<table class="iksweb">
+					<tbody>
+						<tr>
+							<td>Ввод </td>
+							<td>Вывод</td>
+						</tr>
+						<tr>
+							<td>8<br>
+							56402 20203 132 2012 208 1010 32 307310
+							</td>
+							<td>5<br>
+							56402 132 2012 208 32
+							</td>
+						</tr>
+					</tbody>
+				</table>	
+										
+				
+	
+			<br>
+			<div id="border1"></div>
+				
+				<h2 id="5">Задача 5. Вася и цепочки:</h2>
+				<p>Вася любит из чисел составляь цепочки. Число <b>a<sub>i</sub></b> попадает в цепочку, если последняя цифра числа <br><b>a<sub>i - 1</sub></b>  
+				совпадает с первой цифрой числа <b>a<sub>i</sub></b>. Естественно у первого числа в цепочки нет такого правила. У Васи есть <b>N</b> целых чисел, помогите 
+				ему найти самую длинную цепочку. Гарантируется, что есть цепочка хотя бы из 2 чисел.</p>
+				<p> Числа 62, 24, 475 являются цепочкой, а 82 45 315 нет. </p>
+				<p><b>Входные данные:</b><br>
+				Первая строка содержит одно целое число <b>N</b> (2 &#8804 <b>N</b> &#8804 10^5) - количество элементов массива.<br>
+				Вторая строка содержит <b>N</b> целых чисел <b>a<sub>i</sub></b> (1 &#8804 <b>a<sub>i</sub></b> &#8804 10^9), разделенных пробелами — элементы массива.
+				<br><b>Выходные данные:</b><br>
+				Вывести длинну самой большой цепочки.
+				</p>
+				<p>Пример:</p>
+			
+				<table class="iksweb">
+					<tbody>
+						<tr>
+							<td>Ввод </td>
+							<td>Вывод</td>
+						</tr>
+						<tr>
+							<td>10<br>
+							12 201 1 82 4 48 85 53 35 6
+							</td>
+							<td>5<br>
+							</td>
+						</tr>
+					</tbody>
+				</table>	
+							
+				<h3>Пояснение к примеру</h3>	
+				<p>12, 201, 1 - перавя цепочка;<br>
+				4, 48, 85, 53, 35 - вторая цепочка. </p>
+	
+			<div id="border1"></div>
+				
+				
+				<h2 id="6">Задача 6. Магические числа:</h2>
+				<p>Миша может превратить обычное число в "магическое". Превращение заключается в том, что число в 10 системе счисления нужно перевести в 2 с/с и
+				сделать два	циклических сдвига вправо, а потом получившееся число перевести обратно в 10 с/с, естественно ведущие нули не учитывать. Миша легко справляется 
+				с парой таких превращений, но каждый человек, которого встречает Миша, хочет, чтобы он превратил и его число в магическое. Помогите Мише справиться со всеми <b>N</b>
+				людьми, которых он встречает.
+				<br>
+				<b>Входные данные:</b><br>
+				Первая строка содержит одно целое число <b>N</b> (1 &#8804 <b>N</b> &#8804 1000) - количество людей.<br>
+				Вторая строка содержит <b>N</b> целых чисел <b>a<sub>i</sub></b> (1 &#8804 <b>a<sub>i</sub></b> &#8804 10^9), разделенных пробелами — числа, которые дают Мише люди.<br>
+				<b>Выходные данные:</b><br>
+				Вывести для каждого человека его магическое число.
+				</p>
+				<p>Пример:</p>
+			
+				<table class="iksweb">
+					<tbody>
+						<tr>
+							<td>Ввод </td>
+							<td>Вывод</td>
+						</tr>
+						<tr>
+							<td>4<br>
+							259<br>
+							12<br>
+							2635<br>
+							871<br>
+						
+							</td>
+							<td>448<br>
+							3<br>
+							3730<br>
+							985
+							</td>
+						</tr>
+					</tbody>
+				</table>	
+					
+				<h3>Пояснение к примеру 1</h3>
+				<p>259<sub>10</sub> = 100 000 011<sub>2</sub><br>
+				Первый сдвиг: 100 000 011 --> 110 000 001<br>
+				Второй сдвиг: 110 000 001 --> 111 000 000<br>
+				111 000 000<sub>2</sub> = 448<sub>10</sub>
+				
+	
+			<br>
+			<div id="border1"></div>
+				
+				
+				<h2 id="7">Задача 7. Саша и Маша:</h2>
+				<p>В городе живут Саша и Маша. Саша любит числа, у которых в двоичной системе счисления строго больше нулей, чем единиц. Маша же во 
+				всем хочет противоречить Саше, поэтому все числа, которые не нравятся Саше, нравятся Маше. Ребята играют в игру: у них есть <b>N</b> карточек 
+				с числами, каждый из них выбирает карточки, которые им нравятся. Выигрывает тот, у кого карточек больше. Гарантируется, что есть победитель.<br>
+				<b>Входные данные:</b><br>
+				Первая строка содержит одно целое число <b>N</b> (1 &#8804 <b>N</b> &#8804 1000) - количество элементов массива.<br>
+				Вторая строка содержит <b>N</b> целых чисел <b>a<sub>i</sub></b> (1 &#8804 <b>a<sub>i</sub></b> &#8804 10^9), разделенных пробелами — элементы массива.
+				<br><b>Выходные данные:</b><br>
+				В превой строке вывести имя победителя (Sasha или Masha);<br>
+				Во второй строке вывести числа, которые любит победитель;<br>
+				В третьей строке вывести числа, которые любит проигравший.
+				</p>
+				<p>Пример:</p>
+			
+				<table class="iksweb">
+					<tbody>
+						<tr>
+							<td>Ввод </td>
+							<td>Вывод</td>
+						</tr>
+						<tr>
+							<td>7<br>
+							17 3 25 24 6 84 10
+							</td>
+							<td>Masha<br>
+							3 25 6 10<br>
+							17 24 84
+							</td>
+						</tr>
+						<tr>
+							<td>12<br>
+							69 76 37 1872 12 788 418 203 117 4 108 450
+							</td>
+							<td>Sasha<br>
+							69 76 1872 788 418 4 450<br>
+							37 12 203 117 108
+							</td>
+						</tr>
+					</tbody>
+				</table>	
+						
+				<h3>Пояснение к примеру 1</h3>
+					<p>
+					Masha:<br>
+					3<sub>10</sub> = 11<sub>2</sub>; 
+					25<sub>10</sub> = 11001<sub>2</sub>; 
+					6<sub>10</sub> = 110<sub>2</sub>; 
+					10<sub>10</sub> = 1010<sub>2</sub>.
+					<br> 
+					Sasha:<br>
+					17<sub>10</sub> = 10001<sub>2</sub>; 
+					24<sub>10</sub> = 11000<sub>2</sub>; 
+					84<sub>10</sub> = 1010100<sub>2</sub>; 
+					<br> 
+					Так как у Маши на одну карточку больше, то она побеждает.
+					</p>
+
+			<div id="border1"></div>
+			
+			<h2 id="8">Задача 8. Трудные дела:</h2>
+				<p>У Никиты за месяц накопились дела. У каждого дела есть свой уровень сложности его выполнения. Никите нужно выполнить как можно больше дел, при этом их общая сумма сложностей не
+				должна быть больше чем <b>M</b>. Вы должны выводить номер дела, которое должно быть сделано, чтобы условие выше было выполнено. В итоге вы выведите список номеров дел по возрастанию, 
+				которые нужно выполнить Никите для лучшего исхода. Если ответа нет, выведите -1. Если ответов несколько, то выведите любой из них.
+				<br> 
+				<b>Входные данные:</b><br>
+				Первая строка содержит два целых числа <b>N</b> (1 &#8804 <b>N</b> &#8804 10^4) и <b>M</b> (1 &#8804 <b>M</b> &#8804 10^4) - количество дел и макс. сумма сложностей соответственно.<br>
+				Вторая строка содержит <b>N</b> целых чисел <b>a<sub>i</sub></b> (1 &#8804 <b>a<sub>i</sub></b> &#8804 10^9), разделенных пробелами — сложность дела номер i.<br>
+				<b>Выходные данные:</b><br>
+				Если ответ есть, то выведите номера дел через пробел, иначе -1. Нумерация начинается с 1.
+				</p>
+				<p>Пример:</p>
+			
+				<table class="iksweb">
+					<tbody style="text-align:left">
+						<tr>
+							<td>Ввод </td>
+							<td>Вывод</td>
+						</tr>
+						<tr>
+							<td>6 15<br>
+							8 3 6 12 4 9
+							</td>
+							<td>
+							2 3 5
+							</td>
+						</tr>
+						<tr>
+							<td>7 86<br>
+							14 40 15 14 2 36 6
+							</td>
+							<td>
+							1 3 4 5 7
+							</td>
+						</tr>
+					</tbody>
+				</table>	
+					<h3>Пояснение к примеру 2</h3>
+				<p>В этом примере допустимы еще несколько ответов, например 2 3 4 5 7. Сумма сложностей будет 77, что меньше 86.</p>
+	
+	
+				
+			</div>
+				<div id="rightblock">
+				<p><b><font style="font-size:140%">Задачи:</font></b><br>
+					<a href="#1"> 1. Мин. и макс. элемент</a><br>
+					<a href="#2"> 2. Простые числа</a><br>
+					<a href="#3"> 3. Перевод числа</a><br>
+					<a href="#4"> 4. Удаление числа</a><br>
+					<a href="#5"> 5. Вася и цепочки</a><br>
+					<a href="#6"> 6. Магические числа</a><br>
+					<a href="#7"> 7. Саша и Маша</a><br>
+					<a href="#8"> 8. Трудные дела</a>
+				</p>
+				</div>
+		</div>
+		
+	
+		<div id="border2"></div>
+	<div id ="bottomblock">
+		<p class="p" style="text-align:center"><a href = "..\index.html" style = "font-family:bookman old style; color: #0000dd"><b>Code.C</b></a>
+		&#169 Copyright Павел Калашников 2021
+		<br>
+		обратная связь <span style="color:#0000dd">code.c@mail.ru</span></p><br>
+		</div>
+		
+	</div>
+ </body>
+</html>
