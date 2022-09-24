@@ -63,7 +63,7 @@ nav a {
 }
 #text{
 	float:left;
-	width:72%;	
+	width:70%;	
 	overflow:hidden;
 }
 #text1{
@@ -106,7 +106,7 @@ nav a {
 #rightblock{
 	margin-top:30px;
 	float:right;
-	width:26.5%;
+	width:27%;
 	border: 2px solid black;
 	background-color:;
 }
