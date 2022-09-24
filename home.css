@@ -208,7 +208,7 @@ h3{
 	#navigation_top{ height:8vmax;padding-top:0%;position:fixed;
 	border-bottom:0.6vmax solid black;z-index:1; }
 	#text{width:100%;}
-	#rightblock{ margin:0 auto; width:70%; float:none; overflow:hidden;}
+	#rightblock{ margin:0 auto; width:70%; float:none; overflow:hidden; margin-top:20px;}
 	#navigation{
 		background-color:whitesmoke;
 		height:200vmax;
@@ -260,7 +260,7 @@ h3{
 		}
 	}
 	.p{
-		font-size:1.5vmax;  /* bottom */
+		font-size:2vmax;  /* bottom */
 	}
-	p{font-size:18px;}
+	p{font-size:25px;}
 }
