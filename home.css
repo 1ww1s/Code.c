@@ -130,7 +130,7 @@ nav a {
 }
 
 h1{
-	font-size:30px;
+	font-size:40px;
 }
 
 p{
@@ -263,5 +263,4 @@ h3{
 		font-size:2vmax;  /* bottom */
 	}
 	p{font-size:25px;}
-	h1{font-size:30px;}
 }
