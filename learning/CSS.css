@@ -105,7 +105,7 @@ nav a {
 }
 
 #rightblock{
-	margin-top:30px;
+	margin-top:130px;
 	float:right;
 	width:27%;
 	border: 2px solid black;
@@ -257,7 +257,7 @@ table.iksweb th {
 
 @media(max-width:1000px){ 
 	#yandex_rtb_R-A-1944727-1{
-	z-index:-1; margin-top:30px;
+	z-index:-1; margin-top:130px;
 		position:relative;
 	}
 	#pk{
