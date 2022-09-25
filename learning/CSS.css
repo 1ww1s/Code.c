@@ -17,6 +17,7 @@ body{
 	padding-top:10%;
 	background-color:#191970;  /* #f0f0f0 */
 	border-bottom:5px solid black;
+	z-index:1;
 }
 
 #navigation_main{
@@ -24,12 +25,14 @@ body{
 	margin: 0 auto;
 	width:1100px;
 	max-width:95%;
+	z-index:1;
 }
 
 #name{
 	float:left;
 	font-size:55px;
 	color:white;
+	z-index:1;
 }
 
 #navigation{	
@@ -37,6 +40,7 @@ body{
 	width:70%;
 	float: right;
 	text-align:right;
+	z-index:1;
 }
 nav{
 	text-align:right;
@@ -65,7 +69,7 @@ nav a {
 	float:left;
 	width:70%;	
 	overflow:hidden;
-	background-color:red;
+	background-color:blue;
 }
 #text1{
 	background-color:#E6E6FA;
