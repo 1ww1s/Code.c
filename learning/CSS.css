@@ -109,10 +109,10 @@ nav a {
 	width:27%;
 	border: 2px solid black;
 	background-color:#ebebeb;
-	z-index:0;
+	z-index:-1;
 }
 #yandex_rtb_R-A-1944727-1{
-	z-index:0;
+	z-index:-1;
 }
 
 
@@ -255,6 +255,9 @@ table.iksweb th {
 }
 
 @media(max-width:1000px){ 
+	#yandex_rtb_R-A-1944727-1{
+	z-index:-1;
+	}
 	#pk{
 		display:none;
 	}
@@ -264,7 +267,7 @@ table.iksweb th {
 	#navigation_top{ height:8vmax;padding-top:0%;position:fixed; z-index:1;;
 	border-bottom:0.6vmax solid black;z-index:1; }
 	#text{width:100%;}
-	#rightblock{ margin:0 auto; width:80%; float:none; overflow:hidden;margin-top:30px; margin-bottom:30px;}
+	#rightblock{ margin:0 auto; width:80%; float:none; overflow:hidden;margin-top:30px; margin-bottom:30px; z-index:-1;}
 	#navigation{
 		z-index:1;
 		background-color:whitesmoke;
