@@ -235,6 +235,7 @@ table.iksweb th {
 	margin-top:7.75vmax;
 	margin-left:-0.6vmax;
 	position:fixed;
+	z-index:1;
 }
 
 
@@ -269,7 +270,6 @@ table.iksweb th {
 	}
 	#pk{
 		display:none;
-		
 	}
 	nav a{color:black;}
 	nav{ text-align:left;}
@@ -304,6 +304,7 @@ table.iksweb th {
 	#m{
 		width:100%;
 		display:block;
+		z-index:1;
     }
 	#name{
 		font-size:5.2vmax;
@@ -311,6 +312,7 @@ table.iksweb th {
 		width:65%;
 		margin-top:1vmax;
 		margin-left:1vmax;
+		z-index:1;
 	}
 	.bt{margin-top:1.5vmax;}
 	#body{
