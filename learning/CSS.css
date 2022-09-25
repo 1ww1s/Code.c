@@ -70,7 +70,7 @@ nav a {
 	float:left;
 	width:70%;	
 	overflow:hidden;
-	background-color:green;
+	background-color:blue;
 	z-index:1;
 }
 #text1{
@@ -277,7 +277,7 @@ table.iksweb th {
 	#navigation_top{ height:8vmax;padding-top:0%;position:fixed; z-index:1;;
 	border-bottom:0.6vmax solid black;z-index:1; }
 	#text{width:100%; margin-bottom:30px; margin-top:200px;}
-	#rightblock{ margin:30px auto; width:80%; float:none; overflow:hidden; z-index:-2;}
+	#rightblock{ margin:30px auto; width:80%; float:none; overflow:hidden; z-index:-2;position:absolute;}
 	#navigation{
 		z-index:1;
 		background-color:whitesmoke;
