@@ -65,7 +65,7 @@ nav a {
 	float:left;
 	width:70%;	
 	overflow:hidden;
-	background-color:blue;
+	background-color:grey;
 }
 #text1{
 	background-color:#E6E6FA;
@@ -257,7 +257,7 @@ table.iksweb th {
 
 @media(max-width:1000px){ 
 	#yandex_rtb_R-A-1944727-1{
-	z-index:-1; position:relative; 
+	z-index:-1; position:relative;   overflow: hidden;
 	}
 	#pk{
 		display:none;
