@@ -64,12 +64,14 @@ nav a {
 	overflow:hidden;
 	width:1100px;
 	max-width:95%;
+	z-index:1;
 }
 #text{
 	float:left;
 	width:70%;	
 	overflow:hidden;
 	background-color:blue;
+	z-index:1;
 }
 #text1{
 	background-color:#E6E6FA;
@@ -81,6 +83,7 @@ nav a {
 	overflow-x:auto;
 	background-color: #F2F2F2;
 	padding-left:6px;
+	z-index:1;
 }
 
 #t{
