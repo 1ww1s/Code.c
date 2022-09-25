@@ -259,7 +259,7 @@ table.iksweb th {
 	#navigation_top{ height:8vmax;padding-top:0%;position:fixed;
 	border-bottom:0.6vmax solid black;z-index:1; }
 	#text{width:100%;}
-	#rightblock{ margin:0 auto; width:70%; float:none; overflow:hidden; font-size:25px;}
+	#rightblock{ margin:0 auto; width:99%; float:none; overflow:hidden;}
 	#navigation{
 		background-color:whitesmoke;
 		height:200vmax;
