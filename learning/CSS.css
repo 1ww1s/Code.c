@@ -1,6 +1,7 @@
 body{
 	background-color:;
 	font-family: 'PT Sans', sans-serif;
+	z-index:1;
 }
 #container{
 	position:absolute;
@@ -8,6 +9,7 @@ body{
 	top:0;
 	left:0;
 	width:100%;
+	z-index:1;
 }
 
 #navigation_top{	
@@ -45,10 +47,12 @@ body{
 nav{
 	text-align:right;
 	font-size:175%;	
+	z-index:1;
 }
 a{
 	text-decoration:none;
 	color:black;
+	z-index:1;
 }
 nav a {
 	display: inline-block;
@@ -56,6 +60,7 @@ nav a {
 	color: white;
 	padding: 1.5% 1% 1.5% 1%; 
 	font-family: comic sans ms;
+	z-index:1;
 }
 
 
@@ -90,15 +95,18 @@ nav a {
 	margin-left:-6px;
 	overflow-x:auto;
 	border-bottom:1.6px solid black;
+	z-index:1;
 }
 #text2-1{
 	float:left;
 	width:4%;
 	border-right:1px solid black;
+	z-index:1;
 }
 #text2-2{
 	float:right;
 	width:95%;
+	z-index:1;
 }
 .p1{
 	font-size:16.5px;
@@ -117,7 +125,7 @@ nav a {
 	width:27%;
 	border: 2px solid black;
 	background-color:#ebebeb;
-	z-index:-1;
+	z-index:-99;
 }
 #yandex_rtb_R-A-1944727-1{
 
