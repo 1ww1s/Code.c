@@ -233,13 +233,17 @@ table.iksweb th {
 	display:none;
 }
 .menu.open {
-    transition: .2s visibility linear, .2s opacity linear;
+     transition: .2s visibility linear, .2s opacity linear;
     visibility: visible;
 	display:block;
-	margin-top:7.75vmax;
+	margin-top:8vmax;
 	margin-left:-0.6vmax;
 	position:fixed;
 	z-index:1;
+	height:100%;
+	background-color:green;
+	border-top:0.6vmax solid black;
+	border-right:0.4vmax solid black;
 }
 
 
@@ -282,13 +286,12 @@ table.iksweb th {
 	#text{width:100%; margin-bottom:30px;position:relative;}
 	#rightblock{ margin:30px auto; width:80%; float:none; overflow:hidden; z-index:99;position:relative; }
 	#navigation{
-		background-color:red;
-		height:200vmax;
+		background-color:grey;
+		overflow:auto;
 		width:26vmax;
-		border-top:0.6vmax solid black;
-		border-right:0.4vmax solid black;
+		height:80%;
 		font-size:1.7vmax;
-		padding-left:2.2vmax;
+		padding-left:1.5vmax;
 		float:left;
 		position:relative;
 	}
