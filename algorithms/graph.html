@@ -24,31 +24,60 @@
 				
 						<div class="bt"><img width="100%" src="t.png"></div>
 					<nav class="menu">
-						<div  id="navigation">
-							
-								<nav style = "margin-top:1vmax">
+						<div class="scroll" id="navigation">
+							<div id="nav1">
 									<a href="..\index.html" >Главная</a><br>
 									<a href="..\learning\learning.html"> Изучение</a><br>
 									<a href="..\tasks\tasks.html">> Задачи< /a> ><br>
 									<a href="algorithms.html" style="color:#0000dd">Алгоритмы</a><br>
 								</nav>	
 								
-							
-							
-							
+							</div>
+							<div style="margin-top:5vmax" id="border1"></div>
+							<div id="nav_page">
+								<div id="nav1">
+									<p class="p_right" style="margin-left:10px"><b><font style="font-size:125%">Навигация по странице:</font></b><br>
+										<a href="#1">1. Что будет храниться в структуре?</a><br>
+										<a href="#2">2. Добавление путей</a><br>
+										<a href="#3">3. Выделение памяти</a><br>
+										<a href="#4">4. Ввод графа, полный код</a><br>
+										<a href="#5">5. Задача на граф с решением</a><br>
+									</p>
+								</div>
+									<div id="border1"></div>
+								<div id="nav1">
+									<p class="p_right"  style="margin-left:10px"><b><a href="..\tasks\tasksgraph.html">Задачи на графы</a></b><br>
+								</div>
+								<div id="border1"></div>
+								<div id="nav1">
+									<div id ="rightblock">
+										<!-- Yandex.RTB R-A-1944727-5 -->
+										<div id="yandex_rtb_R-A-1944727-5"></div>
+										<script style="z-index:99;">window.yaContextCb.push(()=>{
+										  Ya.Context.AdvManager.render({
+										    renderTo: 'yandex_rtb_R-A-1944727-5',
+										    blockId: 'R-A-1944727-5'
+										  })
+										})</script>
+			
+									</div>
+								</div>
+							</div>
 						</div>
 						
 	
 					</nav>
-
-					<script>const btnMenu = document.querySelector('.bt');
+				
+				
+				
+	<script>const btnMenu = document.querySelector('.bt');
 const menu = document.querySelector('.menu');
 const darken = document.querySelector('.darken');
 
 
 const toggleMenu = function() {
-    menu.classList.toggle('открыть');
-	 darken.classList.toggle('открыть');
+    menu.classList.toggle('open');
+	 darken.classList.toggle('open');
 }
 
 btnMenu.addEventListener('click', function(e) {
@@ -60,15 +89,17 @@ document.addEventListener('click', function(e) {
     const target = e.target;
     const its_menu = target == menu || menu.contains(target);
     const its_btnMenu = target == btnMenu;
-    const menu_is_active = menu.classList.contains('открыть');
+    const menu_is_active = menu.classList.contains('open');
     
-    если (!its_menu && !its_btnMenu && menu_is_active) {
+    if (!its_menu && !its_btnMenu && menu_is_active) {
         toggleMenu();
     }
 	
 });
 
 </script>
+					</script>
+
 
 					<div id = "name">
 						<a href="..\index.html" style=" font-family: sans-serif; color:white;"><b>Code.C</b></a>
@@ -101,8 +132,8 @@ document.addEventListener('click', function(e) {
 				и сложность обхода такой матрицы будет n^2. Поэтому применяется хранение графа с помощью <b>массива структур</b>. <br>Каждый элемент массива структуры является описанием одной из
 				вершин графа, причем индекс элемента равен номеру вершины - 1, так как в Си нумерация начинается с 0. Например описание вершины 3 будет храниться в элементе массива с индексом 2.  </p>
 				</div>
-				<div class="p_right" id="rightblock">
-				<p style="margin-left:10px"><b><font style="font-size:125%">Навигация по странице:</font></b><br>
+				<div id="rightblock">
+				<p class="p_right" style="margin-left:10px"><b><font style="font-size:125%">Навигация по странице:</font></b><br>
 					<a href="#1">1. Что будет храниться в структуре?</a><br>
 					<a href="#2">2. Добавление путей</a><br>
 					<a href="#3">3. Выделение памяти</a><br>
