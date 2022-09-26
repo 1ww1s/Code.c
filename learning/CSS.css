@@ -131,7 +131,7 @@ nav a {
 #border1{
 	height:2px;
 	background-color:black;
-	width:100%;
+	width:100%; 
 }
 
 #border2{
@@ -232,8 +232,9 @@ table.iksweb th {
 .menu {
 	display:none;
 }
+
 .menu.open {
-     transition: .2s visibility linear, .2s opacity linear;
+    transition: .2s visibility linear, .2s opacity linear;
     visibility: visible;
 	display:block;
 	margin-top:8.6vmax;
@@ -241,7 +242,7 @@ table.iksweb th {
 	position:fixed;
 	z-index:1;
 	height:100%;
-	background-color:green;
+	background-color:whitesmoke;
 	border-right:0.4vmax solid black;
 }
 
@@ -279,18 +280,56 @@ table.iksweb th {
 	}
 	nav a{color:black;}
 	nav{ text-align:left; font-size:195%;}
-	#navigation_main{max-width:98.8%;height:100%;overflow:hidden; z-index:999;position:relative;}
+	#navigation_main{max-width:98.8%;overflow:hidden; z-index:999;position:relative;}
 	#navigation_top{ height:8vmax;padding-top:0%;position:fixed;
 	border-bottom:0.6vmax solid black;z-index:999; }
 	#text{width:100%; margin-bottom:30px;position:relative;}
+	
 	#rightblock{ margin:30px auto; width:80%; float:none; overflow:hidden; z-index:99;position:relative; }
+	
+	#nav1{
+		margin-left:1.5vmax;
+	}
+	#nav_page{ 
+	width:100%; 
+	overflow:hidden; 
+	z-index:99;
+	float:left;
+	text-align:left;
+	width:100%;
+	background-color:whitesmoke;
+	z-index:99;
+	text-decoration:none;
+	}	
+	.p_nav_page{
+		font-size:100%;
+	}
+
+	.scroll{
+	scrollbar-width: thin;
+	scrollbar-color: blue whitesmoke;
+	}
+	.scroll::-webkit-scrollbar {
+	  height: 1.5vmax;
+	  width: 1.5vmax;
+	}
+
+	.scroll::-webkit-scrollbar-track {
+	  background: #DCDCDC;
+	}
+
+	.scroll::-webkit-scrollbar-thumb {
+	  background-color: #191970;
+	  border-radius: 1vmax;
+	  border: 0.4vmax solid whitesmoke;
+	}
+
 	#navigation{
-		background-color:grey;
+		background-color:whitesmoke;
 		overflow:auto;
 		width:26vmax;
 		height:80%;
 		font-size:1.7vmax;
-		padding-left:1.5vmax;
 		float:left;
 		position:relative;
 	}
