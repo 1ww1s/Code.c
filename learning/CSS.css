@@ -76,7 +76,7 @@ nav a {
 	float:left;
 	width:70%;	
 	overflow:hidden;
-	background-color:blue;
+	background-color:green;
 }
 #text1{
 	background-color:#E6E6FA;
@@ -275,7 +275,7 @@ table.iksweb th {
 		display:none;
 	}
 	nav a{color:black;}
-	nav{ text-align:left;}
+	nav{ text-align:left; font-size:100px;}
 	#navigation_main{max-width:98.8%;height:100%;overflow:hidden; z-index:999;position:relative;}
 	#navigation_top{ height:8vmax;padding-top:0%;position:fixed;
 	border-bottom:0.6vmax solid black;z-index:999; }
