@@ -332,6 +332,7 @@ table.iksweb th {
 		font-size:1.7vmax;
 		float:left;
 		position:relative;
+		margin-top:100px;
 	}
 	.darken{display:none;}
 	.darken.open{
