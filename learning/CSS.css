@@ -168,7 +168,9 @@ h2{
 h3{
 	font-size:155%;	 
 }
-
+.pk{
+display: none; 	
+}
 
 a:focus + .full {
   display: block;
@@ -332,6 +334,9 @@ table.iksweb th {
 		font-size:1.7vmax;
 		float:left;
 		position:relative;
+	}
+	.pk{
+	display:none;
 	}
 	.darken{display:none;}
 	.darken.open{
