@@ -1,6 +1,7 @@
 body{
 	background-color:;
 	font-family: 'PT Sans', sans-serif;
+	z-index:1;
 }
 #container{
 	position:absolute;
@@ -8,6 +9,7 @@ body{
 	top:0;
 	left:0;
 	width:100%;
+	z-index:1;
 }
 
 #navigation_top{	
@@ -17,6 +19,8 @@ body{
 	padding-top:10%;
 	background-color:#191970;  /* #f0f0f0 */
 	border-bottom:5px solid black;
+	z-index:1;
+	position:relative;
 }
 
 #navigation_main{
@@ -24,12 +28,15 @@ body{
 	margin: 0 auto;
 	width:1100px;
 	max-width:95%;
+	z-index:1;
+	position:relative;
 }
 
 #name{
 	float:left;
 	font-size:55px;
 	color:white;
+	z-index:1;
 }
 
 #navigation{	
@@ -37,14 +44,17 @@ body{
 	width:70%;
 	float: right;
 	text-align:right;
+	z-index:1;
 }
 nav{
 	text-align:right;
 	font-size:175%;	
+	z-index:1;
 }
 a{
 	text-decoration:none;
 	color:black;
+	z-index:1;
 }
 nav a {
 	display: inline-block;
@@ -52,6 +62,7 @@ nav a {
 	color: white;
 	padding: 1.5% 1% 1.5% 1%; 
 	font-family: comic sans ms;
+	z-index:1;
 }
 
 
@@ -65,6 +76,7 @@ nav a {
 	float:left;
 	width:70%;	
 	overflow:hidden;
+	background-color:;
 }
 #text1{
 	background-color:#E6E6FA;
@@ -109,12 +121,17 @@ nav a {
 	width:27%;
 	border: 2px solid black;
 	background-color:#ebebeb;
+	z-index:99;
 }
+#yandex_rtb_R-A-1944727-1{
+
+}
+
 
 #border1{
 	height:2px;
 	background-color:black;
-	width:100%;
+	width:100%; 
 }
 
 #border2{
@@ -215,13 +232,18 @@ table.iksweb th {
 .menu {
 	display:none;
 }
+
 .menu.open {
     transition: .2s visibility linear, .2s opacity linear;
     visibility: visible;
 	display:block;
-	margin-top:7.75vmax;
+	margin-top:8.6vmax;
 	margin-left:-0.6vmax;
 	position:fixed;
+	z-index:1;
+	height:100%;
+	background-color:whitesmoke;
+	border-right:0.4vmax solid black;
 }
 
 
@@ -250,25 +272,66 @@ table.iksweb th {
 }
 
 @media(max-width:1000px){ 
+	#yandex_rtb_R-A-1944727-1{
+		z-index:99;	
+	}
 	#pk{
 		display:none;
 	}
 	nav a{color:black;}
-	nav{ text-align:left;}
-	#navigation_main{max-width:98.8%;height:100%;overflow:hidden;}
+	nav{ text-align:left; font-size:195%;}
+	#navigation_main{max-width:98.8%;overflow:hidden; z-index:999;position:relative;}
 	#navigation_top{ height:8vmax;padding-top:0%;position:fixed;
-	border-bottom:0.6vmax solid black;z-index:1; }
-	#text{width:100%;}
-	#rightblock{ margin:0 auto; width:70%; float:none; overflow:hidden;}
+	border-bottom:0.6vmax solid black;z-index:999; }
+	#text{width:100%; margin-bottom:30px;position:relative;}
+	
+	#rightblock{ margin:30px auto; width:80%; float:none; overflow:hidden; z-index:99;position:relative; }
+	
+	#nav1{
+		margin-left:1.5vmax;
+	}
+	#nav_page{ 
+	width:100%; 
+	overflow:hidden; 
+	z-index:99;
+	float:left;
+	text-align:left;
+	width:100%;
+	background-color:whitesmoke;
+	z-index:99;
+	text-decoration:none;
+	}	
+	.p_nav_page{
+		font-size:100%;
+	}
+
+	.scroll{
+	scrollbar-width: thin;
+	scrollbar-color: blue whitesmoke;
+	}
+	.scroll::-webkit-scrollbar {
+	  height: 1.5vmax;
+	  width: 1.5vmax;
+	}
+
+	.scroll::-webkit-scrollbar-track {
+	  background: #DCDCDC;
+	}
+
+	.scroll::-webkit-scrollbar-thumb {
+	  background-color: #191970;
+	  border-radius: 1vmax;
+	  border: 0.4vmax solid whitesmoke;
+	}
+
 	#navigation{
 		background-color:whitesmoke;
-		height:200vmax;
+		overflow:auto;
 		width:26vmax;
-		border-top:0.6vmax solid black;
-		border-right:0.4vmax solid black;
+		height:80%;
 		font-size:1.7vmax;
-		padding-left:2.2vmax;
 		float:left;
+		position:relative;
 	}
 	.darken{display:none;}
 	.darken.open{
@@ -279,8 +342,7 @@ table.iksweb th {
 		display:block;
 		opacity:0.5;
 		position:fixed;
-		z-index:0;
-	
+		z-index:999;
 	}
 	#m{
 		width:100%;
@@ -310,7 +372,6 @@ table.iksweb th {
 	.p{
 		font-size:1.5vmax;  
 	}
-	p{font-size:16px;}
 	#text2-1{
 		width:calc(2vmax + 12px);
 		float:left;
@@ -326,6 +387,7 @@ table.iksweb th {
 	.p1{
 		font-size:	calc(1.2vmax + 9px);
 	}
+	.p_right{font-size:30px;}
 	table.iksweb td,table.iksweb th {
 			font-size:calc(1.2vmax + 9px);
 	}
