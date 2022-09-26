@@ -76,7 +76,7 @@ nav a {
 	float:left;
 	width:70%;	
 	overflow:hidden;
-	background-color:blue;
+	background-color:;
 }
 #text1{
 	background-color:#E6E6FA;
@@ -342,6 +342,7 @@ table.iksweb th {
 		display:block;
 		opacity:0.5;
 		position:fixed;
+		z-index:999;
 	}
 	#m{
 		width:100%;
