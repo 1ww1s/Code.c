@@ -23,20 +23,48 @@
 			<div id="m">
 				
 						<div class="bt"><img width="100%" src="t.png"></div>
-						
-					
-					<nav class="menu">
-						<div id="navigation">
-							<nav>
-							<a href="..\index.html" >Главная</a><br>
-							<a href="..\learning\learning.html"> Изучение</a><br>
-							<a href="..\tasks\tasks.html"> Задачи</a><br>
-							<a href="algorithms.html" style="color:#0000dd">Алгоритмы</a><br>
-							</nav>	
+						<nav class="menu">
+						<div class="scroll" id="navigation">
+							<div id="nav1">
+								<nav style = "margin-top:1vmax">
+									<a href="..\index.html" >Главная</a><br>
+									<a href="..\learning\learning.html"> Изучение</a><br>
+									<a href="..\tasks\tasks.html"> Задачи</a><br>
+									<a href="algorithms.html" style="color:#0000dd">Алгоритмы</a><br>
+								</nav>	
+								
+							</div>
+							<div style="margin-top:5vmax" id="border1"></div>
+							<div id="nav_page">
+								<div id="nav1">
+									<p class="p_nav_page" style="margin-left:10px"><b><font style="font-size:125%">Навигация по странице:</font></b><br>
+									<a href="#1">1. Сортировка пузырьком</a><br>
+									<a href="#2">2. Сортировка выбором</a><br>
+									<a href="#3">3. Быстрая сортировка</a><br>
+									<a href="#4">4. Лексикографическая<br>сортировка строк</a><br>
+									<a href="#5">5. Сортировка струкутуры</a><br>
+									</p>	
+								</div>
+								
+								<div id="border1"></div>
+								<div id="nav1">
+									<div id ="rightblock">
+										<!-- Yandex.RTB R-A-1944727-5 -->
+										<div id="yandex_rtb_R-A-1944727-5"></div>
+										<script style="z-index:99;">window.yaContextCb.push(()=>{
+										  Ya.Context.AdvManager.render({
+										    renderTo: 'yandex_rtb_R-A-1944727-5',
+										    blockId: 'R-A-1944727-5'
+										  })
+										})</script>
+			
+									</div>
+								</div>
+							</div>
 						</div>
+						
 	
 					</nav>
-				
 					<script>const btnMenu = document.querySelector('.bt');
 const menu = document.querySelector('.menu');
 const darken = document.querySelector('.darken');
@@ -96,6 +124,17 @@ document.addEventListener('click', function(e) {
 				<h1>Сортировки</h1>
 				<p>Крайне часто в задачах нужно отсортировать массив, но как это сделать? Существует много разных алгоритмов. Давайте поговорим про некоторые алгоритмы и их время выполнения.</p>
 				<p>Сначало проговорим о самых простых алгоритмах, у которых время выполнения равна <b>O(n<sup>2</sup>)</b>. Такие алгоритмы эффективны только для небольших массивов.</p>
+				</div>
+				<div id="rightblock">
+				<p class="p_right" style="margin-left:10px"><b><font style="font-size:125%">Навигация по странице:</font></b><br>
+									<a href="#1">1. Сортировка пузырьком</a><br>
+									<a href="#2">2. Сортировка выбором</a><br>
+									<a href="#3">3. Быстрая сортировка</a><br>
+									<a href="#4">4. Лексикографическая<br>сортировка строк</a><br>
+									<a href="#5">5. Сортировка струкутуры</a><br>
+									</p>	
+					</div>
+				<div id="text">
 				<h3 id="1">Сортировка пузырьком</h3>
 				<p>Алгоритм основан на поэтапном сравнении двух соседних элементов массива. Если нам нужно отсортировать массив по неубыванию, то при каждом прохождении внешнего цикла максимальный из
 				оставшихся элементов будет смещаться в конец массива, то есть "сплывать", как пузырёк.<br> Давайте посмотрим на алгоритм:</p>
@@ -171,7 +210,18 @@ document.addEventListener('click', function(e) {
 	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
 <span style="color: #008000;">&#125;</span></pre>
 					</div>
-				</div>
+				
+					</div>
+					</div>
+					<div id="rightblock">
+				<div id="yandex_rtb_R-A-1944727-1"></div>
+<script>window.yaContextCb.push(()=>{
+  Ya.Context.AdvManager.render({
+    renderTo: 'yandex_rtb_R-A-1944727-1',
+    blockId: 'R-A-1944727-1'
+  })
+})</script></div>
+			<div id ="text">
 				<h3 id="3">Быстрая сортировка</h3>
 				<p>Само название говорит о быстроте этой сортировки, действительно, эта сортировка является одной из самых быстрых сортировок. В языке Си есть функция данной сортировки 
 				под названием <b>qsort()</b>. Эта функция находится в библиотеке <b>stdlib.h</b>. </p>
@@ -332,27 +382,6 @@ document.addEventListener('click', function(e) {
 				</div>
 			
 			</div>
-		
-				<div id="rightblock">
-				<p style="margin-left:10px"><b><font style="font-size:125%">Навигация по странице:</font></b><br>
-				<a href="#1">1. Сортировка пузырьком</a><br>
-				<a href="#2">2. Сортировка выбором</a><br>
-				<a href="#3">3. Быстрая сортировка</a><br>
-				<a href="#4">4. Лексикографическая<br>сортировка строк</a><br>
-				<a href="#5">5. Сортировка струкутуры</a><br>
-				</p>
-				</div>
-		<div id="rightblock">
-				<div id="yandex_rtb_R-A-1944727-1"></div>
-<script>window.yaContextCb.push(()=>{
-  Ya.Context.AdvManager.render({
-    renderTo: 'yandex_rtb_R-A-1944727-1',
-    blockId: 'R-A-1944727-1'
-  })
-})</script></div>
-			
-			
-		
 		
 			</div>
 		<div id="border2"></div>
