@@ -23,20 +23,54 @@
 			<div id="m">
 				
 						<div class="bt"><img width="100%" src="t.png"></div>
-						
-					
-					<nav class="menu">
-						<div id="навигация">
-							<nav>
-							<a href="..\index.html" >Главная</a><br>
-							<a href="..\learning\learning.html"> Изучение</a><br>
-							<a href="..\tasks\tasks.html">> Задачи< /a> ><br>
-							<a href="algorithms.html" style="color:#0000dd">Алгоритмы</a><br>
-							</nav>	
+						<nav class="menu">
+						<div class="scroll" id="navigation">
+							<div id="nav1">
+								<nav style = "margin-top:1vmax">
+									<a href="..\index.html" >Главная</a><br>
+									<a href="..\learning\learning.html"> Изучение</a><br>
+									<a href="..\tasks\tasks.html">> Задачи< /a> ><br>
+									<a href="algorithms.html" style="color:#0000dd">Алгоритмы</a><br>
+								</nav>	
+								
+							</div>
+							<div style="margin-top:5vmax" id="border1"></div>
+							<div id="nav_page">
+								<div id="nav1">
+									 <p class="p_nav_page" style="margin-left:10px"><b><font style="font-size:125%">Навигация по странице:</font></b><br>
+										<a href="#1">1. Что будет храниться в структуре?</a><br>
+										<a href="#2">2. Добавление путей</a><br>
+										<a href="#3">3. Выделение памяти</a><br>
+										<a href="#4">4. Ввод графа, полный код</a><br>
+										<a href="#5">5. Задача на граф с решением</a><br>
+									</p>
+								</div>
+									<div id="border1"></div>
+								<div id="nav1">
+									
+									<p class="p_nav_page" style="margin-left:10px"><b>
+										<a href="..\tasks\tasksgraph.html">Задачи на графы</a></b><br></p>
+								</div>
+								<div id="border1"></div>
+								<div id="nav1">
+									<div id ="rightblock">
+										<!-- Yandex.RTB R-A-1944727-5 -->
+										<div id="yandex_rtb_R-A-1944727-5"></div>
+										<script style="z-index:99;">window.yaContextCb.push(()=>{
+										  Ya.Context.AdvManager.render({
+										    renderTo: 'yandex_rtb_R-A-1944727-5',
+										    blockId: 'R-A-1944727-5'
+										  })
+										})</script>
+			
+									</div>
+								</div>
+							</div>
 						</div>
+						
 	
 					</nav>
-				
+
 					<script>const btnMenu = document.querySelector('.bt');
 const menu = document.querySelector('.menu');
 const darken = document.querySelector('.darken');
@@ -96,6 +130,20 @@ document.addEventListener('click', function(e) {
 				<p>Существует множество задач и алгоритмов на графы, но как их представить в компьютере? Для хранении графа можно использовать матрицу смежности, но тогда нам потребуется много памяти
 				и сложность обхода такой матрицы будет n^2. Поэтому применяется хранение графа с помощью <b>массива структур</b>. <br>Каждый элемент массива структуры является описанием одной из
 				вершин графа, причем индекс элемента равен номеру вершины - 1, так как в Си нумерация начинается с 0. Например описание вершины 3 будет храниться в элементе массива с индексом 2.  </p>
+				</div>
+				<div class="p_right" id="rightblock">
+				<p style="margin-left:10px"><b><font style="font-size:125%">Навигация по странице:</font></b><br>
+					<a href="#1">1. Что будет храниться в структуре?</a><br>
+					<a href="#2">2. Добавление путей</a><br>
+					<a href="#3">3. Выделение памяти</a><br>
+					<a href="#4">4. Ввод графа, полный код</a><br>
+					<a href="#5">5. Задача на граф с решением</a><br>
+				</p>
+				<div style="width:100%" id="border1"></div>
+				<p style="margin-left:10px"><b><a href="..\tasks\tasksgraph.html">Задачи на графы</a></b><br>
+				</p>
+			</div>
+				<div id="text">
 				
 				<h3 id="1">Что будет храниться в структуре?</h3>
 				<p>Здесь только зависит от вас или от задачи, но в любом случае нужно будет хранить связь(ребра) между вершинами. Для некоторых задач важны еще и предки вершины, то есть вершины, из которых мы
@@ -132,7 +180,19 @@ A<span style="color: #008000;">&#91;</span>u <span style="color: #000040;">-</sp
 				вершина <b>v</b>. </p>
 				
 				<p>Не всегда в задаче нам нужны предки вершин, например в обходе в ширину. Перед написанием кода вы уже должны знать какие переменные точно будут храниться в вашей структуре, иначе можете сделать много лишней работы.</p>
-				
+			</div>
+				<div id="rightblock">
+			<div id="yandex_rtb_R-A-1944727-1"></div>
+<script>window.yaContextCb.push(()=>{
+  Ya.Context.AdvManager.render({
+    renderTo: 'yandex_rtb_R-A-1944727-1',
+    blockId: 'R-A-1944727-1'
+  })
+})</script>
+			
+			</div>	
+				<div id="text">	
+					
 				<h3 id="3">Выделение памяти</h3>
 				<p>Так как изначально мы не знаем сколько у каждой вершины путей, то придется выделять память под хранение динамически. В начале программы мы выделяем только один элемент массива путей для каждой 
 				вершины. Выделяем память под один элемент массива с помощью функции malloc для любой вершины вот так:<br>
@@ -183,7 +243,18 @@ A<span style="color: #008000;">&#91;</span>u <span style="color: #000040;">-</sp
 				
 				
 				<p>Мы храним только пути из каждой вершины. Если требуется хранить еще и предков вершин, то таким же методом заполняем массив уже для предков.</p>
+			</div>
+				<div id="rightblock">
+			<div id="yandex_rtb_R-A-1944727-1"></div>
+<script>window.yaContextCb.push(()=>{
+  Ya.Context.AdvManager.render({
+    renderTo: 'yandex_rtb_R-A-1944727-1',
+    blockId: 'R-A-1944727-1'
+  })
+})</script>
 			
+			</div>	
+					<div id="text">
 				<h3 id="5">Задача:</h3>
 				<p>Дан неориентированный граф с <b>n</b> вершинами, котрые пронумерованные от 1 до <b>n</b> и с <b>m</b> ребрами. Необходимо вывести номер вершины, у которой больше всего путей в вершины большие по номеру.<br>
 				<b>Входные данные:</b><br>
@@ -278,29 +349,6 @@ A<span style="color: #008000;">&#91;</span>u <span style="color: #000040;">-</sp
 				
 				<h3 id="6">Другие задачи на графы</h3>
 				<p>Графы очень разнообразная и интересаная тема. Вы можете порешать другие задачи в разделе <a href="..\tasks\tasksgraph.html" style = "color:#0000dd">задачи на графы</a></p>
-			</div>
-			
-			<div id="rightblock">
-				<p style="margin-left:10px"><b><font style="font-size:125%">Навигация по странице:</font></b><br>
-					<a href="#1">1. Что будет храниться в структуре?</a><br>
-					<a href="#2">2. Добавление путей</a><br>
-					<a href="#3">3. Выделение памяти</a><br>
-					<a href="#4">4. Ввод графа, полный код</a><br>
-					<a href="#5">5. Задача на граф с решением</a><br>
-				</p>
-				<div style="width:100%" id="border1"></div>
-				<p style="margin-left:10px"><b><a href="..\tasks\tasksgraph.html">Задачи на графы</a></b><br>
-				</p>
-			</div>
-			<div id="rightblock">
-			<div id="yandex_rtb_R-A-1944727-1"></div>
-<script>window.yaContextCb.push(()=>{
-  Ya.Context.AdvManager.render({
-    renderTo: 'yandex_rtb_R-A-1944727-1',
-    blockId: 'R-A-1944727-1'
-  })
-})</script>
-			
 			</div>
 			
 		</div>
