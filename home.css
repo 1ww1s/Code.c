@@ -1,16 +1,16 @@
 body{
 	background-color:;
 	font-family: 'PT Sans', sans-serif;
+	z-index:1;
 }
 #container{
 	position:absolute;
 	height:100%;
-	background-color:;
 	top:0;
 	left:0;
 	width:100%;
+	z-index:1;
 }
-
 
 #navigation_top{	
 	margin: 0 auto;
@@ -19,6 +19,8 @@ body{
 	padding-top:10%;
 	background-color:#191970;  /* #f0f0f0 */
 	border-bottom:5px solid black;
+	z-index:1;
+	position:relative;
 }
 
 #navigation_main{
@@ -26,11 +28,15 @@ body{
 	margin: 0 auto;
 	width:1100px;
 	max-width:95%;
+	z-index:1;
+	position:relative;
 }
 
 #name{
 	float:left;
 	font-size:55px;
+	color:white;
+	z-index:1;
 }
 
 #navigation{	
@@ -38,25 +44,27 @@ body{
 	width:70%;
 	float: right;
 	text-align:right;
+	z-index:1;
 }
-
 nav{
 	text-align:right;
 	font-size:175%;	
+	z-index:1;
 }
-
 a{
 	text-decoration:none;
-	color:white;
+	color:black;
+	z-index:1;
 }
-
 nav a {
 	display: inline-block;
 	position: relative;
 	color: white;
 	padding: 1.5% 1% 1.5% 1%; 
 	font-family: comic sans ms;
+	z-index:1;
 }
+
 
 #body{
 	margin: 30px auto;
@@ -64,23 +72,28 @@ nav a {
 	width:1100px;
 	max-width:95%;
 }
-
 #text{
 	float:left;
-	width:60%;	
-	background-color:;
+	width:70%;	
 	overflow:hidden;
+	background-color:;
 }
-
 #text1{
 	background-color:#E6E6FA;
 	padding:1%;
 }
 
+
 #text2{
-	overflow-x:scroll;
+	overflow-x:auto;
 	background-color: #F2F2F2;
-	padding-left:1%;
+	padding-left:6px;
+}
+
+#t{
+	margin-left:-6px;
+	overflow-x:auto;
+	border-bottom:1.6px solid black;
 }
 #text2-1{
 	float:left;
@@ -91,24 +104,34 @@ nav a {
 	float:right;
 	width:95%;
 }
-
-#t{
-	overflow-x:hidden;
-	border-bottom:1.6px solid black;
+.p1{
+	font-size:16.5px;
+	text-align:center;
+}
+.cpp{
+	font-family:'PT Sans', sans-serif;
+	font-size:16.5px;
+	line-height:1.5;
+	margin-left:;
 }
 
 #rightblock{
 	margin-top:30px;
 	float:right;
-	width:30%;
+	width:27%;
 	border: 2px solid black;
 	background-color:#ebebeb;
+	z-index:99;
 }
+#yandex_rtb_R-A-1944727-1{
+
+}
+
 
 #border1{
 	height:2px;
 	background-color:black;
-	width:100%;
+	width:100%; 
 }
 
 #border2{
@@ -130,12 +153,12 @@ nav a {
 }
 
 h1{
-	font-size:37px;
+	font-size:210%;
 }
 
 p{
-	font-size:22px;
-	line-height:1.3;
+	font-size:18px;
+	line-height:1.5;
 }
 
 h2{
@@ -146,10 +169,56 @@ h3{
 	font-size:155%;	 
 }
 
-.c{
-	font-size:150%;
-	padding-left:30px;
+
+a:focus + .full {
+  display: block;
 }
+
+/* скрываем чекбоксы и блоки с содержанием */
+.hide {
+    display: none; 
+}
+.hide + label ~ div{
+    display: none;
+}
+/* оформляем текст label */
+.hide + label {
+    color: #0000dd;
+    cursor: pointer;
+}
+/* вид текста label при активном переключателе */
+.hide:checked + label {
+    color: #1E90FF;
+    border-bottom:0;
+
+}
+/* когда чекбокс активен показываем блоки с содержанием  */
+.hide:checked + label + div {
+    display: block; 
+    background: #F2F2F2;
+    -moz-box-shadow: inset 1px 1px 1px #7d8e8f;
+}
+
+
+table.iksweb{
+	width: 100%;
+	border-collapse:collapse;
+	border-spacing:0;
+}
+table.iksweb,table.iksweb td, table.iksweb th {
+	border: 1px solid #595959;
+}
+table.iksweb td,table.iksweb th {
+	padding: 10px 8px;
+	width: 100px;
+	height: 35px;
+}
+table.iksweb th {
+	background: #347c99; 
+	color: #fff; 
+	font-weight: normal;
+}
+
 
 .bt{
 	width:5.6vmax;
@@ -168,9 +237,13 @@ h3{
     transition: .2s visibility linear, .2s opacity linear;
     visibility: visible;
 	display:block;
-	margin-top:7.75vmax;
+	margin-top:8.6vmax;
 	margin-left:-0.6vmax;
 	position:fixed;
+	z-index:1;
+	height:100%;
+	background-color:whitesmoke;
+	border-right:0.4vmax solid black;
 }
 
 
@@ -199,25 +272,66 @@ h3{
 }
 
 @media(max-width:1000px){ 
+	#yandex_rtb_R-A-1944727-1{
+		z-index:99;	
+	}
 	#pk{
 		display:none;
 	}
 	nav a{color:black;}
-	nav{ text-align:left;}
-	#navigation_main{max-width:98.8%;height:100%;overflow:hidden;}
+	nav{ text-align:left; font-size:195%;}
+	#navigation_main{max-width:98.8%;overflow:hidden; z-index:999;position:relative;}
 	#navigation_top{ height:8vmax;padding-top:0%;position:fixed;
-	border-bottom:0.6vmax solid black;z-index:1; }
-	#text{width:100%;}
-	#rightblock{ margin:0 auto; width:70%; float:none; overflow:hidden; margin-top:20px;}
+	border-bottom:0.6vmax solid black;z-index:999; }
+	#text{width:100%; margin-bottom:30px;position:relative;}
+	
+	#rightblock{ margin:30px auto; width:80%; float:none; overflow:hidden; z-index:99;position:relative; }
+	
+	#nav1{
+		margin-left:1.5vmax;
+	}
+	#nav_page{ 
+	width:100%; 
+	overflow:hidden; 
+	z-index:99;
+	float:left;
+	text-align:left;
+	width:100%;
+	background-color:whitesmoke;
+	z-index:99;
+	text-decoration:none;
+	}	
+	.p_nav_page{
+		font-size:100%;
+	}
+
+	.scroll{
+	scrollbar-width: thin;
+	scrollbar-color: blue whitesmoke;
+	}
+	.scroll::-webkit-scrollbar {
+	  height: 1.5vmax;
+	  width: 1.5vmax;
+	}
+
+	.scroll::-webkit-scrollbar-track {
+	  background: #DCDCDC;
+	}
+
+	.scroll::-webkit-scrollbar-thumb {
+	  background-color: #191970;
+	  border-radius: 1vmax;
+	  border: 0.4vmax solid whitesmoke;
+	}
+
 	#navigation{
 		background-color:whitesmoke;
-		height:200vmax;
+		overflow:auto;
 		width:26vmax;
-		border-top:0.6vmax solid black;
-		border-right:0.4vmax solid black;
+		height:80%;
 		font-size:1.7vmax;
-		padding-left:2.2vmax;
 		float:left;
+		position:relative;
 	}
 	.darken{display:none;}
 	.darken.open{
@@ -228,17 +342,15 @@ h3{
 		display:block;
 		opacity:0.5;
 		position:fixed;
-		z-index:0;
+		z-index:999;
 	}
 	#m{
 		width:100%;
-		height:100%;
 		display:block;
     }
 	#name{
 		font-size:5.2vmax;
-		float:bottom;
-		height:6vmax;
+		height:7vmax;
 		width:65%;
 		margin-top:1vmax;
 		margin-left:1vmax;
@@ -248,20 +360,35 @@ h3{
 			margin-top:10vmax;
 	}
 	@media (hover) { 
-		nav a::after { 
-			height: 0.35vmax;
-		}
 		nav a:hover{
 			color:	#0000dd;
 		}
 		nav a::after { 
+			bottom: 6%;
 			height: 0.4vmax;
 			background:#0000dd;
 		}
 	}
 	.p{
-		font-size:2vmax;  /* bottom */
+		font-size:1.5vmax;  
 	}
-	p{font-size:25px;}
-	h1{font-size:50px;}
+	#text2-1{
+		width:calc(2vmax + 12px);
+		float:left;
+	}
+	#text2-2{
+		width:35vmax;
+		float:left;
+		margin-left:1vmax;
+	}
+	.cpp{
+		font-size:calc(1.2vmax + 9px);
+	}
+	.p1{
+		font-size:	calc(1.2vmax + 9px);
+	}
+	.p_right{font-size:30px;}
+	table.iksweb td,table.iksweb th {
+			font-size:calc(1.2vmax + 9px);
+	}
 }
