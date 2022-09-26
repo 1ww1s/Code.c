@@ -236,13 +236,12 @@ table.iksweb th {
      transition: .2s visibility linear, .2s opacity linear;
     visibility: visible;
 	display:block;
-	margin-top:8vmax;
+	margin-top:8.6vmax;
 	margin-left:-0.6vmax;
 	position:fixed;
 	z-index:1;
 	height:100%;
 	background-color:green;
-	border-top:0.6vmax solid black;
 	border-right:0.4vmax solid black;
 }
 
