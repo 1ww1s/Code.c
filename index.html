@@ -1,394 +1,178 @@
-body{
-	background-color:;
-	font-family: 'PT Sans', sans-serif;
-	z-index:1;
-}
-#container{
-	position:absolute;
-	height:100%;
-	top:0;
-	left:0;
-	width:100%;
-	z-index:1;
-}
+<!DOCTYPE html>
+<html>
+ <head>
+	 
+	 <!-- Yandex.RTB -->
+<script>window.yaContextCb=window.yaContextCb||[]</script>
+<script src="https://yandex.ru/ads/system/context.js" async></script>
+	 
+	 
+ <!-- Yandex.Metrika counter -->
+	 
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-#navigation_top{	
-	margin: 0 auto;
-	height:70px;
-	width:100%;
-	padding-top:10%;
-	background-color:#191970;  /* #f0f0f0 */
-	border-bottom:5px solid black;
-	z-index:1;
-	position:relative;
-}
+   ym(90532726, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/90532726" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+	 
+<!-- /Yandex.Metrika counter -->
+	 
+	 
+ <link rel="icon" href="https://1ww1s.github.io/Code.c/favicon.ico" type="image/x-icon">
+ 
 
-#navigation_main{
-	overflow-x:hidden;
-	margin: 0 auto;
-	width:1100px;
-	max-width:95%;
-	z-index:1;
-	position:relative;
-}
-
-#name{
-	float:left;
-	font-size:55px;
-	color:white;
-	z-index:1;
-}
-
-#navigation{	
-	margin-top:1%;
-	width:70%;
-	float: right;
-	text-align:right;
-	z-index:1;
-}
-nav{
-	text-align:right;
-	font-size:175%;	
-	z-index:1;
-}
-a{
-	text-decoration:none;
-	color:black;
-	z-index:1;
-}
-nav a {
-	display: inline-block;
-	position: relative;
-	color: white;
-	padding: 1.5% 1% 1.5% 1%; 
-	font-family: comic sans ms;
-	z-index:1;
-}
-
-
-#body{
-	margin: 30px auto;
-	overflow:hidden;
-	width:1100px;
-	max-width:95%;
-}
-#text{
-	float:left;
-	width:70%;	
-	overflow:hidden;
-	background-color:;
-}
-#text1{
-	background-color:#E6E6FA;
-	padding:1%;
-}
-
-
-#text2{
-	overflow-x:auto;
-	background-color: #F2F2F2;
-	padding-left:6px;
-}
-
-#t{
-	margin-left:-6px;
-	overflow-x:auto;
-	border-bottom:1.6px solid black;
-}
-#text2-1{
-	float:left;
-	width:4%;
-	border-right:1px solid black;
-}
-#text2-2{
-	float:right;
-	width:95%;
-}
-.p1{
-	font-size:16.5px;
-	text-align:center;
-}
-.cpp{
-	font-family:'PT Sans', sans-serif;
-	font-size:16.5px;
-	line-height:1.5;
-	margin-left:;
-}
-
-#rightblock{
-	margin-top:30px;
-	float:right;
-	width:27%;
-	border: 2px solid black;
-	background-color:#ebebeb;
-	z-index:99;
-}
-#yandex_rtb_R-A-1944727-1{
-
-}
-
-
-#border1{
-	height:2px;
-	background-color:black;
-	width:100%; 
-}
-
-#border2{
-	margin: 0 auto;
-	height:2px;
-	background-color:black;
-	width:1000px;
-	max-width:100%;
-}
-
-#bottomblock{
-	width:100%;
-	margin:0 auto;
-	font-size:10%;
-}
-
-#m{
-	display:none;
-}
-
-h1{
-	font-size:210%;
-}
-
-p{
-	font-size:18px;
-	line-height:1.5;
-}
-
-h2{
-	font-size:170%;
-}
-
-h3{
-	font-size:155%;	 
-}
-
-
-a:focus + .full {
-  display: block;
-}
-
-/* скрываем чекбоксы и блоки с содержанием */
-.hide {
-    display: none; 
-}
-.hide + label ~ div{
-    display: none;
-}
-/* оформляем текст label */
-.hide + label {
-    color: #0000dd;
-    cursor: pointer;
-}
-/* вид текста label при активном переключателе */
-.hide:checked + label {
-    color: #1E90FF;
-    border-bottom:0;
-
-}
-/* когда чекбокс активен показываем блоки с содержанием  */
-.hide:checked + label + div {
-    display: block; 
-    background: #F2F2F2;
-    -moz-box-shadow: inset 1px 1px 1px #7d8e8f;
-}
-
-
-table.iksweb{
-	width: 100%;
-	border-collapse:collapse;
-	border-spacing:0;
-}
-table.iksweb,table.iksweb td, table.iksweb th {
-	border: 1px solid #595959;
-}
-table.iksweb td,table.iksweb th {
-	padding: 10px 8px;
-	width: 100px;
-	height: 35px;
-}
-table.iksweb th {
-	background: #347c99; 
-	color: #fff; 
-	font-weight: normal;
-}
-
-
-.bt{
-	width:5.6vmax;
-	height:5.6vmax;
-	float:left;
-	padding:0 0 0 0;
-	background-color:#191970;
-	border: 0.2vmax solid #191970;
-	cursor: pointer;
-}
-.menu {
-	display:none;
-}
-
-.menu.open {
-    transition: .2s visibility linear, .2s opacity linear;
-    visibility: visible;
-	display:block;
-	margin-top:8.6vmax;
-	margin-left:-0.6vmax;
-	position:fixed;
-	z-index:1;
-	height:100%;
-	background-color:whitesmoke;
-	border-right:0.4vmax solid black;
-}
-
-
-@media (hover) { 
-	nav a:hover{
-		color:	#1e90ff;
-	}
-	nav a::after { 
-	content: "";
-	position: absolute;
-	bottom: 12%;
-	left: 50%;
-	display: block;
-	background: none repeat scroll 0 0 transparent;
-	height: 4px;
-	width: 0;
-	background:#1e90ff;
-	transition: width 0.3s ease 0s, left 0.3s ease 0s;
-	}
-
-	nav a:hover::after { 
-	width: 100%; 
-	left: 0; 
-	}
-	.bt:hover{border: 0.2vmax solid #0000dd;}
-}
-
-@media(max-width:1000px){ 
-	#yandex_rtb_R-A-1944727-1{
-		z-index:99;	
-	}
-	#pk{
-		display:none;
-	}
-	nav a{color:black;}
-	nav{ text-align:left; font-size:195%;}
-	#navigation_main{max-width:98.8%;overflow:hidden; z-index:999;position:relative;}
-	#navigation_top{ height:8vmax;padding-top:0%;position:fixed;
-	border-bottom:0.6vmax solid black;z-index:999; }
-	#text{width:100%; margin-bottom:30px;position:relative;}
+  <meta charset="utf-8">
+	 
+  <title>Code.С</title>
+ </head>
+ 
+ <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+ <link rel="stylesheet" type="text/css" href="home.css">
+ 
+ <body>
+	<div id="container">
+	<nav class="darken"></nav>
+		<div id="navigation_top">
+			<div id="navigation_main">
+			<div id="m">
+				
+						<div class="bt"><img width="100%" src="t.png"></div>
+						
+					
+					<nav class="menu">
+						<div id="navigation">
+							<nav>
+							<a href="index.html" style="color:#0000dd">Главная</a><br>
+							<a href="learning\learning.html"> Изучение</a><br>
+							<a href="tasks\tasks.html"> Задачи</a><br>
+							<a href="algorithms\algorithms.html">Алгоритмы</a><br>
+							</nav>	
+						</div>
 	
-	#rightblock{ margin:30px auto; width:80%; float:none; overflow:hidden; z-index:99;position:relative; }
-	
-	#nav1{
-		margin-left:1.5vmax;
-	}
-	#nav_page{ 
-	width:100%; 
-	overflow:hidden; 
-	z-index:99;
-	float:left;
-	text-align:left;
-	width:100%;
-	background-color:whitesmoke;
-	z-index:99;
-	text-decoration:none;
-	}	
-	.p_nav_page{
-		font-size:100%;
-	}
+					</nav>
+				
+					<script>const btnMenu = document.querySelector('.bt');
+const menu = document.querySelector('.menu');
+const darken = document.querySelector('.darken');
 
-	.scroll{
-	scrollbar-width: thin;
-	scrollbar-color: blue whitesmoke;
-	}
-	.scroll::-webkit-scrollbar {
-	  height: 1.5vmax;
-	  width: 1.5vmax;
-	}
 
-	.scroll::-webkit-scrollbar-track {
-	  background: #DCDCDC;
-	}
+const toggleMenu = function() {
+    menu.classList.toggle('open');
+	 darken.classList.toggle('open');
+}
 
-	.scroll::-webkit-scrollbar-thumb {
-	  background-color: #191970;
-	  border-radius: 1vmax;
-	  border: 0.4vmax solid whitesmoke;
-	}
+btnMenu.addEventListener('click', function(e) {
+    e.stopPropagation();
+    toggleMenu();
+});
 
-	#navigation{
-		background-color:whitesmoke;
-		overflow:auto;
-		width:26vmax;
-		height:80%;
-		font-size:1.7vmax;
-		float:left;
-		position:relative;
-	}
-	.darken{display:none;}
-	.darken.open{
-		float:right;
-		width:100%;
-		height:100%;
-		background-color:#000;
-		display:block;
-		opacity:0.5;
-		position:fixed;
-		z-index:999;
-	}
-	#m{
-		width:100%;
-		display:block;
+document.addEventListener('click', function(e) {
+    const target = e.target;
+    const its_menu = target == menu || menu.contains(target);
+    const its_btnMenu = target == btnMenu;
+    const menu_is_active = menu.classList.contains('open');
+    
+    if (!its_menu && !its_btnMenu && menu_is_active) {
+        toggleMenu();
     }
-	#name{
-		font-size:5.2vmax;
-		height:7vmax;
-		width:65%;
-		margin-top:1vmax;
-		margin-left:1vmax;
-	}
-	.bt{margin-top:1.5vmax;}
-	#body{
-			margin-top:10vmax;
-	}
-	@media (hover) { 
-		nav a:hover{
-			color:	#0000dd;
-		}
-		nav a::after { 
-			bottom: 6%;
-			height: 0.4vmax;
-			background:#0000dd;
-		}
-	}
-	.p{
-		font-size:1.5vmax;  
-	}
-	#text2-1{
-		width:calc(2vmax + 12px);
-		float:left;
-	}
-	#text2-2{
-		width:35vmax;
-		float:left;
-		margin-left:1vmax;
-	}
-	.cpp{
-		font-size:calc(1.2vmax + 9px);
-	}
-	.p1{
-		font-size:	calc(1.2vmax + 9px);
-	}
-	.p_right{font-size:30px;}
-	table.iksweb td,table.iksweb th {
-			font-size:calc(1.2vmax + 9px);
-	}
-}
+	
+});
+
+</script>
+
+					<div id = "name">
+						<a href="index.html" style=" font-family: sans-serif;"><b>Code.C</b></a>
+					</div>
+				</div>
+				
+				
+				<div id="pk">
+					<div id = "name">
+						<a href="index.html" style=" font-family: sans-serif;"><b>Code.C</b></a>
+					</div>
+					<div id="navigation">
+							<nav>
+							<a href="index.html" style = "color:#1e90ff; ">Главная</a>
+							<a href="learning\learning.html">Изучение</a>
+							<a href="tasks\tasks.html">Задачи</a>	
+							<a href="algorithms\algorithms.html">Алгоритмы</a>
+							</nav>	
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+		
+		<div id="body">
+		<div id = "text">
+			<h1>Что изучите</h1>
+			<p>С помощью этого сайта вы получите основные знания языка программирования Си. На сайте собрано большое количество
+			задач разной сложности. Такие задачи закрепят и улучшат ваши навыки программирования.</p>
+			
+			<h1>Практика</h1>
+			<p>Большой раздел практики включает в себя задачи по массивам, двумерным массивам, строкам, графам.<br>
+			Задачи разделены по уровню сложности, что позволит найти задачу под вас.<br>
+			У большинста задач есть решение, которое поможет разобраться с выполнением задания.
+			</p>
+			
+			<h1>Язык Си</h1>
+		<p>Язык Си является низкоуровневым языком программирования,
+		что позволяет вам получить полноценный опыт взаимодействия с "железом". 
+		С языком Си вы научитесь грамотно работать с памятью компьютера, находить 
+		наиболее рациональные решения к задачам и писать понятный код.</p>
+			
+			
+			<img width="100%" style="float:center" src ="gif.gif">
+			
+			</div>
+			
+			<div id ="rightblock">
+			
+			<!-- Yandex.RTB R-A-1944727-1 -->
+<div id="yandex_rtb_R-A-1944727-1"></div>
+<script>window.yaContextCb.push(()=>{
+  Ya.Context.AdvManager.render({
+    renderTo: 'yandex_rtb_R-A-1944727-1',
+    blockId: 'R-A-1944727-1'
+  })
+})</script>
+			
+			</div>
+			<div id ="rightblock">
+			<!-- Yandex.RTB R-A-1944727-2 -->
+<div id="yandex_rtb_R-A-1944727-2"></div>
+<script>window.yaContextCb.push(()=>{
+  Ya.Context.AdvManager.render({
+    renderTo: 'yandex_rtb_R-A-1944727-2',
+    blockId: 'R-A-1944727-2'
+  })
+})</script>
+			
+			</div>			
+			
+		</div>
+
+
+		<br>
+		
+		<div id="border2"></div>
+		<div id ="bottomblock">
+		<p  class="p" style="text-align:center"><a href = "index.html" style = "font-family:bookman old style; color: #0000dd"><b>Code.C</b></a>
+		&#169 Copyright Павел Калашников 2021
+		<br>
+		обратная связь <span style="color:#0000dd">code.c@mail.ru</span></p><br>
+		</div>
+	</div>
+ </body>
+</html>
