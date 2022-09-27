@@ -413,6 +413,9 @@ a{
 	color:black;
 	z-index:1;
 }
+p{
+	font-size:100px;
+}
 nav a {
 	display: inline-block;
 	position: relative;
