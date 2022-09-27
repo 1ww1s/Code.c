@@ -1,5 +1,5 @@
 body{
-	background-color:blue;
+	background-color:;
 	font-family: 'PT Sans', sans-serif;
 	z-index:1;
 }
@@ -414,7 +414,7 @@ a{
 	z-index:1;
 }
 p{
-	font-size:100px;
+	font-size:22px;
 }
 nav a {
 	display: inline-block;
@@ -753,6 +753,7 @@ table.iksweb th {
 		font-size:	calc(1.2vmax + 9px);
 	}
 	.p_right{font-size:32px;}
+	p	{font-size:28px;}
 	table.iksweb td,table.iksweb th {
 			font-size:calc(1.2vmax + 9px);
 	}
