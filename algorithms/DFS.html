@@ -22,17 +22,49 @@
 			<div id="m">
 				
 						<div class="bt"><img width="100%" src="t.png"></div>
-						
-					
-					<nav class="menu">
-						<div id="navigation">
-							<nav>
-							<a href="..\index.html" >Главная</a><br>
-							<a href="..\learning\learning.html"> Изучение</a><br>
-							<a href="..\tasks\tasks.html"> Задачи</a><br>
-							<a href="algorithms.html" style="color:#0000dd">Алгоритмы</a><br>
-							</nav>	
+						<nav class="menu">
+						<div class="scroll" id="navigation">
+							<div id="nav1">
+								<nav style = "margin-top:1vmax">
+									<a href="..\index.html" >Главная</a><br>
+									<a href="..\learning\learning.html"> Изучение</a><br>
+									<a href="..\tasks\tasks.html"> Задачи</a><br>
+									<a href="algorithms.html" style="color:#0000dd">Алгоритмы</a><br>
+								</nav>	
+								
+							</div>
+							<div style="margin-top:5vmax" id="border1"></div>
+							<div id="nav_page">
+								<div id="nav1">
+									 <p class="p_nav_page"><b><font style="font-size:125%">Навигация по странице:</font></b><br>
+										<a href="#1">1. Хранение графа</a><br>
+										<a href="#2">2. Выделение памяти</a><br>
+										<a href="#3">3. Рекурсивный алгоритм DFS</a><br>
+										<a href="#4">4. Нерекурсивный алгоритм DFS</a><br>
+										<a href="#5">5. Задача с решением</a></p>
+										<div style="width:100%" id="border1"></div>
+								</div>
+								<div id="border1"></div>
+								<div id="nav1">
+									<p class="p_nav_page"><b><a href="..\tasks\tasksgraph.html">Задачи на графы</a></b><br>
+								</div>
+								<div id="border1"></div>
+								<div id="nav1">
+									<div id ="rightblock">
+										<!-- Yandex.RTB R-A-1944727-5 -->
+										<div id="yandex_rtb_R-A-1944727-5"></div>
+										<script style="z-index:99;">window.yaContextCb.push(()=>{
+										  Ya.Context.AdvManager.render({
+										    renderTo: 'yandex_rtb_R-A-1944727-5',
+										    blockId: 'R-A-1944727-5'
+										  })
+										})</script>
+			
+									</div>
+								</div>
+							</div>
 						</div>
+						
 	
 					</nav>
 				
@@ -99,6 +131,24 @@ document.addEventListener('click', function(e) {
 				чтобы не не пойти в них еще раз. Когда мы дойдем до вершины, в которой уже нет доступных путей, то мы возвращаемя на один шаг назад, 
 				то есть к предыдущей вершине и проверяем ее и так далее. Обход заканчивается, когда мы вернулись к стартовой вершине и из нее больше нет доступных путей.</p>
 				<p>Если в графе <b>N</b> вершин и <b>M</b> ребер, то сложность обхода составляет <b>O(N + M)</b>.</p>
+				</div>
+				<div id="rightblock">
+					<p class="p_right"><b><font style="font-size:125%">Навигация по странице:</font></b><br>
+					<a href="#1">1. Хранение графа</a><br>
+					<a href="#2">2. Выделение памяти</a><br>
+					<a href="#3">3. Рекурсивный алгоритм DFS</a><br>
+					<a href="#4">4. Нерекурсивный алгоритм DFS</a><br>
+					<a href="#5">5. Задача с решением</a></p>
+					
+					<b><p class="p_right">Обход в глубину:</p></b>
+					<img width="100%" src ="dfs.gif">
+					<div style="width:100%" id="border1"></div>
+					<p class="p_right"><b><a href="..\tasks\tasksgraph.html">Задачи на графы</a></b><br>
+				</p>
+	</div>
+				
+				
+				<div id="text">
 				<h3 id="1">Хранение графа</h3>
 				<p>Граф будет храниться в массиве структур. Полностью про хранение графа в программе смотрите в разделе <a href = "graph.html" style = "color:#0000dd">представление графа в программе</a>.</p>
 				
@@ -185,7 +235,19 @@ A<span style="color: #008000;">&#91;</span>u <span style="color: #000040;">-</sp
 <span style="color: #008000;">&#125;</span></pre>
 					</div>
 				</div>
-				
+			</div>
+				<div id ="rightblock">
+			<!-- Yandex.RTB R-A-1944727-2 -->
+<div id="yandex_rtb_R-A-1944727-2"></div>
+<script>window.yaContextCb.push(()=>{
+  Ya.Context.AdvManager.render({
+    renderTo: 'yandex_rtb_R-A-1944727-2',
+    blockId: 'R-A-1944727-2'
+  })
+})</script>
+			
+			</div>	
+			<div id="text">
 				<h3 id="4">Нерекурсивный алгоритм DFS</h3>
 				<p>Для нерекурсивного обхода нам понадобтся еще две переменные в структуре, а именно:<br>
 				1) номер вершины, из которой мы пришли в эту(предок вершины);<br>2) на каком элементе закончили проверку путей из вершины.
@@ -384,32 +446,6 @@ A<span style="color: #008000;">&#91;</span>u <span style="color: #000040;">-</sp
 		
 			
 		</div>
-			
-			<div id="rightblock">
-				<p style="margin-left:10px"><b><font style="font-size:125%">Навигация по странице:</font></b><br>
-				<a href="#1">1. Хранение графа</a><br>
-				<a href="#2">2. Выделение памяти</a><br>
-				<a href="#3">3. Рекурсивный алгоритм DFS</a><br>
-				<a href="#4">4. Нерекурсивный алгоритм DFS</a><br>
-				<a href="#5">5. Задача с решением</a></p>
-				<div style="width:100%" id="border1"></div>
-				<b><p style="margin-left:10px">Обход в глубину:</p></b>
-				<img style="border-bottom:3px solid black" width="100%" src ="dfs.gif">
-				<p style="margin-left:10px"><b><a href="..\tasks\tasksgraph.html">Задачи на графы</a></b><br>
-				</p>
-	</div>
-		<div id ="rightblock">
-			<!-- Yandex.RTB R-A-1944727-2 -->
-<div id="yandex_rtb_R-A-1944727-2"></div>
-<script>window.yaContextCb.push(()=>{
-  Ya.Context.AdvManager.render({
-    renderTo: 'yandex_rtb_R-A-1944727-2',
-    blockId: 'R-A-1944727-2'
-  })
-})</script>
-			
-			</div>	
-			
 			
 		</div>
 		<div id="border2"></div>
