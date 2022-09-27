@@ -405,6 +405,7 @@ table.iksweb th {
 	}
 	.p_right{font-size:35px;}
 	p	{font-size:32px;}
+	h1{      font-size:30px; }
 	table.iksweb td,table.iksweb th {
 			font-size:calc(1.2vmax + 9px);
 	}
