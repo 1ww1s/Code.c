@@ -267,7 +267,7 @@ nav a {
 #text2-2{
 	float:left;
 	width:90%;
-	background-color:grey;
+	margin-left:1vmax;
 }
 .p1{
 	font-size:16.5px;
