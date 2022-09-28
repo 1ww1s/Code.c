@@ -265,9 +265,9 @@ nav a {
 	border-right:1px solid black;
 }
 #text2-2{
-	float:right;
+	float:left;
 	width:90%;
-	background-color:red;
+	background-color:grey;
 }
 .p1{
 	font-size:16.5px;
