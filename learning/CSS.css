@@ -254,9 +254,10 @@ nav a {
 }
 
 #t{
-	margin-left:-6px;
+	margin-left:-6px;3
 	overflow-x:auto;
 	border-bottom:1.6px solid black;
+	background-color: grey;
 }
 #text2-1{
 	float:left;
