@@ -267,6 +267,7 @@ nav a {
 #text2-2{
 	float:right;
 	width:95%;
+	background-color: red;
 }
 .p1{
 	font-size:16.5px;
@@ -554,7 +555,7 @@ table.iksweb th {
 		font-size:calc(1.2vmax + 9px);
 	}
 	.p1{
-		font-size:35px;
+		font-size:calc(1.2vmax + 9px);
 	}
 	.p_right{font-size:40px;}
 	p	{font-size:40px;} 
