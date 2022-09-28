@@ -42,7 +42,7 @@
 									<a href="#2">2. Сортировка выбором</a><br>
 									<a href="#3">3. Быстрая сортировка</a><br>
 									<a href="#4">4. Лексикографическая<br>сортировка строк</a><br>
-									<a href="#5">5. Сортировка струкутуры</a><br>
+									<a href="#5">5. Сортировка структуры</a><br>
 									</p>	
 								</div>
 								
@@ -123,7 +123,7 @@ document.addEventListener('click', function(e) {
 
 				<h1>Сортировки</h1>
 				<p>Крайне часто в задачах нужно отсортировать массив, но как это сделать? Существует много разных алгоритмов. Давайте поговорим про некоторые алгоритмы и их время выполнения.</p>
-				<p>Сначало проговорим о самых простых алгоритмах, у которых время выполнения равна <b>O(n<sup>2</sup>)</b>. Такие алгоритмы эффективны только для небольших массивов.</p>
+				<p>Сначала проговорим о самых простых алгоритмах, у которых время выполнения равна <b>O(n<sup>2</sup>)</b>. Такие алгоритмы эффективны только для небольших массивов.</p>
 				</div>
 				<div id="rightblock">
 				<p class="p_right" style="margin-left:10px"><b><font style="font-size:125%">Навигация по странице:</font></b><br>
@@ -131,13 +131,13 @@ document.addEventListener('click', function(e) {
 									<a href="#2">2. Сортировка выбором</a><br>
 									<a href="#3">3. Быстрая сортировка</a><br>
 									<a href="#4">4. Лексикографическая<br>сортировка строк</a><br>
-									<a href="#5">5. Сортировка струкутуры</a><br>
+									<a href="#5">5. Сортировка структуры</a><br>
 									</p>	
 					</div>
 				<div id="text">
 				<h3 id="1">Сортировка пузырьком</h3>
 				<p>Алгоритм основан на поэтапном сравнении двух соседних элементов массива. Если нам нужно отсортировать массив по неубыванию, то при каждом прохождении внешнего цикла максимальный из
-				оставшихся элементов будет смещаться в конец массива, то есть "сплывать", как пузырёк.<br> Давайте посмотрим на алгоритм:</p>
+				оставшихся элементов будет смещаться в конец массива, то есть "сплывать" как пузырёк.<br> Давайте посмотрим на алгоритм:</p>
 				<div id="t">
 					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
 						<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23</p></div>
@@ -167,7 +167,7 @@ document.addEventListener('click', function(e) {
 <span style="color: #008000;">&#125;</span></pre>
 					</div>
 				</div>
-				<p>Так как последние элементы по ходу выполнения уже будут отсортированны, то их не нужно проверять в следующие разы, поэтому внутренний цикл
+				<p>Так как последние элементы по ходу выполнения уже будут отсортированы, то их не нужно проверять в следующие разы, поэтому внутренний цикл
 				до n - i - 1.</p>
 				<p>Чтобы отсортировать по невозрастанию, нужно в строчке 12 поменять знак больше(>) на меньше(<). Теперь минимальные элементы
 				будут смещаться в конец массива.</p>
@@ -229,7 +229,7 @@ document.addEventListener('click', function(e) {
 				<span style ="margin-left:10px">1. Указатель на первый элемент массива;<br></span>
 				<span style ="margin-left:10px">2. Количество сортируемых элементов;<br></span>
 				<span style ="margin-left:10px">3. Размер одного элемента массива в байтах; <br></span>
-				<span style ="margin-left:10px">4. Название функции, которую будет вызывать qsort() для сравнении элементов.</span>
+				<span style ="margin-left:10px">4. Название функции, которую будет вызывать qsort() для сравнения элементов.</span>
 				</p>
 				<p>
 				Вот так выглядит функция <b>qsort()</b> для массива <b>A</b> из <b>n</b> целых элементов:
@@ -335,19 +335,19 @@ document.addEventListener('click', function(e) {
   })
 })</script></div>
 		<div id = "text">
-			<h3 id="5">Сортировка струкутуры</h3>
-			<p>Структура удобный инстумент для выполнения задач. Пусть у нас будет структура <b>p</b>, которая хранит имя и возраст человека:</p>
+			<h3 id="5">Сортировка структуры</h3>
+			<p>Структура удобный инструмент для выполнения задач. Пусть у нас будет структура <b>p</b>, которая хранит имя и возраст человека:</p>
 			<pre class="cpp" style="margin-left:10px"><span style="color: #0000ff;">struct</span> <span style="color: #009999"><b>p</b></span> <span style="color: #008000;">&#123;</span>  
 	<span style="color: #0000ff;">char</span> name<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">10</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
 	<span style="color: #0000ff;">int</span> age<span style="color: #008080;">;</span>
 <span style="color: #008000;">&#125;</span><span style="color: #008080;">;</span></pre>
 			<p>
-			Часто в задачах нужно сортировать струкутуру по какому-то параметру.<br>
-			Во-первых для этого передаем функции sort всю структуру:</p>
+			Часто в задачах нужно сортировать структуру по какому-то параметру.<br>
+			Во-первых, для этого передаем функции sort всю структуру:</p>
 			<div  style="margin-left:10px">
 					<pre class="cpp"><span style="color: #0000dd;">qsort</span><span style="color: #008000;">&#40;</span>A, n, <span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">struct <span style="color: #009999"><b>p</b></span></span><span style="color: #008000;">&#41;</span>, sort<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span></pre>
 			</div>
-			<p>Во-вторых изменяем функцию <b>sort</b>:</p>
+			<p>Во-вторых, изменяем функцию <b>sort</b>:</p>
 			<pre class="cpp" style="margin-left:10px"><span style="color: #0000ff;">int</span> sort<span style="color: #008000;">&#40;</span><span style="color: #0000ff;">const</span> <span style="color: #0000ff;">void</span><span style="color: #000040;">*</span> x1, <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">void</span><span style="color: #000040;">*</span> x2<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
 	<span style="color: #0000ff;">struct</span> <span style="color: #009999"><b>p</b></span> a <span style="color: #000080;">=</span> <span style="color: #000040;">*</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">struct</span> <span style="color: #009999"><b>p</b></span><span style="color: #000040;">*</span><span style="color: #008000;">&#41;</span>x1<span style="color: #008080;">;</span>
 	<span style="color: #0000ff;">struct</span> <span style="color: #009999"><b>p</b></span> b <span style="color: #000080;">=</span> <span style="color: #000040;">*</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">struct</span> <span style="color: #009999"><b>p</b></span><span style="color: #000040;">*</span><span style="color: #008000;">&#41;</span>x2<span style="color: #008080;">;</span>
