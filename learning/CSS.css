@@ -254,7 +254,6 @@ nav a {
 }
 
 #t{
-	margin-left:-6px;
 	overflow-x:auto;
 	border-bottom:1.6px solid black;
 	background-color: grey;
@@ -550,7 +549,6 @@ table.iksweb th {
 	#text2-2{
 		width:;
 		float:left;
-		margin-left:1vmax;
 	}
 	.cpp{
 		font-size:calc(1.2vmax + 9px);
