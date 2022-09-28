@@ -216,9 +216,7 @@ a{
 	color:black;
 	z-index:1;
 }
-p{
-	font-size:25px;
-}
+
 nav a {
 	display: inline-block;
 	position: relative;
