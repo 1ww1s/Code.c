@@ -3,40 +3,14 @@ html {
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
 }
-
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-menu,
-nav,
-section,
-summary {
-  display: block;
-}
-
-audio,
-canvas,
-progress,
 video {
   display: inline-block; /* 1 */
   vertical-align: baseline; /* 2 */
 }
 
-[hidden],
-template {
-  display: none;
-}
-
 dfn {
   font-style: italic;
 }
-
 
 mark {
   background: #ff0;
@@ -82,19 +56,11 @@ pre {
   overflow: auto;
 }
 
-code,
-kbd,
-pre,
 samp {
   font-family: monospace, monospace;
   font-size: 1em;
 }
 
-
-button,
-input,
-optgroup,
-select,
 textarea {
   color: inherit; /* 1 */
   font: inherit; /* 2 */
@@ -129,7 +95,6 @@ input::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
-
 
 input {
   line-height: normal;
