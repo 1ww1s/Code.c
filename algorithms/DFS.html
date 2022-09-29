@@ -124,10 +124,10 @@ document.addEventListener('click', function(e) {
 			<div id = "text">
 		
 				<h1>Обход в глубину</h1>
-				<p>DFS один самых распространенных алгоритмов на графы. Основная суть состоит в том, чтобы идти по графу пока не поситим все вершины. 
+				<p>DFS один самых распространенных алгоритмов на графы. Основная суть состоит в том, чтобы идти по графу пока не посетим все вершины. 
 				Если у проверяемой вершины есть путь в другую вершину, в которой мы еще не были, 
 				то мы идем в нее и начинаем проверять уже ее. Все вершины, в которых были, мы помечаем, 
-				чтобы не не пойти в них еще раз. Когда мы дойдем до вершины, в которой уже нет доступных путей, то мы возвращаемя на один шаг назад, 
+				чтобы не пойти в них еще раз. Когда мы дойдем до вершины, в которой уже нет доступных путей, то мы возвращаемся на один шаг назад, 
 				то есть к предыдущей вершине и проверяем ее и так далее. Обход заканчивается, когда мы вернулись к стартовой вершине и из нее больше нет доступных путей.</p>
 				<p>Если в графе <b>N</b> вершин и <b>M</b> ребер, то сложность обхода составляет <b>O(N + M)</b>.</p>
 				</div>
@@ -171,7 +171,7 @@ document.addEventListener('click', function(e) {
 				<pre class="cpp" style="margin-left:10px"><span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i%i&quot;</span>, <span style="color: #000040;">&amp;</span>v, <span style="color: #000040;">&amp;</span>u<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>  <span style="color: #339900">// между этими вершинами есть путь</span>
 A<span style="color: #008000;">&#91;</span>v <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">paths</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">realloc</span><span style="color: #008000;">&#40;</span>A<span style="color: #008000;">&#91;</span>v <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">paths</span>, <span style="color: #008000;">&#40;</span>A<span style="color: #008000;">&#91;</span>v <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">number_of_paths</span> <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#41;</span> <span style="color: #000040;">*</span> <span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
 A<span style="color: #008000;">&#91;</span>u <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">paths</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">realloc</span><span style="color: #008000;">&#40;</span>A<span style="color: #008000;">&#91;</span>u <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">paths</span>, <span style="color: #008000;">&#40;</span>A<span style="color: #008000;">&#91;</span>u <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">number_of_paths</span> <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#41;</span> <span style="color: #000040;">*</span> <span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span></pre>
-				<p>Сразу после этого добавляем в массив путей новую вершниу, в которую можно попасть из текущей. Добавление путей для неориентированного графа:</p>
+				<p>Сразу после этого добавляем в массив путей новую вершину, в которую можно попасть из текущей. Добавление путей для неориентированного графа:</p>
 				<pre class="cpp" style="margin-left:10px">A<span style="color: #008000;">&#91;</span>v <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">paths</span><span style="color: #008000;">&#91;</span>A<span style="color: #008000;">&#91;</span>v <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">number_of_paths</span><span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> u <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
 A<span style="color: #008000;">&#91;</span>v <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">number_of_paths</span><span style="color: #000040;">++</span><span style="color: #008080;">;</span>
 A<span style="color: #008000;">&#91;</span>u <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">paths</span><span style="color: #008000;">&#91;</span>A<span style="color: #008000;">&#91;</span>u <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">number_of_paths</span><span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> v <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
@@ -248,7 +248,7 @@ A<span style="color: #008000;">&#91;</span>u <span style="color: #000040;">-</sp
 			</div>	
 			<div id="text">
 				<h3 id="4">Нерекурсивный алгоритм DFS</h3>
-				<p>Для нерекурсивного обхода нам понадобтся еще две переменные в структуре, а именно:<br>
+				<p>Для нерекурсивного обхода нам понадобиться еще две переменные в структуре, а именно:<br>
 				1) номер вершины, из которой мы пришли в эту(предок вершины);<br>2) на каком элементе закончили проверку путей из вершины.
 				<br>Теперь структура будет выглядеть так:
 				<pre class="cpp" style="margin-left:10px"><span style="color: #0000ff;">struct</span>  <span style="color: #009999">graph</span> <span style="color: #008000;">&#123;</span>
@@ -332,7 +332,7 @@ A<span style="color: #008000;">&#91;</span>u <span style="color: #000040;">-</sp
 				использование практически не контролируемого ресурса: <b>стека вызовов</b>, который может быть переполнен. Поэтому в некоторых задачах
 				лучше использовать нерекурсивный алгоритм.</p>
 				<h3 id="5">Задача</h3>
-				<p>Есть n человек, пронумерованных от 1 до <b>n</b>. Так получилось, что у <b>K</b>-ого человека сегодня день рождения и он хочет пойти с друзьми в лазертаг. 
+				<p>Есть n человек, пронумерованных от 1 до <b>n</b>. Так получилось, что у <b>K</b>-ого человека сегодня день рождения и он хочет пойти с друзьями в лазертаг. 
 				Чтобы в него пойти нужно ровно <b>P</b> человек вместе с именинником. Если людей будет не хватать, то каждый друг начнет звать уже своих друзей и так далее. Всего
 				дружат <b>m</b> пар людей.
 				Вам нужно вывести номера людей, которые пойдут в лазертаг. Если ответов несколько, то можно вывести любой из них. Гарантируется, что <b>P</b> точно меньше количества людей, которые 
