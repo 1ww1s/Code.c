@@ -563,4 +563,5 @@ table.iksweb th {
 	table.iksweb td,table.iksweb th {
 			font-size:calc(1.2vmax + 9px);
 	}
+	.mobile{display:none;}
 }
