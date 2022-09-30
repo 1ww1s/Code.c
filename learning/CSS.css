@@ -286,6 +286,10 @@ nav a {
 	background-color:#ebebeb;
 	z-index:99;
 }
+#quote{
+	float:right;
+	width:27%;
+}
 #yandex_rtb_R-A-1944727-1{
 
 }
@@ -525,7 +529,7 @@ table.iksweb th {
 	}
 	.bt{margin-top:1.5vmax;}
 	#body{
-			margin-top:10vmax;
+		margin-top:10vmax;
 	}
 	@media (hover) { 
 		nav a:hover{
@@ -561,7 +565,7 @@ table.iksweb th {
 	h2{      font-size:50px; } 
 	h3{      font-size:47px; } 
 	table.iksweb td,table.iksweb th {
-			font-size:calc(1.2vmax + 9px);
+		font-size:calc(1.2vmax + 9px);
 	}
 	.mobile{display:none;}
 }
