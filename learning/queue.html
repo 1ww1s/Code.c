@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ 
+ <!-- Yandex.RTB -->
+<script>window.yaContextCb=window.yaContextCb||[]</script>
+<script src="https://yandex.ru/ads/system/context.js" async></script>
+ 
+  <meta charset="utf-8">
+     <link rel="icon" href="https://1ww1s.github.io/Code.c/favicon.ico" type="image/x-icon">
+  <title>Символы и строки</title>
+ </head>
+ 
+ <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="CSS.css">
+ 
+ <body>
+	<div id="container">
+		<nav class="darken"></nav>
+		<div id="navigation_top">
+			<div id="navigation_main">
+			<div id="m">
+						<div class="bt"><img width="100%" src="t.png"></div>
+					<nav class="menu">
+						<div class="scroll" id="navigation">
+							<div id="nav1">
+								<nav style = "margin-top:1vmax">
+								<a href="..\index.html" >Главная</a><br>
+								<a href="learning.html" style="color:#0000dd"> Изучение</a><br>
+								<a href="..\tasks\tasks.html"> Задачи</a>	<br>
+								<a href="..\algorithms\algorithms.html">Алгоритмы</a><br>
+								</nav>	
+								
+							</div>
+							<div style="margin-top:5vmax" id="border1"></div>
+							<div id="nav_page">
+								<div id="nav1">
+									 <p class="p_nav_page"><b><font style="font-size:125%">Навигация по странице:</font></b><br>
+									<b><a href="#1">1. Символы</a></b><br>
+									<a href="#2">2. Часть таблицы ASCII</a><br>
+									<a href="#3">3. Важное замечание по символу</a><br>
+									<b><a href="#4">4. Строки</a></b><br>
+									<a href="#5">5. Функция getchar()</a><br>
+									<a href="#6">6. Важное замечание по вводу</a><br>
+									<a href="#7">7. Функция putchar()</a><br>
+									<a href="#8">8. Основные функции для строк</a><br>
+									</p>
+								</div>
+								<div id="border1"></div>
+								<div id="nav1">
+									<div id ="rightblock">
+										<!-- Yandex.RTB R-A-1944727-1 -->
+										<div id="yandex_rtb_R-A-1944727-1"></div>
+										<script style="z-index:99;">window.yaContextCb.push(()=>{
+										  Ya.Context.AdvManager.render({
+										    renderTo: 'yandex_rtb_R-A-1944727-1',
+										    blockId: 'R-A-1944727-1'
+										  })
+										})</script>
+			
+									</div>
+								</div>
+							</div>
+						</div>
+						
+	
+					</nav>
+				
+					<script>const btnMenu = document.querySelector('.bt');
+const menu = document.querySelector('.menu');
+const darken = document.querySelector('.darken');
+
+
+const toggleMenu = function() {
+    menu.classList.toggle('open');
+	 darken.classList.toggle('open');
+}
+
+btnMenu.addEventListener('click', function(e) {
+    e.stopPropagation();
+    toggleMenu();
+});
+
+document.addEventListener('click', function(e) {
+    const target = e.target;
+    const its_menu = target == menu || menu.contains(target);
+    const its_btnMenu = target == btnMenu;
+    const menu_is_active = menu.classList.contains('open');
+    
+    if (!its_menu && !its_btnMenu && menu_is_active) {
+        toggleMenu();
+    }
+	
+});
+
+</script>
+
+					<div id = "name">
+						<a href="..\index.html" style=" font-family: sans-serif; color:white;"><b>Code.C</b></a>
+					</div>
+				</div>
+				
+				
+				<div id="pk">
+					<div id = "name">
+						<a href="..\index.html" style=" font-family: sans-serif; color:white;"><b>Code.C</b></a>
+					</div>
+					<div id="navigation">
+							<nav>
+							<a href="..\index.html" >Главная</a>
+							<a href="learning.html" style="color:#1e90ff"> Изучение</a>
+							<a href="..\tasks\tasks.html"> Задачи</a>	
+							<a href="..\algorithms\algorithms.html">Алгоритмы</a>
+							</nav>	
+					
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+		
+	<div id="body">
+		<div id = "text">
+			
+			<h1 id="1">Очередь</h1>
+				<p>
+					<b>Очередь</b> — абстрактный тип данных с дисциплиной доступа к элементам «первый пришёл — первый вышел» (FIFO, англ. first in, first out).
+					
+					Добавление элемента (принято обозначать словом enqueue(push) — добавить в очередь) возможно лишь в конец очереди, выборка — только из начала 
+					очереди (что принято называть словом dequeue(pop) — убрать из очереди), при этом выбранный элемент из очереди удаляется. Очередь в программе сравнима с очередью в магазине: 
+					сначала обслуживается первый покупатель, потом второй и так далее, а подходят люди с конца.<br>
+						<img width="50%" src = "queue.jpg"><br>
+					Способ реализаций очереди осуществляется с помощью массива или связанного списка. Пока мы будем рассматривать второй вариант. 
+					Преимуществом является ограничение памяти лишь памятью компьютера. Недостатками являются: сложность в разработке, требуемость большего количества памяти, память сильнее фрагментируется.
+				</p>
+				</div>
+				<div id ="rightblock">
+				
+							<p class="p_right" style="margin-left:10px"><b><font style="font-size:125%">Навигация по странице:</font></b><br>
+									<b><a href="#1">1. Алгоритм</a></b><br>
+									<a href="#2">2. Функция enqueue</a><br>
+									<a href="#3">3. Визуализация функции enqueue</a><br>
+									<b><a href="#4">4. Функция dequeue</a></b><br>
+									<a href="#5">5. Визуализация функции dequeue</a><br>
+									<a href="#6">6. Полный алгоритм</a><br>
+							</p>				
+					</div>
+				<div id ="text">
+
+				<h2>Алгоритм:</h2><p>
+				В программе, мы храним указатель на первый элемент очереди - front, и на последний элемент - end.
+				
+				Указатель end будет равен front при добавлении первого элемента в очередь.
+				Тем самым, при изменении end в дальнейшим, мы потеряем указатель на первый элемент очереди - front.
+				Поэтому инициализируем front в самом начале программы и только после этого начинаем добавлять элементы
+				в очередь с помощью функции enqueue. Получается, что front - это указатель, который будет константным на всем протяжении сущестования очереди.
+				front будет указывать на первый элемент очереди. Доступ к первому элементу очереди будет осуществляться
+				как front->next. Полностью это станет понятным после изучения кода алгоритма.
+				
+				<br><b><font style="font-size:120%">Функция enqueue:</font></b><br>
+				В функцию передаем указатель на последний элемент в нашем списке и значение переменной, которую нужно добавить.<br>
+				Действия функции:<br>
+				1. Создаем буферный указатель buf(2);<br>
+				2. Заполняем его нужными значениями(4-6);<br>
+				3. Добавляем в список(7);<br>
+				4. Обновляем значение end с помощью return, теперь последний элемент - это только что добавленный(8).
+				</p>
+					
+				<div id="t" style="margin-left:10px">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11</p></div>
+					<div id="text2-2">
+					<pre class="cpp"><span style="color: #0000ff;">struct</span> <span style="color: #009999;">queue</span><span style="color: #000040;">*</span> <span style="color: #CA6F1E">enqueue</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">struct</span> <span style="color: #009999;">queue</span><span style="color: #000040;">*</span> end, <span style="color: #0000ff;">int</span> x<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">struct</span> <span style="color: #009999;">queue</span><span style="color: #000040;">*</span> buf <span style="color: #000080;">=</span> <span style="color: #CA6F1E">malloc</span><span style="color: #008000;">&#40;</span><span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">struct</span> <span style="color: #009999;">queue</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>buf<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>  <span style="color: #339900;">// проверка malloc</span>
+		buf<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>X <span style="color: #000080;">=</span> x<span style="color: #008080;">;</span>
+		buf<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>next <span style="color: #000080;">=</span> <span style="color: #0000ff;">NULL</span><span style="color: #008080;">;</span>
+		buf<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>size <span style="color: #000080;">=</span> end<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>size <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+		end<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>next <span style="color: #000080;">=</span> buf<span style="color: #008080;">;</span>
+		<span style="color: #0000ff;">return</span> buf<span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">return</span> end<span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+					</div>
+				</div>	
+				<p>
+				<b>Давайте визуализируем действия этой функции:</b><br>
+				<b>1.</b> Для добавления первого элемента в очередь:<br>
+					<b>1.1.</b> end = front, передаем функции указатель end, выделяем память под новый указатель buf и заполняем его значениями, очередь выглядит так:<br>
+					<img width="60%" src = "q1.1.jpg"><br>
+
+					<b>1.2.</b> end->next = buf (front->next = buf), end = buf, теперь очередь выглядит так:<br>
+					<img width="56%" src = "q1.2.jpg"><br>
+				
+				<b>2.</b> Для добавления последующих элементов в очередь:<br>
+				
+				<b>2.1.</b> Передаем функции указатель end, выделяем память под новый указатель buf и заполняем его значениями, очередь выглядит так:<br>
+					<img width="100%" src = "q2.1.jpg"><br>
+
+				<b>2.2.</b> end->next = buf, end = buf, теперь очередь выглядит так:<br>
+					<img width="94%" src = "q2.2.jpg"><br>
+				</p>
+				
+				<p><b><font style="font-size:120%">Функция dequeue:</font></b><br>
+				Функция получает указатель front, после чего делаем замену front = front->next. То есть мы 
+				просто "выбросили" первый элемент, заменив его вторым. 			
+	
+				</p>
+				<div id="t" style="margin-left:10px">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3</p></div>
+					<div id="text2-2">
+					<pre class="cpp"><span style="color: #0000ff;">int</span> <span style="color: #CA6F1E">dequeue</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">struct</span> <span style="color: #009999;">queue</span><span style="color: #000040;">*</span> front<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">return</span> front<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>next<span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+					</div>
+				</div>
+				
+				<p>
+				<b>Давайте визуализируем действия этой функции:</b><br>
+				
+				<b>3.</b> Удаление элемента:<br>
+				<b>3.1.</b>Функция получает указатель front, на данный момент очередь выглядит так:<br>
+				<img width="94%" src = "q2.2.jpg"><br>
+				
+				<b>3.2.</b> font = font->next, теперь очередь выглядит так:<br>
+				<img width="75%" src = "q3.2.jpg"><br>
+				</p>
+				<p>Если очередь удалена полностью, то front будет равен последнему добавленному элементу, также как и end, тем самым мы можем спокойно 
+				запускать функцию enqueue.
+				
+				
+				
+				</p>
+				<h2>Полный алгоритм:</h2><p>
+				Входные данные:<br>
+				push x - вставить элемент x очередь;<br>
+				pop - удалить первый элемент очереди;<br>
+				end - конец программы.<br>
+				Если очередь не пуста, то на каждом шаге цикла алгоритм выводит первый элемент очереди.<br>
+		</div>
+		
+				<div id ="rightblock">
+			
+				<!-- Yandex.RTB R-A-1944727-1 -->
+				<div id="yandex_rtb_R-A-1944727-1"></div>
+				<script>window.yaContextCb.push(()=>{
+				  Ya.Context.AdvManager.render({
+					renderTo: 'yandex_rtb_R-A-1944727-1',
+					blockId: 'R-A-1944727-1'
+				  })
+				})</script>
+			
+				</div>
+		<div id="text">
+				<b>Код на Си:</b></p>		
+					<div id="t" style="margin-left:10px">
+						<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28
+					<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46
+					<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60</p></div>
+						<div id="text2-2">
+<pre class="cpp"><span style="color: #339900;">#define _CRT_SECURE_NO_WARNINGS</span>
+<span style="color: #339900;">#include &lt;locale.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+<span style="color: #339900;">#include&lt;string.h&gt;</span>
+&nbsp;
+<span style="color: #0000ff;">struct</span> <span style="color: #009999;">queue</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">struct</span> <span style="color: #009999;">queue</span><span style="color: #000040;">*</span> next<span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">int</span> X<span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">int</span> size<span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span><span style="color: #008080;">;</span>
+&nbsp;
+<span style="color: #0000ff;">struct</span> <span style="color: #009999;">queue</span> <span style="color: #000040;">*</span> <span style="color: #CA6F1E">enqueue</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">struct</span> <span style="color: #009999;">queue</span><span style="color: #000040;">*</span> end, <span style="color: #0000ff;">int</span> x<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">struct</span> <span style="color: #009999;">queue</span><span style="color: #000040;">*</span> buf <span style="color: #000080;">=</span> <span style="color: #0000dd;">malloc</span><span style="color: #008000;">&#40;</span><span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">struct</span> <span style="color: #009999;">queue</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>buf<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>  <span style="color: #339900">// проверка malloc</span>
+		buf<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>X <span style="color: #000080;">=</span> x<span style="color: #008080;">;</span>
+		buf<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>next <span style="color: #000080;">=</span> <span style="color: #0000ff;">NULL</span><span style="color: #008080;">;</span>
+		buf<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>size <span style="color: #000080;">=</span> end<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>size <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+		end<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>next <span style="color: #000080;">=</span> buf<span style="color: #008080;">;</span>
+		<span style="color: #0000ff;">return</span> buf<span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">return</span> end<span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span>
+&nbsp;
+<span style="color: #0000ff;">struct</span> <span style="color: #009999;">queue</span><span style="color: #000040;">*</span> <span style="color: #CA6F1E">dequeue</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">struct</span> <span style="color: #009999;">queue</span><span style="color: #000040;">*</span> front<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>front<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>next <span style="color: #000080;">==</span> <span style="color: #0000ff;">NULL</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;Очередь пуста!<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		<span style="color: #0000ff;">return</span> front<span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">return</span> front<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>next<span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span>
+&nbsp;
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	setlocale<span style="color: #008000;">&#40;</span>LC_ALL, <span style="color: #FF0000;">&quot;Rus&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;Команды: push x - добавить элемент x, pop - удалить элемент, end - конец программы<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">struct</span> <span style="color: #009999;">queue</span><span style="color: #000040;">*</span> front, <span style="color: #000040;">*</span> end<span style="color: #008080;">;</span>
+	front <span style="color: #000080;">=</span> <span style="color: #0000dd;">malloc</span><span style="color: #008000;">&#40;</span><span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">struct</span> <span style="color: #009999;">queue</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	end <span style="color: #000080;">=</span> <span style="color: #0000dd;">malloc</span><span style="color: #008000;">&#40;</span><span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">struct</span> <span style="color: #009999;">queue</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>front <span style="color: #000040;">&amp;&amp;</span> end<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>  <span style="color:"#339900>// проверка malloc</span>
+		front<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>next <span style="color: #000080;">=</span> <span style="color: #0000ff;">NULL</span><span style="color: #008080;">;</span> front<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>size <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+		end <span style="color: #000080;">=</span> front<span style="color: #008080;">;</span>  <span style="color:#339900">//связь начала списка с постоянно меняющейся переменной end</span>
+		<span style="color: #0000ff;">int</span> n, m, x, i, flag <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+		<span style="color: #0000ff;">char</span> s<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">10</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+		<span style="color: #0000ff;">while</span> <span style="color: #008000;">&#40;</span>flag <span style="color: #000080;">==</span> <span style="color: #0000dd;">0</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%s&quot;</span>, s<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span><span style="color: #0000dd;">strcmp</span><span style="color: #008000;">&#40;</span>s, <span style="color: #FF0000;">&quot;push&quot;</span><span style="color: #008000;">&#41;</span> <span style="color: #000080;">==</span> <span style="color: #0000dd;">0</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+				scanf_s<span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>x<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+				end <span style="color: #000080;">=</span> <span style="color: #CA6F1E">enqueue</span><span style="color: #008000;">&#40;</span>end, x<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>  <span style="color: #339900">// добавление элемента</span>
+			<span style="color: #008000;">&#125;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span><span style="color: #0000dd;">strcmp</span><span style="color: #008000;">&#40;</span>s, <span style="color: #FF0000;">&quot;pop&quot;</span><span style="color: #008000;">&#41;</span> <span style="color: #000080;">==</span> <span style="color: #0000dd;">0</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+				front <span style="color: #000080;">=</span> <span style="color: #CA6F1E">dequeue</span><span style="color: #008000;">&#40;</span>front<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>  <span style="color: #339900">// удаление элемента</span>
+			<span style="color: #008000;">&#125;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span><span style="color: #0000dd;">strcmp</span><span style="color: #008000;">&#40;</span>s, <span style="color: #FF0000;">&quot;end&quot;</span><span style="color: #008000;">&#41;</span> <span style="color: #000080;">==</span> <span style="color: #0000dd;">0</span><span style="color: #008000;">&#41;</span> flag <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+			<span style="color: #0000ff;">if</span><span style="color: #008000;">&#40;</span>front<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>next <span style="color: #000040;">!</span><span style="color: #000080;">=</span> <span style="color: #0000ff;">NULL</span><span style="color: #008000;">&#41;</span>	
+				<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;Первый элемент равен %i <span style="color: #000099; font-weight: bold;">\n</span>&quot;</span>, front<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>next<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>X<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span> 
+		<span style="color: #008000;">&#125;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+					</div>
+				</div>	
+				<p>Принцип работы очереди применяется всюду, например, алгоритм обхода графа в ширину <a href="..\algorithms\BFS.html" style="color:#0000dd">BFS</a>.</p>
+				
+				
+				
+				
+				
+															     
+		</div>
+	</div>
+		<div id="border2"></div>
+		<div id ="bottomblock">
+		<p class="p" style="text-align:center"><a href = "..\index.html" style = "font-family:bookman old style; color: #0000dd"><b>Code.C</b></a>
+		&#169 Copyright Павел Калашников 2021
+		<br>
+		обратная связь <span style="color:#0000dd">code.c04@mail.ru</span></p><br>
+		</div>
+	</div>
+ </body>
+</html>
