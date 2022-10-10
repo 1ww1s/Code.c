@@ -41,8 +41,9 @@
 											<a href="#1">1. Хранение графа</a><br>
 											<a href="#2">2. Выделение памяти</a><br>
 											<a href="#3">3. Алгоритм BFS</a><br>
-											<a href="#4">4. Пример обхода на C++</a><br>
-											<a href="#5">5. Задача</a></p>
+											<a href="#4">4. Пример обхода на Cи</a><br>
+											<a href="#5">5. Пример обхода на C++</a><br>
+											<a href="#6">6. Задача</a></p>
 								</div>
 								<div id="border1"></div>
 								<div id="nav1">
@@ -51,19 +52,6 @@
 									</p>
 								</div>
 								<div id="border1"></div>
-								<div id="nav1">
-									<div id ="rightblock">
-										<!-- Yandex.RTB R-A-1944727-5 -->
-										<div id="yandex_rtb_R-A-1944727-5"></div>
-										<script style="z-index:99;">window.yaContextCb.push(()=>{
-										  Ya.Context.AdvManager.render({
-										    renderTo: 'yandex_rtb_R-A-1944727-5',
-										    blockId: 'R-A-1944727-5'
-										  })
-										})</script>
-			
-									</div>
-								</div>
 							</div>
 						</div>
 						
@@ -140,8 +128,9 @@ document.addEventListener('click', function(e) {
 				<a href="#1">1. Хранение графа</a><br>
 				<a href="#2">2. Выделение памяти</a><br>
 				<a href="#3">3. Алгоритм BFS</a><br>
-				<a href="#4">4. Пример обхода на C++</a><br>
-				<a href="#5">5. Задача</a></p>
+				<a href="#4">4. Пример обхода на Cи</a><br>
+				<a href="#5">5. Пример обхода на C++</a><br>
+				<a href="#6">6. Задача</a></p>
 				<div style="width:100%" id="border1"></div>
 				<b><p class="p_right" style="margin-left:10px">Обход в ширину:</p></b>	
 				<img width="100%" src ="BFS.gif">	
@@ -151,7 +140,7 @@ document.addEventListener('click', function(e) {
 				</p>
 	</div>
 		<div id = "text">		
-				<h3 id="1">Хранение графа</h3>
+				<h2 id="1">Хранение графа</h2>
 				<p>Граф будет храниться в массиве структур. Полностью про хранение графа в программе смотрите в разделе <a href = "graph.html" style = "color:#0000dd">представление графа в программе</a>.</p>
 				
 		
@@ -160,41 +149,143 @@ document.addEventListener('click', function(e) {
 				2) количество таких путей;<br>3) посещали ли мы уже эту вершину или нет.</p>
 	
 				<p>Вот так выглядит такая структура:</p>
-				<pre class="cpp" style="margin-left:10px"><span style="color: #0000ff;">struct</span> <span style="color: #009999">graph</span> <span style="color: #008000;">&#123;</span>
+				<pre class="cpp" style="margin-left:10px"><span style="color: #0000ff;">struct</span> <span style="color: #009999">vertice</span> <span style="color: #008000;">&#123;</span>
 	<span style="color: #0000ff;">int</span><span style="color: #000040;">*</span> paths<span style="color: #008080;">;</span>  <span style="color: #339900;">// пути</span>
 	<span style="color: #0000ff;">int</span> number_of_paths<span style="color: #008080;">;</span>  <span style="color: #339900;">// кол-во путей</span>
 	<span style="color: #0000ff;">int</span> flag<span style="color: #008080;">;</span>  <span style="color: #339900;">// были вершине или нет</span>
 <span style="color: #008000;">&#125;</span><span style="color: #008080;">;</span></pre>
 
-				<p id="2">Так как изначально мы не знаем сколько у каждой вершины путей, то придется выделять такую память 
+				<h2 id="2">Выделение памяти</h2>
+				<p>Так как изначально мы не знаем сколько у каждой вершины путей, то придется выделять такую память 
 				<a href="..\learning\DMA.html" style = "color:#0000dd">динамически</a>. В начале программы нужно для каждого элемента массива структур
 				динамически выделить память под один элемент массива путей с помощью функции malloc. Далее после каждого ввода пары вершин, 
 				описывающие связь ребром между этими вершинами, мы выделяем дополнительный
 				элемент с помощью функции realloc:</p>
 				<pre class="cpp" style="margin-left:10px"><span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i%i&quot;</span>, <span style="color: #000040;">&amp;</span>v, <span style="color: #000040;">&amp;</span>u<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>  <span style="color: #339900">// между этими вершинами есть путь</span>
-A<span style="color: #008000;">&#91;</span>v <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">paths</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">realloc</span><span style="color: #008000;">&#40;</span>A<span style="color: #008000;">&#91;</span>v <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">paths</span>, <span style="color: #008000;">&#40;</span>A<span style="color: #008000;">&#91;</span>v <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">number_of_paths</span> <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#41;</span> <span style="color: #000040;">*</span> <span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
-A<span style="color: #008000;">&#91;</span>u <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">paths</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">realloc</span><span style="color: #008000;">&#40;</span>A<span style="color: #008000;">&#91;</span>u <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">paths</span>, <span style="color: #008000;">&#40;</span>A<span style="color: #008000;">&#91;</span>u <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">number_of_paths</span> <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#41;</span> <span style="color: #000040;">*</span> <span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span></pre>
+Graph<span style="color: #008000;">&#91;</span>v <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">paths</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">realloc</span><span style="color: #008000;">&#40;</span>Graph<span style="color: #008000;">&#91;</span>v <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">paths</span>, <span style="color: #008000;">&#40;</span>Graph<span style="color: #008000;">&#91;</span>v <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">number_of_paths</span> <span style="color: #000040;">+</span> <span style="color: #0000dd;">2</span><span style="color: #008000;">&#41;</span> <span style="color: #000040;">*</span> <span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+Graph<span style="color: #008000;">&#91;</span>u <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">paths</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">realloc</span><span style="color: #008000;">&#40;</span>Graph<span style="color: #008000;">&#91;</span>u <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">paths</span>, <span style="color: #008000;">&#40;</span>Graph<span style="color: #008000;">&#91;</span>u <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">number_of_paths</span> <span style="color: #000040;">+</span> <span style="color: #0000dd;">2</span><span style="color: #008000;">&#41;</span> <span style="color: #000040;">*</span> <span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span></pre>
 				<p>Сразу после этого добавляем в массив путей новую вершину, в которую можно попасть из текущей. Добавление путей для неориентированного графа:</p>
-				<pre class="cpp" style="margin-left:10px">A<span style="color: #008000;">&#91;</span>v <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">paths</span><span style="color: #008000;">&#91;</span>A<span style="color: #008000;">&#91;</span>v <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">number_of_paths</span><span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> u <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
-A<span style="color: #008000;">&#91;</span>v <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">number_of_paths</span><span style="color: #000040;">++</span><span style="color: #008080;">;</span>
-A<span style="color: #008000;">&#91;</span>u <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">paths</span><span style="color: #008000;">&#91;</span>A<span style="color: #008000;">&#91;</span>u <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">number_of_paths</span><span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> v <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
-A<span style="color: #008000;">&#91;</span>u <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">number_of_paths</span><span style="color: #000040;">++</span><span style="color: #008080;">;</span></pre>
+				<pre class="cpp" style="margin-left:10px">Graph<span style="color: #008000;">&#91;</span>v <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">paths</span><span style="color: #008000;">&#91;</span>Graph<span style="color: #008000;">&#91;</span>v <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">number_of_paths</span><span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> u <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+Graph<span style="color: #008000;">&#91;</span>v <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">number_of_paths</span><span style="color: #000040;">++</span><span style="color: #008080;">;</span>
+Graph<span style="color: #008000;">&#91;</span>u <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">paths</span><span style="color: #008000;">&#91;</span>Graph<span style="color: #008000;">&#91;</span>u <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">number_of_paths</span><span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> v <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+Graph<span style="color: #008000;">&#91;</span>u <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">number_of_paths</span><span style="color: #000040;">++</span><span style="color: #008080;">;</span></pre>
 				<p>Таким образом мы добавили путь из <b>v</b> в <b>u</b> и наоборот.</p>
 				<p>Для ориентированного графа необходимы только первые две строчки при условии, что ребро имеет направление из <b>v</b> в <b>u</b>.</p>
 				<p>Естественно изначально у каждой вершины количество путей равно нулю и никакую вершину мы еще не посещали, поэтому для любой <b>i</b> верно, что
-				A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span>.<span style="color: #007788;">flag</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span> и A<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span>.<span style="color: #007788;">number_of_paths</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>.
+				<br>Graph<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span>.<span style="color: #007788;">flag</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span> и Graph<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span>.<span style="color: #007788;">number_of_paths</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>.
 				
 				
-				<h3 id="3">Алгоритм BFS</h3>
-				<p>Для хранения вершин, в которые мы будем идти, используется очередь, т.е. массив. Первый элемент массива является
-				номером той вершины, в которой мы сейчас находимся. Изначально добавляем в очередь стартовую вершину, далее начинаем алгоритм.
-				Для этого достаем из конца очереди вершину <b>i</b> и удаляем ее из нее, далее добавляем в очередь все доступные соседние вершины из <b>i</b>, 
-				которые мы еще не посещали. Мы повторяем эти действия до тех пор, пока очередь не пуста. <br>В языке Си нет отдельного класса очереди, 
-				а реализовать ее на Си довольно сложно, поэтому легче будет писать обход на C++. В алгоритме используется класс <b>&#60;vector&gt;</b>, который является 
-				динамическим массивом, и класс <b>&#60;queue&gt;</b>, который является очередью. Про вектор можно почитать 
-				<a style="color:#0000dd" href="https://docs.microsoft.com/ru-ru/cpp/standard-library/vector-class?view=msvc-160">здесь</a>, 
-				а про очередь <a style="color:#0000dd" href="https://docs.microsoft.com/ru-ru/cpp/standard-library/queue-class?view=msvc-160">здесь</a>.</p>
-				<h3 id="4">Пример обхода на C++</h3> 
+				<h2 id="3">Алгоритм BFS</h2>
+				<p>Для обхода вершин графа используется <a href="..\learning\queue.html" style="color:#0000dd">очередь</a>. 
+				Изначально в очередь добавляем стартовую вершину. Работа с очередью состоит из двух частей:<br>
+				<b>1.</b> Добавление всех вершин доступных из <b>v</b>, которые мы еще не посещали, <b>v</b> - номер вершины, находящаяся в начале очереди;<br>
+				<b>2.</b> Удаление вершины <b>v</b>.<br>
+				Алгоритм завершается, когда в очереди не остается элементов. 
+				<br>
+				В языке Си нет отдельного класса очереди, поэтому создаем его сами и используем для конкретных задач алгоритма. В данном примере проверяется 
+				правильность выделения памяти под динамические массивы.</p>
+
+				<h2 id="4">Пример обхода на Cи:</h2> 
+				<div id="t">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+				<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31
+				<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>
+				53<br>54<br>55<br>56<br>5<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>68<br>69<br>70<br>71<br>72<br>73<br>74
+				<br>75<br>76<br>77<br>78<br>79<br>80<br>81<br>82<br>83<br>84<br>85</p></div>
+					<div id="text2-2">
+						<pre class="cpp"><span style="color: #339900;">#define _CRT_SECURE_NO_WARNINGS</span>
+<span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+<span style="color: #339900;">#include&lt;malloc.h&gt;</span>
+<span style="color: #339900;">#define SIZE 100</span>
+&nbsp;
+<span style="color: #0000ff;">struct</span> <span style="color: #009999">vertice</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span><span style="color: #000040;">*</span> paths<span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">int</span> number_of_paths<span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">int</span> flag<span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span><span style="color: #008080;">;</span>
+&nbsp;
+<span style="color: #0000ff;">struct</span> <span style="color: #009999">queue</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">struct</span>  <span style="color: #009999">queue</span><span style="color: #000040;">*</span> next<span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">int</span> X<span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span><span style="color: #008080;">;</span>
+&nbsp;
+<span style="color: #0000ff;">struct</span>  <span style="color: #009999">queue</span><span style="color: #000040;">*</span> <span style="color: #CA6F1E">enqueue</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">struct</span> <span style="color: #009999">queue</span><span style="color: #000040;">*</span> q, <span style="color: #0000ff;">int</span> a<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">struct</span>  <span style="color: #009999">queue</span><span style="color: #000040;">*</span> buf <span style="color: #000080;">=</span> <span style="color: #0000dd;">malloc</span><span style="color: #008000;">&#40;</span><span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">struct</span> <span style="color: #009999">queue</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>buf<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		buf<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>X <span style="color: #000080;">=</span> a<span style="color: #008080;">;</span>
+		buf<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>next <span style="color: #000080;">=</span> <span style="color: #0000ff;">NULL</span><span style="color: #008080;">;</span>
+		q<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>next <span style="color: #000080;">=</span> buf<span style="color: #008080;">;</span>
+		<span style="color: #0000ff;">return</span> buf<span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">return</span> q<span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span>
+&nbsp;
+<span style="color: #0000ff;">struct</span>  <span style="color: #009999">queue</span><span style="color: #000040;">*</span> <span style="color: #CA6F1E">dequeue</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">struct</span> <span style="color: #009999">queue</span><span style="color: #000040;">*</span> q<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">return</span> q<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>next<span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span>
+&nbsp;
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> n, m, i, v, u, l<span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">struct</span> <span style="color: #009999">vertice</span> Graph<span style="color: #008000;">&#91;</span>SIZE<span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i%i&quot;</span>, <span style="color: #000040;">&amp;</span>n, <span style="color: #000040;">&amp;</span>m<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> SIZE<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>  <span style="color: #339900;">// начальная инициализация </span>
+		Graph<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span>.<span style="color: #007788;">paths</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">malloc</span><span style="color: #008000;">&#40;</span><span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		Graph<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span>.<span style="color: #007788;">number_of_paths</span> <span style="color: #000080;">=</span> Graph<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span>.<span style="color: #007788;">flag</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">while</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">&lt;</span> m<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i%i&quot;</span>, <span style="color: #000040;">&amp;</span>v, <span style="color: #000040;">&amp;</span>u<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>v <span style="color: #000080;">&gt;</span> <span style="color: #0000dd;">0</span> <span style="color: #000040;">&amp;&amp;</span> v <span style="color: #000080;">&lt;</span> SIZE <span style="color: #000040;">&amp;&amp;</span> u <span style="color: #000080;">&gt;</span> <span style="color: #0000dd;">0</span> <span style="color: #000040;">&amp;&amp;</span> u <span style="color: #000080;">&lt;</span> SIZE<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			<span style="color: #0000ff;">int</span><span style="color: #000040;">*</span> buf1 <span style="color: #000080;">=</span> <span style="color: #0000dd;">realloc</span><span style="color: #008000;">&#40;</span>Graph<span style="color: #008000;">&#91;</span>v <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">paths</span>, <span style="color: #008000;">&#40;</span><span style="color: #008000;">&#40;</span>Graph<span style="color: #008000;">&#91;</span>v <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">number_of_paths</span> <span style="color: #000040;">+</span> <span style="color: #0000dd;">2</span><span style="color: #008000;">&#41;</span> <span style="color: #000040;">*</span> <span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+			<span style="color: #0000ff;">int</span><span style="color: #000040;">*</span> buf2 <span style="color: #000080;">=</span> <span style="color: #0000dd;">realloc</span><span style="color: #008000;">&#40;</span>Graph<span style="color: #008000;">&#91;</span>u <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">paths</span>, <span style="color: #008000;">&#40;</span><span style="color: #008000;">&#40;</span>Graph<span style="color: #008000;">&#91;</span>u <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">number_of_paths</span> <span style="color: #000040;">+</span> <span style="color: #0000dd;">2</span><span style="color: #008000;">&#41;</span> <span style="color: #000040;">*</span> <span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>buf1 <span style="color: #000040;">&amp;&amp;</span> buf2<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>  <span style="color: #339900;">// проверка realloc</span>
+				Graph<span style="color: #008000;">&#91;</span>v <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">paths</span> <span style="color: #000080;">=</span> buf1<span style="color: #008080;">;</span>
+				Graph<span style="color: #008000;">&#91;</span>v <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">paths</span><span style="color: #008000;">&#91;</span>Graph<span style="color: #008000;">&#91;</span>v <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">number_of_paths</span><span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> u <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+				Graph<span style="color: #008000;">&#91;</span>v <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">number_of_paths</span><span style="color: #000040;">++</span><span style="color: #008080;">;</span>
+&nbsp;
+				Graph<span style="color: #008000;">&#91;</span>u <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">paths</span> <span style="color: #000080;">=</span> buf2<span style="color: #008080;">;</span>
+				Graph<span style="color: #008000;">&#91;</span>u <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">paths</span><span style="color: #008000;">&#91;</span>Graph<span style="color: #008000;">&#91;</span>u <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">number_of_paths</span><span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> v <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+				Graph<span style="color: #008000;">&#91;</span>u <span style="color: #000040;">-</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">number_of_paths</span><span style="color: #000040;">++</span><span style="color: #008080;">;</span>
+				i<span style="color: #000040;">++</span><span style="color: #008080;">;</span>
+			<span style="color: #008000;">&#125;</span>
+			<span style="color: #0000ff;">else</span> <span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;error<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+		<span style="color: #0000ff;">else</span> <span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;Введите корректные значения<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+&nbsp;
+	<span style="color: #0000ff;">int</span> start <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>  <span style="color: #339900;">// с какой переменной начинается обход</span>
+	<span style="color: #0000ff;">int</span> cur<span style="color: #008080;">;</span>  <span style="color: #339900;">// текущая переменная</span>
+	<span style="color: #0000ff;">struct</span>  <span style="color: #009999">queue</span><span style="color: #000040;">*</span> front <span style="color: #000080;">=</span> <span style="color: #0000dd;">malloc</span><span style="color: #008000;">&#40;</span><span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">struct</span>  <span style="color: #009999">queue</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span>, <span style="color: #000040;">*</span>end <span style="color: #000080;">=</span> <span style="color: #0000dd;">malloc</span><span style="color: #008000;">&#40;</span><span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">struct</span>  <span style="color: #009999">queue</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>  
+	<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>front <span style="color: #000040;">&amp;&amp;</span> end <span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		end <span style="color: #000080;">=</span> front<span style="color: #008080;">;</span>
+		end <span style="color: #000080;">=</span> <span style="color: #CA6F1E">enqueue</span><span style="color: #008000;">&#40;</span>end, start<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		<span style="color: #0000ff;">while</span> <span style="color: #008000;">&#40;</span>front<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>next <span style="color: #000040;">!</span><span style="color: #000080;">=</span> <span style="color: #0000ff;">NULL</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>  <span style="color: #339900;">// BFS</span>
+			cur <span style="color: #000080;">=</span> front<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>next<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>X<span style="color: #008080;">;</span>
+			Graph<span style="color: #008000;">&#91;</span>cur<span style="color: #008000;">&#93;</span>.<span style="color: #007788;">flag</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+			l <span style="color: #000080;">=</span> Graph<span style="color: #008000;">&#91;</span>cur<span style="color: #008000;">&#93;</span>.<span style="color: #007788;">number_of_paths</span><span style="color: #008080;">;</span>
+			front <span style="color: #000080;">=</span> <span style="color: #CA6F1E">dequeue</span><span style="color: #008000;">&#40;</span>front<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+			<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> l<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>  <span style="color: #339900;">// добавляем в очередь пути из вершины cur</span>
+				<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>Graph<span style="color: #008000;">&#91;</span>cur<span style="color: #008000;">&#93;</span>.<span style="color: #007788;">paths</span> <span style="color: #000040;">!</span><span style="color: #000080;">=</span> <span style="color: #0000ff;">NULL</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+					<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>Graph<span style="color: #008000;">&#91;</span>Graph<span style="color: #008000;">&#91;</span>cur<span style="color: #008000;">&#93;</span>.<span style="color: #007788;">paths</span><span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">flag</span> <span style="color: #000080;">==</span> <span style="color: #0000dd;">0</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>  <span style="color: #339900;">// если еще не посещали вершину</span>
+						Graph<span style="color: #008000;">&#91;</span>Graph<span style="color: #008000;">&#91;</span>cur<span style="color: #008000;">&#93;</span>.<span style="color: #007788;">paths</span><span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#93;</span>.<span style="color: #007788;">flag</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+						end <span style="color: #000080;">=</span> <span style="color: #CA6F1E">enqueue</span><span style="color: #008000;">&#40;</span>end, Graph<span style="color: #008000;">&#91;</span>cur<span style="color: #008000;">&#93;</span>.<span style="color: #007788;">paths</span><span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+					<span style="color: #008000;">&#125;</span>
+				<span style="color: #008000;">&#125;</span>
+				<span style="color: #0000ff;">else</span>  <span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;error<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+			<span style="color: #008000;">&#125;</span>
+		<span style="color: #008000;">&#125;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> 
+<span style="color: #008000;">&#125;</span></pre>
+					</div>
+				</div>
+
+
+
+				<p id="5">Если отбросить все сложности с динамическим выделением памяти и посмотреть на алгоритм на c++, реализованный с помощью контейнеров vector и queue, 
+				то можно убедиться в простоте алгоритма. Так же анализ кода на c++ поможет лучше разобраться с алгоритмом на Си.</p>
+				<h2>Пример обхода на C++</h2> 
 				<div id="t">
 					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
 				<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31
@@ -255,7 +346,7 @@ A<span style="color: #008000;">&#91;</span>u <span style="color: #000040;">-</sp
 })</script>
 			</div>
 			     <div id="text">
-				<h3 id="5">Задача</h3>
+				<h2 id="6">Задача:</h2>
 				<p>В городе <b>P</b> есть <b>n</b> домов, пронумерованных от 1 до <b>n</b>. Дома связывают дороги, при этом можно 
 				добраться из любого дома в любой другой. Саша живет в <b>1</b> доме, но ему приходится ходить в магазин, который находится в 
 				доме <b>k</b>. Саша хочет добираться до магазина как можно быстрее. Вам нужно вывести минимальное 
