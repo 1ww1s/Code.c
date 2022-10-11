@@ -277,13 +277,9 @@ nav a {
 	height:1100px;
 	background-color:red;
 }
-.sticky1{
+.sticky{
 	position:sticky;  /**/
 	top:30px;
-}
-.sticky2{
-	position:sticky;  /**/
-	top:225px;
 }
 .mobile{
 	display:none;  /**/
