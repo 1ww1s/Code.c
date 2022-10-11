@@ -274,15 +274,17 @@ nav a {
 #rb{
 	width:27%;
 	float:right;
-	height:1000px;
+	height:1100px;
 	background-color:red;
 }
-
-.sticky{
+.sticky1{
 	position:sticky;  /**/
-	top:200px;
+	top:30px;
 }
-
+.sticky2{
+	position:sticky;  /**/
+	top:225px;
+}
 .mobile{
 	display:none;  /**/
 }
