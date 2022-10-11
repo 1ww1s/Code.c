@@ -225,7 +225,6 @@ nav a {
 
 #body{
 	margin: 30px auto;
-	overflow:hidden;
 	width:1100px;
 	max-width:95%;
 }
@@ -272,19 +271,30 @@ nav a {
 	line-height:1.5;
 	margin-left:;
 }
+#rb{
+	width:27%;
+	float:right;
+	height:1000px;
+	background-color:red;
+}
 
+.sticky{
+	position:sticky;  /**/
+	top:200px;
+}
+
+.mobile{
+	display:none;  /**/
+}
+.pk{
+	display:block;  /**/
+}
 #rightblock{
 	margin-top:30px;
-	float:right;
-	width:27%;
 	border: 2px solid black;
 	background-color:#ebebeb;
 	z-index:99;
 }
-#yandex_rtb_R-A-1944727-1{
-
-}
-
 
 #border1{
 	height:2px;
@@ -304,6 +314,7 @@ nav a {
 	width:100%;
 	margin:0 auto;
 	font-size:10%;
+	float:left;
 }
 
 #m{
@@ -553,9 +564,8 @@ table.iksweb th {
 	table.iksweb td,table.iksweb th {
 			font-size:calc(1.2vmax + 9px);
 	}
-	
-	
 	.mobile{
-		display:none;
+		display:block;   /**/
 	}
+	.pk{display:none;} /**/
 }
