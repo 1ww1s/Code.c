@@ -265,7 +265,7 @@ nav a {
 #text2-2{
 	float:left;
 	width:90%;
-	margin-left:1vmax;
+	margin-left:0.5vmax;
 }
 .p1{
 	font-size:16.5px;
@@ -286,10 +286,6 @@ nav a {
 	background-color:#ebebeb;
 	z-index:99;
 }
-#yandex_rtb_R-A-1944727-1{
-
-}
-
 
 #border1{
 	height:2px;
