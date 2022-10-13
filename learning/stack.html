@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ 
+ <!-- Yandex.RTB -->
+<script>window.yaContextCb=window.yaContextCb||[]</script>
+<script src="https://yandex.ru/ads/system/context.js" async></script>
+ 
+  <meta charset="utf-8">
+     <link rel="icon" href="https://1ww1s.github.io/Code.c/favicon.ico" type="image/x-icon">
+  <title>Символы и строки</title>
+ </head>
+ 
+ <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="CSS.css">
+ 
+ <body>
+	<div id="container">
+		<nav class="darken"></nav>
+		<div id="navigation_top">
+			<div id="navigation_main">
+			<div id="m">
+						<div class="bt"><img width="100%" src="t.png"></div>
+					<nav class="menu">
+						<div class="scroll" id="navigation">
+							<div id="nav1">
+								<nav style = "margin-top:1vmax">
+								<a href="..\index.html" >Главная</a><br>
+								<a href="learning.html" style="color:#0000dd"> Изучение</a><br>
+								<a href="..\tasks\tasks.html"> Задачи</a>	<br>
+								<a href="..\algorithms\algorithms.html">Алгоритмы</a><br>
+								</nav>	
+								
+							</div>
+							<div style="margin-top:5vmax" id="border1"></div>
+							<div id="nav_page">
+								<div id="nav1">
+									 <p class="p_nav_page"><b><font style="font-size:125%">Навигация по странице:</font></b><br>
+								<a href="#1">1. Стек это</b><br>
+								<a href="#2">2. Алгоритм</a><br>
+								<a href="#3">3. Функция push</a><br>
+								<a href="#4">4. Визуализация функции push</a><br>
+								<a href="#5">5. Функция pop</a><br>
+								<a href="#6">6. Визуализация функции pop</a><br>
+								<a href="#7">7. Полный алгоритм</a><br>
+								<a href="#8">8. Применение стека</a><br>
+									</p>
+								</div>
+								<div id="border1"></div>
+							</div>
+						</div>
+						
+	
+					</nav>
+				
+					<script>const btnMenu = document.querySelector('.bt');
+const menu = document.querySelector('.menu');
+const darken = document.querySelector('.darken');
+
+
+const toggleMenu = function() {
+    menu.classList.toggle('open');
+	 darken.classList.toggle('open');
+}
+
+btnMenu.addEventListener('click', function(e) {
+    e.stopPropagation();
+    toggleMenu();
+});
+
+document.addEventListener('click', function(e) {
+    const target = e.target;
+    const its_menu = target == menu || menu.contains(target);
+    const its_btnMenu = target == btnMenu;
+    const menu_is_active = menu.classList.contains('open');
+    
+    if (!its_menu && !its_btnMenu && menu_is_active) {
+        toggleMenu();
+    }
+	
+});
+
+</script>
+
+					<div id = "name">
+						<a href="..\index.html" style=" font-family: sans-serif; color:white;"><b>Code.C</b></a>
+					</div>
+				</div>
+				
+				
+				<div id="pk">
+					<div id = "name">
+						<a href="..\index.html" style=" font-family: sans-serif; color:white;"><b>Code.C</b></a>
+					</div>
+					<div id="navigation">
+							<nav>
+							<a href="..\index.html" >Главная</a>
+							<a href="learning.html" style="color:#1e90ff"> Изучение</a>
+							<a href="..\tasks\tasks.html"> Задачи</a>	
+							<a href="..\algorithms\algorithms.html">Алгоритмы</a>
+							</nav>	
+					
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+		
+	<div id="body">
+	<div class="pk" id="rb">
+			<div id ="rightblock">
+				 <p class="p_right" style="margin-left:10px"><b><font style="font-size:125%">Навигация по странице:</font></b><br>
+								<a href="#1">1. Стек это</b><br>
+								<a href="#2">2. Алгоритм</a><br>
+								<a href="#3">3. Функция push</a><br>
+								<a href="#4">4. Визуализация функции push</a><br>
+								<a href="#5">5. Функция pop</a><br>
+								<a href="#6">6. Визуализация функции pop</a><br>
+								<a href="#7">7. Полный алгоритм</a><br>
+								<a href="#8">8. Применение стека</a><br>		
+				</p>
+			</div>
+				<div  class="sticky" id ="rightblock">
+					<!-- Yandex.RTB R-A-1944727-1 -->
+					<div id="yandex_rtb_R-A-1944727-1"></div>
+					<script>window.yaContextCb.push(()=>{
+					  Ya.Context.AdvManager.render({
+						renderTo: 'yandex_rtb_R-A-1944727-1',
+						blockId: 'R-A-1944727-1'
+					  })
+					})</script>
+				</div>
+			</div>
+	
+	
+		<div id = "text">
+			
+			<h1 id="1">Стек</h1>
+			</div>
+			<div class="mobile" id ="rightblock">
+				 <p class="p_right" style="margin-left:10px"><b><font style="font-size:125%">Навигация по странице:</font></b><br>
+								<a href="#1">1. Стек это</b><br>
+								<a href="#2">2. Алгоритм</a><br>
+								<a href="#3">3. Функция push</a><br>
+								<a href="#4">4. Визуализация функции push</a><br>
+								<a href="#5">5. Функция pop</a><br>
+								<a href="#6">6. Визуализация функции pop</a><br>
+								<a href="#7">7. Полный алгоритм</a><br>
+								<a href="#8">8. Применение стека</a><br>
+								
+				</p>
+			</div>
+			<div id="text">
+				<p>
+				<b id="1">Стек</b> — абстрактный тип данных, представляющий собой список элементов, организованных по 
+				принципу LIFO (англ. last in — first out, «последним пришёл — первым вышел»). Чаще всего принцип работы 
+				стека сравнивают со стопкой тарелок: чтобы взять вторую сверху, нужно снять верхнюю.<br>
+				Способом реализации очереди выберем связанный список.</p>
+				<img width="85%" src="s1.png">
+					<h2 id="2">Алгоритм</h2>
+				<p>В программе, мы храним указатель на первый элемент стека - front. У front инициализацируем переменную size равную 0. Этот элемент стека
+				будет нулевым и не измениться в течение всей программы. При удалении всех элементов стека, нулевой front не будет удален, чтобы мы могли его 
+				снова использовать при добавлении уже нового первого элемента. С помощью функции push добавляем элемент, с помощью функции pop
+				удаляем.</p>
+				<h3 id="3">Функция push</h3>
+				<p>Функция push добавляет в стек новыый элемент. Она получает указатель на первый элемент стека front и переменную x, значение 
+				которой должны добавить в стек.<br>
+				Действия функции:<br>
+				1. Создаем буферный указатель buf(2);<br>
+				2. buf->next = front, теперь buf встает на первое место в стеке(4);<br>
+				3. Дозаполняем buf нужными значениями(4-6);<br>
+				4. Возвращаем buf, теперь указатель front равен buf(7).
+				</p>
+				<div id="t" style="margin-left:10px">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10</p></div>
+					<div id="text2-2">
+					<pre class="cpp"><span style="color: #0000ff;">struct</span> <span style="color: #009999;">stack</span><span style="color: #000040;">*</span> <span style="color: #CA6F1E">push</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">struct</span> <span style="color: #009999;">stack</span><span style="color: #000040;">*</span> front, <span style="color: #0000ff;">int</span> x<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">struct</span> <span style="color: #009999;">stack</span><span style="color: #000040;">*</span> buf <span style="color: #000080;">=</span> <span style="color: #0000dd;"><span style="color: #CA6F1E">malloc</span></span><span style="color: #008000;">&#40;</span><span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">struct</span> <span style="color: #009999;">stack</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>buf<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>  <span style="color: #339900">// проверка malloc</span>
+		buf<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>next <span style="color: #000080;">=</span> front<span style="color: #008080;">;</span>
+		buf<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>size <span style="color: #000080;">=</span> front<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>size <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+		buf<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>X <span style="color: #000080;">=</span> x<span style="color: #008080;">;</span>
+		<span style="color: #0000ff;">return</span> buf<span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">return</span> front<span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+					</div>
+				</div>	
+				<p id="4">Давайте визуализируем действия этой функции:<br>
+				<b>1.</b> Изначально стек выглядит так:<br>
+				<img width="50%" src ="s1.jpg"><br>
+				<b>2.</b> buf->next = front, заполняем buf нужными значениями, теперь buf встает на первое место в стеке:<br>
+				<img width="70%" src ="s2.jpg"><br>
+				<b>3.</b> Возвращаем buf, теперь указатель front равен buf, стек теперь выглядит так:<br>
+				<img width="70%" src ="s3.jpg"><br>
+				</p>
+				<h3 id="5">Функция pop</h3>
+				<p>Функция pop удаляет первый элемент в стеке. Она получает указатель на первый элемент front.
+				front->size == 0 &ndash; это означает, что стек пустой и мы возвращаем
+				тот же указатель front. Иначе мы возвращаем front->next, то есть второй элемент в стеке становится первым.</p>
+				<div id="t" style="margin-left:10px">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7</p></div>
+					<div id="text2-2">
+				<pre class="cpp"><span style="color: #0000ff;">struct</span> <span style="color: #009999;">stack</span><span style="color: #000040;">*</span> <span style="color: #CA6F1E">pop</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">struct</span> <span style="color: #009999;">stack</span><span style="color: #000040;">*</span> front<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>front<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>size <span style="color: #000080;">==</span> <span style="color: #0000dd;">0</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;Очередь пуста!<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		<span style="color: #0000ff;">return</span> front<span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">return</span> front<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>next<span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+					</div>
+				</div>	
+				<p id="6">Давайте визуализируем действия этой функции:<br>
+					<img width="70%" src ="s3.jpg"><br>
+					<img width="50%" src ="s1.jpg"><br>
+					Действие полностью обратно добавлению элемента, в отличие от <a href = "queue.html" style="color: #0000dd">очереди</a>.
+				</p>
+				
+				<h2 id="7">Полный алгоритм:</h2>
+				<p>Входные данные:<br>
+					push n - вставить элемент n в стек;<br>
+					pop - удалить первый элемент стека;<br>
+					end - конец программы.</p>
+					<p><b>Код на Си:</b></p>		
+					<div id="t" style="margin-left:10px">
+						<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28
+					<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46
+					<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55</p></div>
+						<div id="text2-2">
+<pre class="cpp" ><span style="color: #339900;">#define _CRT_SECURE_NO_WARNINGS</span>
+<span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+<span style="color: #339900;">#include&lt;string.h&gt;</span>
+<span style="color: #339900;">#include &lt;locale.h&gt;</span>
+&nbsp;
+<span style="color: #0000ff;">struct</span> <span style="color: #009999;">stack</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">struct</span> <span style="color: #009999;">stack</span><span style="color: #000040;">*</span> next<span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">int</span> X<span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">int</span> size<span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span><span style="color: #008080;">;</span>
+&nbsp;
+<span style="color: #0000ff;">struct</span> <span style="color: #009999;">stack</span><span style="color: #000040;">*</span> <span style="color: #CA6F1E">push</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">struct</span> <span style="color: #009999;">stack</span><span style="color: #000040;">*</span> front, <span style="color: #0000ff;">int</span> x<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">struct</span> <span style="color: #009999;">stack</span><span style="color: #000040;">*</span> buf <span style="color: #000080;">=</span> <span style="color: #0000dd;"><span style="color: #CA6F1E">malloc</span></span><span style="color: #008000;">&#40;</span><span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">struct</span> <span style="color: #009999;">stack</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>buf<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>  <span style="color: #339900;">// проверка malloc</span>
+		buf<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>next <span style="color: #000080;">=</span> front<span style="color: #008080;">;</span>
+		buf<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>size <span style="color: #000080;">=</span> front<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>size <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008080;">;</span>
+		buf<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>X <span style="color: #000080;">=</span> x<span style="color: #008080;">;</span>
+		<span style="color: #0000ff;">return</span> buf<span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">return</span> front<span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span>
+&nbsp;
+<span style="color: #0000ff;">struct</span> <span style="color: #009999;">stack</span><span style="color: #000040;">*</span> <span style="color: #CA6F1E">pop</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">struct</span> <span style="color: #009999;">stack</span><span style="color: #000040;">*</span> front<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>front<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>size <span style="color: #000080;">==</span> <span style="color: #0000dd;">0</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;Очередь пуста!<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		<span style="color: #0000ff;">return</span> front<span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">return</span> front<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>next<span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span>
+&nbsp;
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	setlocale<span style="color: #008000;">&#40;</span>LC_ALL, <span style="color: #FF0000;">&quot;Rus&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">struct</span> <span style="color: #009999;">stack</span><span style="color: #000040;">*</span> front<span style="color: #008080;">;</span>
+	front <span style="color: #000080;">=</span> <span style="color: #0000dd;"><span style="color: #CA6F1E">malloc</span></span><span style="color: #008000;">&#40;</span><span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">struct</span> <span style="color: #009999;">stack</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>front<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>  <span style="color: #339900;">// проверка malloc</span>
+		front<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>size <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+		front<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>next <span style="color: #000080;">=</span> <span style="color: #0000ff;">NULL</span><span style="color: #008080;">;</span>
+		<span style="color: #0000ff;">int</span> n<span style="color: #008080;">;</span> <span style="color: #0000ff;">char</span> s<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">10</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+		<span style="color: #0000ff;">while</span> <span style="color: #008000;">&#40;</span><span style="color: #0000dd;">0</span> <span style="color: #000080;">==</span> <span style="color: #0000dd;">0</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			<span style="color: #0000dd;">scanf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%s&quot;</span>, <span style="color: #000040;">&amp;</span>s<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span><span style="color: #0000dd;">strcmp</span><span style="color: #008000;">&#40;</span>s, <span style="color: #FF0000;">&quot;push&quot;</span><span style="color: #008000;">&#41;</span> <span style="color: #000080;">==</span> <span style="color: #0000dd;">0</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+				scanf_s<span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>n<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+				front <span style="color: #000080;">=</span> <span style="color: #CA6F1E">push</span><span style="color: #008000;">&#40;</span>front, n<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>  <span style="color: #339900;">// добавление элемента</span>
+			<span style="color: #008000;">&#125;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span><span style="color: #0000dd;">strcmp</span><span style="color: #008000;">&#40;</span>s, <span style="color: #FF0000;">&quot;pop&quot;</span><span style="color: #008000;">&#41;</span> <span style="color: #000080;">==</span> <span style="color: #0000dd;">0</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+				front <span style="color: #000080;">=</span> <span style="color: #CA6F1E">pop</span><span style="color: #008000;">&#40;</span>front<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>  <span style="color: #339900;">// удаление элемента</span>
+			<span style="color: #008000;">&#125;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span><span style="color: #0000dd;">strcmp</span><span style="color: #008000;">&#40;</span>s, <span style="color: #FF0000;">&quot;end&quot;</span><span style="color: #008000;">&#41;</span> <span style="color: #000080;">==</span> <span style="color: #0000dd;">0</span><span style="color: #008000;">&#41;</span> <span style="color: #0000ff;">break</span><span style="color: #008080;">;</span>
+			<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>front<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>size <span style="color: #000040;">!</span><span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008000;">&#41;</span>
+				<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;Первый элемент равен %i <span style="color: #000099; font-weight: bold;">\n</span>&quot;</span>, front<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>X<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+					</div>
+				</div>	
+				
+				<h3 id="8">Применение стека</h3>
+				
+				<p>Программный вид стека используется для обхода структур данных, например, дерево или граф.
+				При использовании рекурсивных функций также будет применяться стек, но его аппаратный вид. 
+				Кроме этих назначений, стек используется для организации стековой машины, реализующей вычисления 
+				в обратной польской записи. Примером использования стековой машины является программа Unix dc.	
+				Для отслеживания точек возврата из подпрограмм используется стек вызовов.</p>
+		</div>
+		
+		
+		
+	</div>
+
+		<div id ="bottomblock">
+			<div id="border2"></div>
+		<p class="p" style="text-align:center"><a href = "..\index.html" style = "font-family:bookman old style; color: #0000dd"><b>Code.C</b></a>
+		&#169 Copyright Павел Калашников 2021
+		<br>
+		обратная связь <span style="color:#0000dd">code.c04@mail.ru</span></p><br>
+		</div>
+	</div>
+ </body>
+</html>
