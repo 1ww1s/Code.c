@@ -280,8 +280,8 @@ nav a {
 #rb{
 	width:27%;
 	float:right;
-	height:3100px;
-	background-color:;
+	height:2000px;
+	background-color:red;
 }
 .sticky{
 	position:sticky;  /**/
