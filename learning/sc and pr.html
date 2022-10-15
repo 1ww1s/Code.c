@@ -12,7 +12,7 @@
  </head>
  
  <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
- <link rel="stylesheet" type="text/css" href="CSS.css">
+ <link rel="stylesheet" type="text/css" href="CSS2.css">
  
  <body>
 	<div id="container">
@@ -37,17 +37,14 @@
 							<div style="margin-top:5vmax" id="border1"></div>
 							<div id="nav_page">
 								<div id="nav1">
-									<div id ="rightblock">
-										<!-- Yandex.RTB R-A-1944727-5 -->
-										<div id="yandex_rtb_R-A-1944727-5"></div>
-										<script style="z-index:99;">window.yaContextCb.push(()=>{
-										  Ya.Context.AdvManager.render({
-										    renderTo: 'yandex_rtb_R-A-1944727-5',
-										    blockId: 'R-A-1944727-5'
-										  })
-										})</script>
-			
-									</div>
+									<p class="p_nav_page"><b><font style="font-size:125%">Навигация по странице:</font></b><br>
+										<a href="#1">1. Ввод с помощью scanf()</a><br>
+										<a href="#2">2. Важно про функцию scanf() </a><br>
+										<a href="#4">3. Ввод с помощью scanf_s()</a><br>
+										<a href="#3">4. Что возвращает scanf_s()</a><br>
+										<a href="#5">5. Вывод с помощью printf</a><br>
+										<a href="#6">6. Основные управляющие символы</a><br>
+									</p>
 								</div>
 							</div>
 						</div>
@@ -105,21 +102,39 @@ document.addEventListener('click', function(e) {
 		</div>
 		
 		<div id="body">
-			
+			<div style="height:1525px; background-color:red;" class ="pk" id="rb">
+					<div id="rightblock">
+						<p class="p_right" style="margin-left:10px"><b><font style="font-size:125%">Навигация по странице:</font></b><br>
+							<a href="#1">1. Ввод с помощью scanf()</a><br>
+							<a href="#2">2. Важно про функцию scanf() </a><br>
+							<a href="#4">3. Ввод с помощью scanf_s()</a><br>
+							<a href="#3">4. Что возвращает scanf_s()</a><br>
+							<a href="#5">5. Вывод с помощью printf</a><br>
+							<a href="#6">6. Основные управляющие символы</a><br>
+						</p>
+					</div>
+					<div class="sticky" id ="rightblock">
+						<!-- Yandex.RTB R-A-1944727-1 -->
+							<div id="yandex_rtb_R-A-1944727-1"></div>
+							<script>window.yaContextCb.push(()=>{
+							  Ya.Context.AdvManager.render({
+								renderTo: 'yandex_rtb_R-A-1944727-1',
+								blockId: 'R-A-1944727-1'
+							  })
+							})</script>
+					</div>	
+				</div>
 			
 			<div id="text">
 			
-			<h1>Ввод и вывод</h1>
+			<h1 id="1">Ввод и вывод</h1>
 				<p>Ввод и вывод информации осуществляется через функции стандартной библиотеки stdio.h.</p>
-
-		
-				
 		
 			<div id="text1">
 				<p><b>scanf()</b> — для ввода информации</p>
 				<p><b>printf()</b> — для вывода информации</p>
 			</div>
-				<h2>Ввод с помощью scanf</h2>
+				<h2>Ввод с помощью scanf()</h2>
 	
 				<p><b style="font-size:130%">Общая форма записи функции scanf():</b></p>
 				
@@ -143,7 +158,7 @@ document.addEventListener('click', function(e) {
 			
 			<div id="text1">
 
-				<h3>Важно!</h3>
+				<h3 id="2">Важно!</h3>
 				<p>Функция <b>scanf()</b> является функцией незащищенного ввода, т.к. появилась она в ранних версиях
 				языка Си. Поэтому, чтобы разрешить работу данной функции в современных компиляторах, необходимо
 				в начало программы добавить строчку:</p>
@@ -173,38 +188,95 @@ document.addEventListener('click', function(e) {
 		
 		
 		<br>
-		<div id="text1">
-		<p>Также можно воспользоваться функцией защищенного ввода <b>scanf_s()</b>. Она содержит тот же самый список
-		параметров, что и <b>scanf</b>, но для него не нужно дополнительно ничего прописывать. Пример такого ввода:</p>
-		</div>
+		<h2 id="3">Ввод с помощью scanf_s()</h2>
+		<p>Также можно воспользоваться функцией защищенного ввода <b>scanf_s()</b>. Она отлична от scanf() тем, что не вызывает перегрузки буфера. Если при вводе строки мы превысим размер массива символов, то
+		scanf() будет записывать оставшиеся символы в память, которая не была выделена под этот массив. Поэтому scanf_s проверяет, что пользовательский ввод поместится в заданном пространстве памяти. Пример:</p>
+		
 		<br>
-		<div id="t" style="margin-left:10px">
-			<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7</p></div>
-				<div id="text2-2">
-					<pre class="cpp"><span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+				<div id="t" style="margin-left:10px">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8</p></div>
+					<div id="text2-2">
+				<pre class="cpp"><span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
 <span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
-	<span style="color: #0000ff;">int</span> x<span style="color: #008080;">;</span>
-	<span style="color: #0000ff;">float</span> y<span style="color: #008080;">;</span>
-	scanf_s<span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i%f&quot;</span>, <span style="color: #000040;">&amp;</span>x, <span style="color: #000040;">&amp;</span>y<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span> <span style="color:  #339900">// ввод чисел</span>
+	<span style="color: #0000ff;">char</span> s<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">10</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+	scanf_s<span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%s&quot;</span>, <span style="color: #000040;">&amp;</span>s, <span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span>s<span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%s&quot;</span>, s<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
 	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
 <span style="color: #008000;">&#125;</span></pre>
+					</div>
 				</div>
-		</div>
-		</div>
-			<div id ="rightblock">
-			
-			<!-- Yandex.RTB R-A-1944727-1 -->
-<div id="yandex_rtb_R-A-1944727-1"></div>
-<script>window.yaContextCb.push(()=>{
-  Ya.Context.AdvManager.render({
-    renderTo: 'yandex_rtb_R-A-1944727-1',
-    blockId: 'R-A-1944727-1'
-  })
-})</script>
-			</div>
-			<div id="text">
+				<p>При этом размер буфера можно брать любого размера, но нужно помнить, что:<br>
+				1. Если размер буфера равен или меньше размера массива, то ввод большего или равного размеру буфера ничего не даст.<br>
+				2. Если размер буфера больше размера массива, то программа выдаст ошибку.<br>
+				</p>
+				<p>В остальных случаях параметры остаются такие же, как и в scanf(), пример:</p>
+				<div id="t" style="margin-left:10px">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</p></div>
+					<div id="text2-2">
+			<pre class="cpp"><span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> n<span style="color: #008080;">;</span> 
+	<span style="color: #0000ff;">float</span> f<span style="color: #008080;">;</span>
+	scanf_s<span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i%f&quot;</span>, <span style="color: #000040;">&amp;</span>n, <span style="color: #000040;">&amp;</span>f<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i %f&quot;</span>, n, f<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+					</div>
+				</div>
 				
-			<h2>Вывод с помощью printf</h2>
+				</div>
+				<div class="mobile" id ="rightblock">
+					<!-- Yandex.RTB R-A-1944727-1 -->
+					<div id="yandex_rtb_R-A-1944727-1"></div>
+					<script>window.yaContextCb.push(()=>{
+					  Ya.Context.AdvManager.render({
+						renderTo: 'yandex_rtb_R-A-1944727-1',
+						blockId: 'R-A-1944727-1'
+					  })
+					})</script>
+				</div>
+				
+			<div id="text">
+				<h3 id="4">Что возвращает scanf_s()</h3>
+				<p>
+				Как и любая функция, scanf_s() возвращает значение, равное количеству успешно присвоенных элементов. Давайте рассмотрим пример:</p>
+				<div id="t" style="margin-left:10px">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8</p></div>
+					<div id="text2-2">
+			<pre class="cpp"><span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> n1, n2<span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">int</span> r <span style="color: #000080;">=</span> scanf_s<span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i%i&quot;</span>, <span style="color: #000040;">&amp;</span>n1, <span style="color: #000040;">&amp;</span>n2<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, r<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span> </pre>
+					</div>
+				</div>
+				<p>Например, при вводе символа и числа, программы выведет 1, так как успешно было записано только число.<br>
+Чтобы проверить ввод на входные данные, нужно поставить условие, что scanf_s() успешно считал все символы, например:
+</p>
+				<div id="t" style="margin-left:10px">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10</p></div>
+					<div id="text2-2">
+			<pre class="cpp"><span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> n1, n2, n3<span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>scanf_s<span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i%i%i&quot;</span>, <span style="color: #000040;">&amp;</span>n1, <span style="color: #000040;">&amp;</span>n2, <span style="color: #000040;">&amp;</span>n3<span style="color: #008000;">&#41;</span> <span style="color: #000040;">!</span><span style="color: #000080;">=</span> <span style="color: #0000dd;">3</span><span style="color: #008000;">&#41;</span>
+		<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;false&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">else</span>
+		<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;true&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+					</div>
+				</div>
+					
+			<p>	Функция возвратит EOF, если еще до начала ввода произошел сбой.</p>
+				
+			<h2 id="5">Вывод с помощью printf()</h2>
 			<p><b style="font-size:130%">Общая форма записи функции printf():</b></p>
 			
 			<p><span style="color: #0000dd;">printf</span> ("CтрокаФорматов", arg1);</p>
@@ -215,7 +287,7 @@ document.addEventListener('click', function(e) {
 			<p>Для корректировки вывода используются специальные управляющие символы. Управляющие символы 
 			не выводятся на экран, а управляют расположением выводимых символов. Отличительной чертой управляющего символа 
 			является наличие обратного слэша <b>' \'</b> перед ним.</p>
-			<h3>Основные управляющие символы:</h3>
+			<h3 id="6">Основные управляющие символы:</h3>
 			
 			<p style="padding-left:10px"><span style="color: #FF0000;">'<span style="color: #000099; font-weight: bold;">\n</span>'</span> — перевод строки<span style="color: #008080;">;</span><br>
 <span style="color: #FF0000;">'<span style="color: #000099; font-weight: bold;">\t</span>'</span> — горизонтальная табуляция<span style="color: #008080;">;</span><br>
@@ -257,8 +329,9 @@ document.addEventListener('click', function(e) {
 		</div>
 	
 		<br>
-		<div id="border2"></div>
+
 		<div id ="bottomblock">
+		<div id="border2"></div>
 		<p class="p" style="text-align:center"><a href = "..\index.html" style = "font-family:bookman old style; color: #0000dd"><b>Code.C</b></a>
 		&#169 Copyright Павел Калашников 2021
 		<br>
