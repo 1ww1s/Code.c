@@ -13,7 +13,7 @@
  </head>
  
  <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
- <link rel="stylesheet" type="text/css" href="CSS.css">
+ <link rel="stylesheet" type="text/css" href="CSS2.css">
  
  <body>
 	<div id="container">
@@ -112,7 +112,37 @@ document.addEventListener('click', function(e) {
 		
 		
 		<div id="body">
+			<div class="pk" style="height:1810px" id="rb">
+				<div id="rightblock">
+						<p class="p_right" style="margin-left:10px"><b><font style="font-size:125%">Навигация по странице:</font></b><br>
+						<a href="#1">1. Хранение графа</a><br>
+						<a href="#2">2. Выделение памяти</a><br>
+						<a href="#3">3. Алгоритм BFS</a><br>
+						<a href="#4">4. Пример обхода на Cи</a><br>
+						<a href="#5">5. Пример обхода на C++</a><br>
+						<a href="#6">6. Задача</a></p>
+						<div style="width:100%" id="border1"></div>
+						<b><p class="p_right" style="margin-left:10px">Обход в ширину:</p></b>	
+						<img width="100%" src ="BFS.gif">	
+						<div style="width:100%" id="border1"></div>
+						<p class="p_right">
+						<b style="margin-left:10px"><a href="..\tasks\tasksgraph.html">Задачи на графы</a></b><br>
+						</p>
+				</div>
+				<div class="sticky" id ="rightblock">
+					<!-- Yandex.RTB R-A-1944727-2 -->
+						<div id="yandex_rtb_R-A-1944727-2"></div>
+						<script>window.yaContextCb.push(()=>{
+						  Ya.Context.AdvManager.render({
+							renderTo: 'yandex_rtb_R-A-1944727-2',
+							blockId: 'R-A-1944727-2'
+						  })
+						})</script>
+				</div>	
+			</div>
 			<div id = "text">
+		
+		
 		
 				<h1>Обход в ширину</h1>
 				<p>Вместо того, чтобы двигаться по определенному пути до конца, BFS предполагает 
@@ -122,24 +152,24 @@ document.addEventListener('click', function(e) {
 				далее до конца. С помощью этого алгоритма можно определить минимальное количество ребер между вершиной
 				<b>i</b> и любой достижимой из <b>i</b> вершины.</p>
 				<p>Если в графе <b>N</b> вершин и <b>M</b> ребер, то сложность обхода составляет <b>O(N + M)</b>.</p>
-				</div>
-			<div id="rightblock">
-				<p class="p_right" style="margin-left:10px"><b><font style="font-size:125%">Навигация по странице:</font></b><br>
-				<a href="#1">1. Хранение графа</a><br>
-				<a href="#2">2. Выделение памяти</a><br>
-				<a href="#3">3. Алгоритм BFS</a><br>
-				<a href="#4">4. Пример обхода на Cи</a><br>
-				<a href="#5">5. Пример обхода на C++</a><br>
-				<a href="#6">6. Задача</a></p>
-				<div style="width:100%" id="border1"></div>
-				<b><p class="p_right" style="margin-left:10px">Обход в ширину:</p></b>	
-				<img width="100%" src ="BFS.gif">	
-				<div style="width:100%" id="border1"></div>
-				<p class="p_right">
-				<b style="margin-left:10px"><a href="..\tasks\tasksgraph.html">Задачи на графы</a></b><br>
-				</p>
 	</div>
-		<div id = "text">		
+		<div class = "mobile" id="rightblock">
+						<p class="p_right" style="margin-left:10px"><b><font style="font-size:125%">Навигация по странице:</font></b><br>
+						<a href="#1">1. Хранение графа</a><br>
+						<a href="#2">2. Выделение памяти</a><br>
+						<a href="#3">3. Алгоритм BFS</a><br>
+						<a href="#4">4. Пример обхода на Cи</a><br>
+						<a href="#5">5. Пример обхода на C++</a><br>
+						<a href="#6">6. Задача</a></p>
+						<div style="width:100%" id="border1"></div>
+						<b><p class="p_right" style="margin-left:10px">Обход в ширину:</p></b>	
+						<img width="100%" src ="BFS.gif">	
+						<div style="width:100%" id="border1"></div>
+						<p class="p_right">
+						<b style="margin-left:10px"><a href="..\tasks\tasksgraph.html">Задачи на графы</a></b><br>
+						</p>
+				</div>
+				<div id="text">
 				<h2 id="1">Хранение графа</h2>
 				<p>Граф будет храниться в массиве структур. Полностью про хранение графа в программе смотрите в разделе <a href = "graph.html" style = "color:#0000dd">представление графа в программе</a>.</p>
 				
@@ -174,7 +204,18 @@ Graph<span style="color: #008000;">&#91;</span>u <span style="color: #000040;">-
 				<p>Естественно изначально у каждой вершины количество путей равно нулю и никакую вершину мы еще не посещали, поэтому для любой <b>i</b> верно, что
 				<br>Graph<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span>.<span style="color: #007788;">flag</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span> и Graph<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span>.<span style="color: #007788;">number_of_paths</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>.
 				
-				
+				</div>
+					<div class = "mobile" id="rightblock">
+						<!-- Yandex.RTB R-A-1944727-1 -->
+							<div id="yandex_rtb_R-A-1944727-1"></div>
+							<script>window.yaContextCb.push(()=>{
+							  Ya.Context.AdvManager.render({
+								renderTo: 'yandex_rtb_R-A-1944727-1',
+								blockId: 'R-A-1944727-1'
+							  })
+							})</script>
+					</div>
+				<div id="text">
 				<h2 id="3">Алгоритм BFS</h2>
 				<p>Для обхода вершин графа используется <a href="..\learning\queue.html" style="color:#0000dd">очередь</a>. 
 				Изначально в очередь добавляем стартовую вершину. Работа с очередью состоит из двух частей:<br>
@@ -182,20 +223,9 @@ Graph<span style="color: #008000;">&#91;</span>u <span style="color: #000040;">-
 				<b>2.</b> Удаление вершины <b>v</b>.<br>
 				Алгоритм завершается, когда в очереди не остается элементов. 
 				<br>
-				В языке Си нет отдельного класса очереди, поэтому создаем его сами и используем для конкретных задач алгоритма. 
-					В данном примере проверяются входные данные и правильность выделения памяти под динамические массивы.</p>
-		</div>
-			<div id ="rightblock">
-				<!-- Yandex.RTB R-A-1944727-1 -->
-				<div id="yandex_rtb_R-A-1944727-1"></div>
-				<script>window.yaContextCb.push(()=>{
-				  Ya.Context.AdvManager.render({
-				    renderTo: 'yandex_rtb_R-A-1944727-1',
-				    blockId: 'R-A-1944727-1'
-				  })
-				})</script>
-			</div>
-		<div id="text">
+				В языке Си нет отдельного класса очереди, поэтому создаем его сами и используем для конкретных задач алгоритма. В данном примере проверяется 
+				правильность выделения памяти под динамические массивы.</p>
+
 				<h2 id="4">Пример обхода на Cи:</h2> 
 				<div id="t">
 					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
@@ -292,11 +322,33 @@ Graph<span style="color: #008000;">&#91;</span>u <span style="color: #000040;">-
 					</div>
 				</div>
 
-
-
+			</div>
+			<div class="mobile" id ="rightblock">
+					<!-- Yandex.RTB R-A-1944727-5 -->
+						<div id="yandex_rtb_R-A-1944727-5"></div>
+						<script>window.yaContextCb.push(()=>{
+						  Ya.Context.AdvManager.render({
+							renderTo: 'yandex_rtb_R-A-1944727-5',
+							blockId: 'R-A-1944727-5'
+						  })
+						})</script>
+				</div>	
+			<div class="pk" style="margin-top:2255px;" id="rb">
+				<div id ="rightblock">
+					<!-- Yandex.RTB R-A-1944727-1 -->
+						<div id="yandex_rtb_R-A-1944727-1"></div>
+						<script>window.yaContextCb.push(()=>{
+						  Ya.Context.AdvManager.render({
+							renderTo: 'yandex_rtb_R-A-1944727-1',
+							blockId: 'R-A-1944727-1'
+						  })
+						})</script>
+				</div>	
+			</div>
+				<div id="text">
 				<p id="5">Если отбросить все сложности с динамическим выделением памяти и посмотреть на алгоритм на c++, реализованный с помощью контейнеров vector и queue, 
 				то можно убедиться в простоте алгоритма. Так же анализ кода на c++ поможет лучше разобраться с алгоритмом на Си.</p>
-				<h2>Пример обхода на C++:</h2> 
+				<h2>Пример обхода на C++</h2> 
 				<div id="t">
 					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
 				<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31
@@ -343,20 +395,8 @@ Graph<span style="color: #008000;">&#91;</span>u <span style="color: #000040;">-
 <span style="color: #008000;">&#125;</span></pre>
 					</div>
 				</div>
-			     </div>
-			     			
-			
-			<div id ="rightblock">
-			<!-- Yandex.RTB R-A-1944727-5 -->
-<div id="yandex_rtb_R-A-1944727-5"></div>
-<script>window.yaContextCb.push(()=>{
-  Ya.Context.AdvManager.render({
-    renderTo: 'yandex_rtb_R-A-1944727-5',
-    blockId: 'R-A-1944727-5'
-  })
-})</script>
-			</div>
-			     <div id="text">
+				
+				
 				<h2 id="6">Задача:</h2>
 				<p>В городе <b>P</b> есть <b>n</b> домов, пронумерованных от 1 до <b>n</b>. Дома связывают дороги, при этом можно 
 				добраться из любого дома в любой другой. Саша живет в <b>1</b> доме, но ему приходится ходить в магазин, который находится в 
@@ -396,15 +436,23 @@ Graph<span style="color: #008000;">&#91;</span>u <span style="color: #000040;">-
 		</div>
 			</div>	
 			
-		
-		<div id="border2"></div>
+	
 		<div id ="bottomblock">
+		<div id="border2"></div>
 		<p class="p" style="text-align:center"><a href = "..\index.html" style = "font-family:bookman old style; color: #0000dd"><b>Code.C</b></a>
 		&#169 Copyright Павел Калашников 2021
 		<br>
 		обратная связь <span style="color:#0000dd">code.c04@mail.ru</span></p><br>
 		</div>
-			
 	</div>
+	
+	<!-- Yandex.RTB R-A-1944727-4 -->
+		<script>window.yaContextCb.push(()=>{
+		  Ya.Context.AdvManager.render({
+		    type: 'floorAd',    
+		    blockId: 'R-A-1944727-4'
+		  })
+		})</script>
+
  </body>
 </html>
