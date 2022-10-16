@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ 
+ <!-- Yandex.RTB -->
+<script>window.yaContextCb=window.yaContextCb||[]</script>
+<script src="https://yandex.ru/ads/system/context.js" async></script>
+ 
+  <meta charset="utf-8">
+     <link rel="icon" href="https://1ww1s.github.io/Code.c/favicon.ico" type="image/x-icon">
+  <title>Функции в Си</title>
+ </head>
+ 
+ <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="CSS2.css">
+ 
+ <body>
+	<div id="container">
+		<nav class="darken"></nav>
+		<div id="navigation_top">
+			<div id="navigation_main">
+			<div id="m">
+						<div class="bt"><img width="100%" src="t.png"></div>
+					<nav class="menu">
+						<div class="scroll" id="navigation">
+							<div id="nav1">
+								<nav style = "margin-top:1vmax">
+								<a href="..\index.html" >Главная</a><br>
+								<a href="learning.html" style="color:#0000dd"> Изучение</a><br>
+								<a href="..\tasks\tasks.html"> Задачи</a>	<br>
+								<a href="..\algorithms\algorithms.html">Алгоритмы</a><br>
+								</nav>	
+								
+							</div>
+							<div style="margin-top:5vmax" id="border1"></div>
+							<div id="nav_page">
+								<div id="nav1">
+									 <p class="p_nav_page"><b><font style="font-size:125%">Навигация по странице:</font></b><br>
+										<a href="#1">1. Функция это</b><br>
+										<a href="#2">2. Общая форма записи функции</a><br>
+										<a href="#3">3. Вызов функции</a><br>
+										<a href="#4">4. Пример функции</a><br>
+										<a href="#5">5. Передача аргументов в функцию</a><br>
+										<a href="#6">6. Рекурсивные функции</a><br>
+									</p>
+								</div>
+								<div id="border1"></div>
+								
+							</div>
+						</div>
+						
+	
+					</nav>
+				
+					<script>const btnMenu = document.querySelector('.bt');
+const menu = document.querySelector('.menu');
+const darken = document.querySelector('.darken');
+
+
+const toggleMenu = function() {
+    menu.classList.toggle('open');
+	 darken.classList.toggle('open');
+}
+
+btnMenu.addEventListener('click', function(e) {
+    e.stopPropagation();
+    toggleMenu();
+});
+
+document.addEventListener('click', function(e) {
+    const target = e.target;
+    const its_menu = target == menu || menu.contains(target);
+    const its_btnMenu = target == btnMenu;
+    const menu_is_active = menu.classList.contains('open');
+    
+    if (!its_menu && !its_btnMenu && menu_is_active) {
+        toggleMenu();
+    }
+	
+});
+
+</script>
+
+					<div id = "name">
+						<a href="..\index.html" style=" font-family: sans-serif; color:white;"><b>Code.C</b></a>
+					</div>
+				</div>
+				
+				
+				<div id="pk">
+					<div id = "name">
+						<a href="..\index.html" style=" font-family: sans-serif; color:white;"><b>Code.C</b></a>
+					</div>
+					<div id="navigation">
+							<nav>
+							<a href="..\index.html" >Главная</a>
+							<a href="learning.html" style="color:#1e90ff"> Изучение</a>
+							<a href="..\tasks\tasks.html"> Задачи</a>	
+							<a href="..\algorithms\algorithms.html">Алгоритмы</a>
+							</nav>	
+					
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+		
+	<div id="body">
+	<div class = "pk" style="height:1700px" id="rb">
+			<div id="rightblock">
+				<p class="p_right" style="margin-left:10px"><b><font style="font-size:125%">Навигация по странице:</font></b><br>
+					<a href="#1">1. Функция это</b><br>
+					<a href="#2">2. Общая форма записи функции</a><br>
+					<a href="#3">3. Вызов функции</a><br>
+					<a href="#4">4. Пример функции</a><br>
+					<a href="#5">5. Передача аргументов в функцию</a><br>
+					<a href="#6">6. Рекурсивные функции</a><br>
+				</p>
+			
+			</div>
+			<div class="sticky" id ="rightblock">
+					<!-- Yandex.RTB R-A-1944727-1 -->
+						<div id="yandex_rtb_R-A-1944727-1"></div>
+						<script>window.yaContextCb.push(()=>{
+						  Ya.Context.AdvManager.render({
+							renderTo: 'yandex_rtb_R-A-1944727-1',
+							blockId: 'R-A-1944727-1'
+						  })
+						})</script>
+			
+				</div>	
+		</div>
+		<div id = "text">
+			
+			<h1 id="1">Функции</h1>
+				<p>
+				<b id="1">Функция</b> – это самостоятельная единица программы, которая спроектирована для реализации конкретной подзадачи.
+				Функция может быть многократно вызвана из другого участка программы, это позволяет исключить повтор одних и тех же действий. Функции также помогают
+				логически выстроить программу.<br>
+				<b>Функция определяется таким образом:</b><br>
+				1. <i>Тип возвращаемого значения;</i><br>
+				2. <i>Имя функции;</i><br>
+				3. <i>Информация о формальных аргументах;</i><br>
+				4. <i>Тело функции.</i><br>
+
+				<p>Формальный аргумент — это переменная в вызываемой функции.</p>
+				
+				<b><p id="2">Общая форма записи функции:</p></b>
+				<p><Тип возвращаемого значения> <Имя функции> (тип1 agr1, тип2 agr2, ...) {<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Тело функции;<br>
+				}
+				
+				</p>
+				<p>Оператором возврата из функции в точку ее вызова является оператор <b>return</b>.</p>
+				<p>Давайте посмотри пример функции:</p>
+					<pre class="cpp" style="margin-left:10px" >
+<span style="color: #0000ff;">int</span> <span style="color: #CA6F1E">SUM</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> a, <span style="color: #0000ff;">int</span> b<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> sum <span style="color: #000080;">=</span> a <span style="color: #000040;">+</span> b<span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">return</span> sum<span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span>
+</pre>
+
+				<p>Функция  <b><i>SUM</b></i> принимает два значения типа int и возвращает их сумму. <b><i>a</i></b>,  <b><i>b</i></b> - формальные аргументы, 
+				а  <b><i>sum</i></b> - локальная переменная.</p>
+				
+				<p id="3">Чтобы вызвать функцию, нужно указать ее имя и перечислить в скобках передаваемые  фактические аргументы.<br>
+				Фактический аргумент — это величина, которая присваивается формальному аргументу при вызове функции.<br>
+				Пример вызова функции <b><i>SUM</b></i>:</p>
+				<pre style="margin-left:10px" class="cpp" ><span style="color: #0000ff;">int</span> s <span style="color: #000080;">=</span> <span style="color: #CA6F1E">SUM</span><span style="color: #008000;">&#40;</span>x, y<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span></pre>
+				<p>В переменную <b><i>s</i></b> будет записано значение, которое вернет функция <b><i>SUM</b></i>.</p>
+				<p>Между формальными и фактическими параметрами при вызове функции должны соблюдаться правила соответствия по последовательности и по типам.</p>
+				<p id="4">Полный код:</p>
+				<div id="t" style="margin-left:10px">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12<br>13<br>14<br>15</p></div>
+					<div id="text2-2">
+					<pre class="cpp"><span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+&nbsp;
+<span style="color: #0000ff;">int</span> <span style="color: #CA6F1E">SUM</span> <span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> a, <span style="color: #0000ff;">int</span> b<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> sum <span style="color: #000080;">=</span> a <span style="color: #000040;">+</span> b<span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">return</span> sum<span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span>
+&nbsp;
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> x, y<span style="color: #008080;">;</span>
+	scanf_s<span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i%i&quot;</span>, <span style="color: #000040;">&amp;</span>x, <span style="color: #000040;">&amp;</span>y<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">int</span> s <span style="color: #000080;">=</span> <span style="color: #CA6F1E">SUM</span><span style="color: #008000;">&#40;</span>x, y<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, s<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+					</div>
+				</div>
+				
+				<p id="5">При передаче аргументов происходит их копирование. Это значит, что любые изменения, которые функция производит над переменными, имеют место быть только внутри функции. Чтобы 
+				изменить фактические значения, нужно передать <a href = "pointer.html" style = "color: #0000dd">указатель</a> на этот элемент.<br>
+				Например, функция sqr возвращает квадрат числа и изменяет фактическую переменную x на 5:</p>
+				<div id="t" style="margin-left:10px">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12<br>13<br>14<br>15<br>16<br>17</p></div>
+					<div id="text2-2">
+				<pre class="cpp"><span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+&nbsp;
+<span style="color: #0000ff;">int</span> <span style="color: #CA6F1E">sqr</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> <span style="color: #000040;">*</span>a<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> b <span style="color: #000080;">=</span> <span style="color: #000040;">*</span>a<span style="color: #008080;">;</span>
+	<span style="color: #000040;">*</span>a <span style="color: #000080;">=</span> <span style="color: #000040;">*</span>a <span style="color: #000040;">+</span> <span style="color: #0000dd;">5</span><span style="color: #008080;">;</span>  <span style="color: #339900;">// !</span>
+	<span style="color: #0000ff;">return</span> b <span style="color: #000040;">*</span> b<span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span>
+&nbsp;
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> x<span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">int</span> <span style="color: #000040;">*</span>p <span style="color: #000080;">=</span> <span style="color: #000040;">&amp;</span>x<span style="color: #008080;">;</span>
+	scanf_s<span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>x<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">int</span> ans <span style="color: #000080;">=</span> <span style="color: #CA6F1E">sqr</span><span style="color: #008000;">&#40;</span>p<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;ans =  %i<span style="color: #000099; font-weight: bold;">\n</span>new x = %i&quot;</span>, ans, x<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+					</div>
+				</div>
+				
+				<p>Функции могут и не возвращать значения, 
+				а просто выполнять некоторые вычисления. В этом случае указывается пустой тип возвращаемого значения
+				void, а оператор return может либо отсутствовать, либо не возвращать никакого значения (return;):</p>
+				<div id="t" style="margin-left:10px">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12<br>13<br>14<br>15</p></div>
+					<div id="text2-2">
+				<pre class="cpp"><span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+&nbsp;
+<span style="color: #0000ff;">void</span> <span style="color: #CA6F1E">sqr</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> x<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span>, x <span style="color: #000040;">*</span> x<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span>
+&nbsp;
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> x<span style="color: #008080;">;</span>
+	scanf_s<span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>x<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #CA6F1E">sqr</span><span style="color: #008000;">&#40;</span>x<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	x <span style="color: #000040;">+</span><span style="color: #000080;">=</span> <span style="color: #0000dd;">10</span><span style="color: #008080;">;</span>
+	<span style="color: #CA6F1E">sqr</span><span style="color: #008000;">&#40;</span>x<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+					</div>
+				</div>
+			<h2 id="6">Рекурсивные функции</h2>
+			<p>Функция, которая вызывает сама себя, называется <b><i>рекурсивной функцией</i></b>.<br>
+			Для рекурсивной функции обязательно нужно указать <b>условие выхода</b> из рекурсии, иначе функция будет бесконечно себя вызывать. 
+			Всё решение сводится к нахождению условия выхода.
+			</p>
+			<p>При каждом вызове для формальных аргументов и локальных переменных выделяется новая область памяти, так что их значения из 
+			предыдущих вызовов не теряются, но в каждый момент времени доступны только значения текущего вызова (кроме указателей).
+			Число рекурсивных вызовов ограничивается только ресурсом памяти компьютера и при слишком большом числе рекурсивных вызовов 
+			может произойти переполнение стека.</p>
+			<p> 
+			Когда выполняется условие выхода, то функция перестает вызывать себя и возвращает какое-то значение, в том числе и пустое. После возврата мы попадаем 
+			на предыдущий уровень рекурсии вместо последнего вызова функции.
+			</p>
+			<p><b>Задача:</b> дано натуральное число n > 1. Выведите все простые множители этого числа в порядке неубывания с учетом кратности.<br>
+			Код на Си:</p>
+			<div id="t" style="margin-left:10px">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23</p></div>
+					<div id="text2-2">
+			<pre class="cpp"><span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+&nbsp;
+<span style="color: #0000ff;">void</span> F<span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> n, <span style="color: #0000ff;">int</span> i<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>n <span style="color: #000080;">==</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000ff;">return</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">if</span> <span style="color: #008000;">&#40;</span>n <span style="color: #000040;">%</span> i <span style="color: #000080;">==</span> <span style="color: #0000dd;">0</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i &quot;</span>, i<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		F<span style="color: #008000;">&#40;</span>n <span style="color: #000040;">/</span> i, i<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">else</span> <span style="color: #008000;">&#123;</span>
+		F<span style="color: #008000;">&#40;</span>n, i <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">return</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span>
+&nbsp;
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> n<span style="color: #008080;">;</span>
+	scanf_s<span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>n<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	F<span style="color: #008000;">&#40;</span>n, <span style="color: #0000dd;">2</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+					</div>
+				</div>
+				<p>
+				Чтобы подробнее разобраться с действием рекурсии, можно посмотреть как используется рекурсия в <a href = "..\algorithms\DFS.html" style = "color: #0000dd">DFS</a> - обход графа в глубину.
+				
+				</p>
+			<br>
+			
+			
+			
+				
+			
+			</div>
+		
+	</div>
+		
+		<div id ="bottomblock">
+			<div id="border2"></div>
+		<p class="p" style="text-align:center"><a href = "..\index.html" style = "font-family:bookman old style; color: #0000dd"><b>Code.C</b></a>
+		&#169 Copyright Павел Калашников 2021
+		<br>
+		обратная связь <span style="color:#0000dd">code.c04@mail.ru</span></p><br>
+		</div>
+	</div>
+	 <!-- Yandex.RTB R-A-1944727-4 -->
+<script>window.yaContextCb.push(()=>{
+  Ya.Context.AdvManager.render({
+    type: 'floorAd',    
+    blockId: 'R-A-1944727-4'
+  })
+})</script>
+ </body>
+</html>
