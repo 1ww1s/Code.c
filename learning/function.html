@@ -41,7 +41,9 @@
 										<a href="#3">3. Вызов функции</a><br>
 										<a href="#4">4. Пример функции</a><br>
 										<a href="#5">5. Передача аргументов в функцию</a><br>
-										<a href="#6">6. Рекурсивные функции</a><br>
+										<a href="#5">6. Передача массива в функцию</a><br>
+										<a href="#5">7. Передача структуры в функцию</a><br>
+										<a href="#6">8. Рекурсивные функции</a><br>
 									</p>
 								</div>
 								<div id="border1"></div>
@@ -107,7 +109,7 @@ document.addEventListener('click', function(e) {
 		
 		
 	<div id="body">
-	<div class = "pk" style="height:1700px" id="rb">
+	<div class = "pk" style="background-color:;height:1110px" id="rb">
 			<div id="rightblock">
 				<p class="p_right" style="margin-left:10px"><b><font style="font-size:125%">Навигация по странице:</font></b><br>
 					<a href="#1">1. Функция это</b><br>
@@ -115,7 +117,9 @@ document.addEventListener('click', function(e) {
 					<a href="#3">3. Вызов функции</a><br>
 					<a href="#4">4. Пример функции</a><br>
 					<a href="#5">5. Передача аргументов в функцию</a><br>
-					<a href="#6">6. Рекурсивные функции</a><br>
+					<a href="#5">6. Передача массива в функцию</a><br>
+					<a href="#5">7. Передача структуры в функцию</a><br>
+					<a href="#6">8. Рекурсивные функции</a><br>
 				</p>
 			
 			</div>
@@ -257,7 +261,137 @@ document.addEventListener('click', function(e) {
 			
 				</div>	
 			<div id="text">
-			<h2 id="6">Рекурсивные функции</h2>
+			<h3 id="6">Передача массива в функцию</h3>
+			<p>Так как имя массива - это указатель, поэтому передача массива в функцию равна передачи указателя.<br>
+			Пример передачи массива в функцию:</p>
+				<div id="t" style="margin-left:10px">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12<br>13<br>14<br>15<br>16</p></div>
+					<div id="text2-2">
+				<pre class="cpp"><span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+&nbsp;
+<span style="color: #0000ff;">void</span> <span style="color: #CA6F1E">F</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> <span style="color: #000040;">*</span>mas, <span style="color: #0000ff;">int</span> n<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>  <span style="color: #339900;">// или &lt;int mas[]&gt;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span>	
+		mas<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">100</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span>
+&nbsp;
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> n, a<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">10</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+	scanf_s<span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>n<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span>	
+		scanf_s<span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>a<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #CA6F1E">F</span><span style="color: #008000;">&#40;</span>a, n<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+					</div>
+				</div>
+				<p>Так как мы передали указатель, то все изменения в функции будут распространятся и вне её. Аналогично и с двумерным массивом</p>
+				<p>Чтобы передать функции двумерный массив, необходимо четко указать размеры массива:</p>
+				<div id="t" style="margin-left:10px">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23</p></div>
+					<div id="text2-2">
+			<pre class="cpp"><span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+&nbsp;
+<span style="color: #0000ff;">void</span> <span style="color: #CA6F1E">print</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> mas<span style="color: #008000;">&#91;</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span><span style="color: #0000dd;">10</span><span style="color: #008000;">&#93;</span>, <span style="color: #0000ff;">int</span> n, <span style="color: #0000ff;">int</span> m<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> j <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> j <span style="color: #000080;">&lt;</span> m<span style="color: #008080;">;</span> j<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i &quot;</span>, mas<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+		<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+<span style="color: #008000;">&#125;</span>
+&nbsp;
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> n, m, a<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">10</span><span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span><span style="color: #0000dd;">10</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+	scanf_s<span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i%i&quot;</span>, <span style="color: #000040;">&amp;</span>n, <span style="color: #000040;">&amp;</span>m<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> j <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> j <span style="color: #000080;">&lt;</span> m<span style="color: #008080;">;</span> j<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			scanf_s<span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>a<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #CA6F1E">print</span><span style="color: #008000;">&#40;</span>a, n, m<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+					</div>
+				</div>
+				<p>Если двумерным массив был выделен динамически, то в функцию нужно передать указатель на указатель:</p> <pre style = "margin-left:10px"class="cpp" ><span style="color: #0000ff;">void</span> <span style="color: #CA6F1E">F</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> <span style="color: #000040;">**</span>mas, <span style="color: #0000ff;">int</span> n, <span style="color: #0000ff;">int</span> m<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	...
+<span style="color: #008000;">&#125;</span></pre>
+				<h3 id="7">Передача структуры в функцию</h3>
+				<p>Для передачи структуры в функцию можно как по значению (тогда произойдет копирование структуры в функции), так и по адресу.
+				Передавать адрес в функцию бывает гораздо выгодней по памяти. Дело в том, что размер указателя может быть намного меньше размера структурной переменной.</p>
+				
+				
+				
+				<div id="t" style="margin-left:10px">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20</p></div>
+					<div id="text2-2">
+			<pre class="cpp"><span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+&nbsp;
+<span style="color: #0000ff;">struct</span> <span style="color: #009999">point</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> x<span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">int</span> y<span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span><span style="color: #008080;">;</span>
+&nbsp;
+<span style="color: #0000ff;">void</span> <span style="color: #CA6F1E">F</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">struct</span> <span style="color: #009999">point</span><span style="color: #000040;">*</span> a<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	a<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>x <span style="color: #000080;">=</span> <span style="color: #0000dd;">100</span><span style="color: #008080;">;</span> 
+	a<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>y <span style="color: #000080;">=</span> <span style="color: #0000dd;">22</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span>
+&nbsp;
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">struct</span> <span style="color: #009999">point</span> P<span style="color: #008080;">;</span>
+	P.<span style="color: #007788;">x</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">10</span><span style="color: #008080;">;</span> P.<span style="color: #007788;">y</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">4</span><span style="color: #008080;">;</span>
+	<span style="color: #CA6F1E">F</span><span style="color: #008000;">&#40;</span><span style="color: #000040;">&amp;</span>P<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i %i&quot;</span>, P.<span style="color: #007788;">x</span>, P.<span style="color: #007788;">y</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+					</div>
+				</div>
+				
+				<p>Если мы хотим передать структуру по значению, то изменяем строку 17 на F(P), а функцию так:</p>
+				
+				<pre style="margin-left:10px"class="cpp" ><span style="color: #0000ff;">void</span> <span style="color: #CA6F1E">F</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">struct</span> <span style="color: #009999">point</span> a<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	a.<span style="color: #007788;">x</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">100</span><span style="color: #008080;">;</span> 
+	a.<span style="color: #007788;">y</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">22</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+				<p>Передача массива струтур полностью совпадает с передачей обычного массива:</p>
+				<div id="t" style="margin-left:10px">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24</p></div>
+					<div id="text2-2">
+			<pre class="cpp"><span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+&nbsp;
+<span style="color: #0000ff;">struct</span> <span style="color: #009999">point</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span> x<span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">int</span> y<span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span><span style="color: #008080;">;</span>
+&nbsp;
+<span style="color: #0000ff;">void</span> <span style="color: #CA6F1E">print</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">struct</span> <span style="color: #009999">point</span><span style="color: #000040;">*</span> a, <span style="color: #0000ff;">int</span> n<span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i %i<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span>, a<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span>.<span style="color: #007788;">x</span>, a<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span>.<span style="color: #007788;">y</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+<span style="color: #008000;">&#125;</span>
+&nbsp;
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">struct</span> <span style="color: #009999">point</span> P<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">10</span><span style="color: #008000;">&#93;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">int</span> n<span style="color: #008080;">;</span>
+	scanf_s<span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>n<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span> i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		scanf_s<span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i%i&quot;</span>, <span style="color: #000040;">&amp;</span>P<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span>.<span style="color: #007788;">x</span>, <span style="color: #000040;">&amp;</span>P<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span>.<span style="color: #007788;">y</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #CA6F1E">print</span><span style="color: #008000;">&#40;</span>P, n<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+					</div>
+				</div>
+				<p>При динамическом выделение памяти под структуру изменения не происходят.</p>
+			<h2 id="8">Рекурсивные функции</h2>
 			<p>Функция, которая вызывает сама себя, называется <b><i>рекурсивной функцией</i></b>.<br>
 			Для рекурсивной функции обязательно нужно указать <b>условие выхода</b> из рекурсии, иначе функция будет бесконечно себя вызывать. 
 			Всё решение сводится к нахождению условия выхода.
@@ -310,6 +444,19 @@ document.addEventListener('click', function(e) {
 			
 			
 				
+			
+			</div>
+			<div class="pk" style="margin-top:0px;height:1515px;background-color:;" id="rb">
+				
+					<!-- Yandex.RTB R-A-1944727-2 -->
+						<div style="width:75%;margin:30px auto;max-height:675px;position:sticky;top:30px;border: 2px solid black;" id="yandex_rtb_R-A-1944727-2">
+						<script>window.yaContextCb.push(()=>{
+						  Ya.Context.AdvManager.render({
+							renderTo: 'yandex_rtb_R-A-1944727-2',
+							blockId: 'R-A-1944727-2'
+						  })
+						})</script>
+					</div>
 			
 			</div>
 		
