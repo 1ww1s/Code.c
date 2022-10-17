@@ -13,7 +13,7 @@
  </head>
  
  <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
- <link rel="stylesheet" type="text/css" href="CSS.css">
+ <link rel="stylesheet" type="text/css" href="CSS2.css">
  
  <body>
 	<div id="container">
@@ -35,6 +35,22 @@
 								
 							</div>
 							<div style="margin-top:5vmax" id="border1"></div>
+							<div id="nav_page">
+								<div id="nav1">
+									<p class="p_nav_page"><b><font style="font-size:125%">Навигация по странице:</font></b><br>
+										<a href="#1"><b>1. malloc</b><br>
+										<a href="#2">&#8226; Массив</a><br>
+										<a href="#3">&#8226; Двумерный массив</a><br>
+										<a href="#4"><b>2. calloc</b></a><br>
+										<a href="#5"><b>3. realloc</b></a><br>
+										<a href="#6">&#8226; Массив</a><br>
+										<a href="#7">&#8226; Двумерный массив</a><br>
+										<a href="#8"><b>4. Освобождение памяти</b></a><br>
+									</p>
+								</div>
+								<div id="border1"></div>
+								
+							</div>
 						</div>
 						
 	
@@ -94,46 +110,125 @@ document.addEventListener('click', function(e) {
 		
 		
 		<div id="body">
-
+			<div class="pk" style="height:1285px" id="rb">
+				<div id ="rightblock">
+					<p class="p_right" style="margin-left:10px"><b><font style="font-size:125%">Навигация по странице:</font></b><br>
+						<a href="#1"><b>1. malloc</b><br>
+						<a href="#2">&#8226; Массив</a><br>
+						<a href="#3">&#8226; Двумерный массив</a><br>
+						<a href="#4"><b>2. calloc</b></a><br>
+						<a href="#5"><b>3. realloc</b></a><br>
+						<a href="#6">&#8226; Массив</a><br>
+						<a href="#7">&#8226; Двумерный массив</a><br>
+						<a href="#8"><b>4. Освобождение памяти</b></a><br>
+					</p>
+				</div>
+				<div  class="sticky" style="width:75%;margin:30px auto;" id ="rightblock">
+					<!-- Yandex.RTB R-A-1944727-1 -->
+						<div id="yandex_rtb_R-A-1944727-1"></div>
+						<script>window.yaContextCb.push(()=>{
+						  Ya.Context.AdvManager.render({
+							renderTo: 'yandex_rtb_R-A-1944727-1',
+							blockId: 'R-A-1944727-1'
+						  })
+						})</script>	
+				</div>
+			</div>
 		<div id = "text">
 			<h1>Динамическое выделение памяти</h1>
 			<p>Иногда в задачах мы не знаем сколько элементов будет храниться в конкретном массиве. Поэтому применяют методы динамического
 			выделения памяти.</p>
 			<p>Если мы хотим динамически выделить память, то используют функции <b>malloc</b> или <b>calloc</b>, или <b>realloc</b>, которые находятся в 
 			библиотеках &lt;stdlib.h&gt; и &lt;malloc.h&gt;. Давайте по порядку.</p>
-			<h2>malloc</h2>
+			</div>
+			<div class="mobile" id ="rightblock">
+				 <p class="p_right" style="margin-left:10px"><b><font style="font-size:125%">Навигация по странице:</font></b><br>
+						<a href="#1"><b>1. malloc</b><br>
+						<a href="#2">&#8226; Массив</a><br>
+						<a href="#3">&#8226; Двумерный массив</a><br>
+						<a href="#4"><b>2. calloc</b></a><br>
+						<a href="#5"><b>3. realloc</b></a><br>
+						<a href="#6">&#8226; Массив</a><br>
+						<a href="#7">&#8226; Двумерный массив</a><br>
+						<a href="#8"><b>4. Освобождение памяти</b></a><br>
+				</p>
+			</div>
+			<div id ="text">
+			<h1 id="1">malloc</h1>
+			<h3 id="2">Массив</h3>
 			<p>Чтобы выделить память с помощью malloc, нам нужно указать только размер в байтах. Для выделения 20 элементов массива типа int , нам понадобиться 80 байт, так как
 			один элемент типа int равен 4 байтам. Чтобы не считать сколько байт нам нужно выделить, используется <br><span style="color: #0000dd;">sizeof</span>(тип данных), это значение будет равно одному элементу заданного типа.
 			Например, <span style="color: #0000dd;">sizeof</span>(<span style="color: #0000ff;">int</span>) будет равен 4 байтам. <br>Примеры выделения памяти под 20 элементов массива типа int: </p>
 			<pre class="cpp"><span style="font-size:120%"><span style="color: #0000ff;">int</span><span style="color: #000040;">*</span> a <span style="color: #000080;">=</span> <span style="color: #0000dd;">malloc</span><span style="color: #008000;">&#40;</span><span style="color: #0000dd;">80</span><span style="color: #008000;">&#41;</span> или <span style="color: #0000ff;">int</span><span style="color: #000040;">*</span> a <span style="color: #000080;">=</span> <span style="color: #0000dd;">malloc</span><span style="color: #008000;">&#40;</span><span style="color: #0000dd;">20</span> <span style="color: #000040;">*</span> <span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span></span></pre>
 			<p>Лучше использовать второй способ, с ним вы не совершите ошибку.</p>
-			
-			<p>Если функция malloc не находит место под память, то она возвращает NULL. Нужно помнить об этом и на всякий случай проверять.</p>
-			<h2>calloc</h2>
+			<p>Функция malloc возвращает указатель на выделенное пространство или NULL, Если не находит место под память. Нужно помнить об этом и на всякий случай проверять.</p>
+			<h3 id="3">Двумерный массив</h3>
+			<p>Чтобы динамически выделить память под двумерный массив, нужен массив указателей. Каждый элемент этого массива будет хранить адрес начала строки. 
+			Визуализировать такой способ можно так: </p>
+			<img width="80%" src="D1.jpg">
+			<p>Сначала нужно выделить память под массив указателей, далее для каждого элемента массива указателей выделить строку размера m.</p>
+			<div id="t" style="margin-left:10px">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23
+					<br>24<br>25<br>26<br>27<br>28<br>29	</p></div>
+					<div id="text2-2">
+					<pre class="cpp"><span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+<span style="color: #339900;">#include&lt;math.h&gt;</span>
+<span style="color: #339900;">#include&lt;malloc.h&gt;</span>
+&nbsp;
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span><span style="color: #000040;">**</span> a<span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">int</span> n, m, i, j<span style="color: #008080;">;</span>
+	scanf_s<span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i%i&quot;</span>, <span style="color: #000040;">&amp;</span>n, <span style="color: #000040;">&amp;</span>m<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+&nbsp;
+	a <span style="color: #000080;">=</span> <span style="color: #0000dd;">malloc</span><span style="color: #008000;">&#40;</span>n <span style="color: #000040;">*</span> <span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span><span style="color: #000040;">*</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		a<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">malloc</span><span style="color: #008000;">&#40;</span>m <span style="color: #000040;">*</span> <span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+&nbsp;
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>j <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> j <span style="color: #000080;">&lt;</span> m<span style="color: #008080;">;</span> j<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			scanf_s<span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i&quot;</span>, <span style="color: #000040;">&amp;</span>a<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+			a<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span> <span style="color: #000040;">+</span><span style="color: #000080;">=</span> <span style="color: #0000dd;">100</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>j <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> j <span style="color: #000080;">&lt;</span> m<span style="color: #008080;">;</span> j<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i &quot;</span>, a<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#91;</span>j<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+		<span style="color: #008000;">&#125;</span>
+		<span style="color: #0000dd;">printf</span><span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;<span style="color: #000099; font-weight: bold;">\n</span>&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+					</div>
+				</div>	
+			<p>Для начала мы выделяем массив под указатели на строки. Посе чего, в цикле, для каждого элемента
+			массива <i><b>a</b></i> выделяем память под <b><i>m</i></b> элементов, функция <b><i>malloc</i></b> вернет в элемент <b>a[i]</b> 
+			адрес строки <b>i</b>. Тем самым мы получаем массив указателей на строки. Теперь мы можем спокойно использовать эту память.
+			<br> Для обращения к элементам можно использовать как a[i][j], так и *(*(a + i) + j). </p>
+			<p>Размеры каждой строки вы можете определять сами, что может быть полезно для некоторых задач.</p>
+			<h1 id="4">calloc</h1>
 			<p>Чтобы выделить память с помощью calloc нам нужны два аргумента: количество элементов и размер одного элемента. В отличии от malloc, который просто выделяет память, calloc 
 			инициализирует все элементы массива нулями.<br>
 			Пример выделения памяти под 20 элементов массива типа int:</p>
 			<pre class="cpp"><span style="font-size:120%"><span style="color: #0000ff;">int</span><span style="color: #000040;">*</span> a <span style="color: #000080;">=</span> <span style="color: #0000dd;">calloc</span><span style="color: #008000;">&#40;</span><span style="color: #0000dd;">20</span>, <span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span></span></pre>
-			</div>
-			<div id ="rightblock">
-			
-			<!-- Yandex.RTB R-A-1944727-1 -->
-				<div id="yandex_rtb_R-A-1944727-1"></div>
-				<script>window.yaContextCb.push(()=>{
-				  Ya.Context.AdvManager.render({
-				    renderTo: 'yandex_rtb_R-A-1944727-1',
-				    blockId: 'R-A-1944727-1'
-				  })
-				})</script>
-			</div>
-			<div id="text">
-			
-			<h2>realloc</h2>
+
+			<h1 id="5">realloc</h1>
 			<p>С помощью realloc вы можете уменьшить размер массива или дополнительно выделить память под несколько элементов, если до этого массив был динамически выделен с помощью функций malloc или calloc, или realloc. 
 			Чтобы выделить дополнительную память с помощью realloc, нужен, во-первых, указатель на прошлый массив, который был выделен динамически.
-			Во-вторых, указать новый размер массива, он может быть и меньше, тогда все элементы, которые выходят за границу справа, будут удалены.<br>Вот так выглядит выделение дополнительных двух
-			элементов:</p>
-			<pre class="cpp" style="margin-left:10px"><span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+			Во-вторых, указать новый размер массива, он может быть и меньше, тогда все элементы, которые выходят за границу справа, будут удалены.<br>
+			<h3 id="6">Массив</h3>
+			<p>Вот так выглядит выделение дополнительных двух элементов массива:</p>
+			<div id="t" style="margin-left:10px">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12</p></div>
+					<div id="text2-2">
+					<pre class="cpp" ><span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+<span style="color: #339900;">#include&lt;malloc.h&gt;</span>
+&nbsp;
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
 	<span style="color: #0000ff;">int</span><span style="color: #000040;">*</span> array <span style="color: #000080;">=</span> <span style="color: #0000dd;">malloc</span><span style="color: #008000;">&#40;</span><span style="color: #0000dd;">1</span> <span style="color: #000040;">*</span> <span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
 	array<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">3</span><span style="color: #008080;">;</span>
 	array <span style="color: #000080;">=</span> <span style="color: #0000dd;">realloc</span><span style="color: #008000;">&#40;</span>array, <span style="color: #0000dd;">3</span> <span style="color: #000040;">*</span> <span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
@@ -141,14 +236,73 @@ document.addEventListener('click', function(e) {
 	array<span style="color: #008000;">&#91;</span><span style="color: #0000dd;">2</span><span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">5</span><span style="color: #008080;">;</span>
 	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
 <span style="color: #008000;">&#125;</span></pre>
-			
+					</div>
+				</div>	
+			<h3 id="7">Двумерный массив</h3>
+			<p>Выделение дополнительных <b>5 столбцов</b> матрицы:</p>
+			<div id="t" style="margin-left:10px">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19	</p></div>
+					<div id="text2-2">
+					<pre class="cpp"><span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+<span style="color: #339900;">#include&lt;malloc.h&gt;</span>
+&nbsp;
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span><span style="color: #000040;">**</span> a<span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">int</span> n, m, i, j<span style="color: #008080;">;</span>
+	scanf_s<span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i%i&quot;</span>, <span style="color: #000040;">&amp;</span>n, <span style="color: #000040;">&amp;</span>m<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+&nbsp;
+	a <span style="color: #000080;">=</span> <span style="color: #0000dd;">malloc</span><span style="color: #008000;">&#40;</span>n <span style="color: #000040;">*</span> <span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span><span style="color: #000040;">*</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		a<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">malloc</span><span style="color: #008000;">&#40;</span>m <span style="color: #000040;">*</span> <span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+&nbsp;
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span> 
+		a<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">realloc</span><span style="color: #008000;">&#40;</span>a<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span>, <span style="color: #008000;">&#40;</span>m <span style="color: #000040;">+</span> <span style="color: #0000dd;">5</span><span style="color: #008000;">&#41;</span> <span style="color: #000040;">*</span> <span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+					</div>
+				</div>	
+			<p>Теперь матрица размера n * (m + 5).</p>
+			<p>Конечно, для каждой строки вы можете добавить разное количество элементов, что может быть полезно для некоторых задач.</p>
+			<p>Выделение дополнительных <b>2 строк</b> матрицы:</p>
+				<div id="t" style="margin-left:10px">
+					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21	</p></div>
+					<div id="text2-2">
+					<pre class="cpp"><span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+<span style="color: #339900;">#include&lt;malloc.h&gt;</span>
+&nbsp;
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span><span style="color: #000040;">**</span> a<span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">int</span> n, m, i, j<span style="color: #008080;">;</span>
+	scanf_s<span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i%i&quot;</span>, <span style="color: #000040;">&amp;</span>n, <span style="color: #000040;">&amp;</span>m<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+&nbsp;
+	a <span style="color: #000080;">=</span> <span style="color: #0000dd;">malloc</span><span style="color: #008000;">&#40;</span>n <span style="color: #000040;">*</span> <span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span><span style="color: #000040;">*</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		a<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">malloc</span><span style="color: #008000;">&#40;</span>m <span style="color: #000040;">*</span> <span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+&nbsp;
+	<span style="color: #0000ff;">int</span> l <span style="color: #000080;">=</span> n <span style="color: #000040;">+</span> <span style="color: #0000dd;">2</span><span style="color: #008080;">;</span>  <span style="color: #339900;">// l - новое кол-во строк</span>
+	a <span style="color: #000080;">=</span> <span style="color: #0000dd;">realloc</span><span style="color: #008000;">&#40;</span>a, <span style="color: #008000;">&#40;</span>l<span style="color: #008000;">&#41;</span> <span style="color: #000040;">*</span> <span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span><span style="color: #000040;">*</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> n<span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> l<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		a<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">malloc</span><span style="color: #008000;">&#40;</span>m <span style="color: #000040;">*</span> <span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+					</div>
+				</div>	
+			<p>Теперь можем использовать элементы a[n][i] и a[n + 1][i]. Матрица имеет размер (n + 2) * m.</p>
 			<p>Выделять динамически память может быть очень полезным для решения задач. Например, в задачах про графы, где мы точно не знаем сколько путей из каждой вершины. Вы можете
 			изучить алгоритмы <a href="..\algorithms\DFS.html" style="color:#0000dd">DFS</a> и <a href="..\algorithms\BFS.html" style="color:#0000dd">BFS</a>, где так же используется динамическое выделение памяти.</p>
-			<h2>Освобождение памяти</h2>
-			<p>Чтобы освободить динамически выделенную память, применяют функцию <b>free</b>(указатель на массив). Пример освобождения памяти:</p>
-	<div id="t">
+			<h1 id="8">Освобождение памяти</h1>
+			<p>Чтобы освободить динамически выделенную память, применяют функцию <b>free</b>(указатель на массив).<br> Пример освобождения памяти для <b>массива</b>:</p>
+			<div id="t">
 					<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
-					<br>11<br>12<br>13<br>14<br>15<br>16<br>17</p></div>
+					<br>11<br>12<br>13<br>14<br>15<br>16</p></div>
 					<div id="text2-2">
 						<pre class="cpp" ><span style="color: #339900;">#define _CRT_SECURE_NO_WARNINGS</span>
 <span style="color: #339900;">#include&lt;stdio.h&gt;</span>
@@ -167,8 +321,50 @@ document.addEventListener('click', function(e) {
 	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
 <span style="color: #008000;">&#125;</span></pre>
 					</div>
-				</div>
+			</div>
+			<p>Чтобы освободить память под двумерный массив, нужно сначала освободить память, выделенную под строки, а затем под массив указателей на строки.<br>
+			Пример освобождения памяти для <b>двумерного массива</b>:
+			</p>
+			<div id="t">
+			<div id = "text2-1"><p class="p1">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10
+					<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20</p></div>
+					<div id="text2-2">
+						<pre class="cpp"><span style="color: #339900;">#include&lt;stdio.h&gt;</span>
+<span style="color: #339900;">#include&lt;stdlib.h&gt;</span>
+<span style="color: #339900;">#include&lt;malloc.h&gt;</span>
+&nbsp;
+<span style="color: #0000ff;">int</span> main<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+	<span style="color: #0000ff;">int</span><span style="color: #000040;">**</span> a<span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">int</span> n, m, i, j<span style="color: #008080;">;</span>
+	scanf_s<span style="color: #008000;">&#40;</span><span style="color: #FF0000;">&quot;%i%i&quot;</span>, <span style="color: #000040;">&amp;</span>n, <span style="color: #000040;">&amp;</span>m<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+&nbsp;
+	a <span style="color: #000080;">=</span> <span style="color: #0000dd;">malloc</span><span style="color: #008000;">&#40;</span>n <span style="color: #000040;">*</span> <span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span><span style="color: #000040;">*</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		a<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">malloc</span><span style="color: #008000;">&#40;</span>m <span style="color: #000040;">*</span> <span style="color: #0000dd;">sizeof</span><span style="color: #008000;">&#40;</span><span style="color: #0000ff;">int</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #008000;">&#125;</span>
+&nbsp;
+	<span style="color: #0000ff;">for</span> <span style="color: #008000;">&#40;</span>i <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span> i <span style="color: #000080;">&lt;</span> n<span style="color: #008080;">;</span> i<span style="color: #000040;">++</span><span style="color: #008000;">&#41;</span> <span style="color: #008000;">&#123;</span>
+		<span style="color: #0000dd;">free</span><span style="color: #008000;">&#40;</span>a<span style="color: #008000;">&#91;</span>i<span style="color: #008000;">&#93;</span><span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span> 
+	<span style="color: #008000;">&#125;</span>
+	<span style="color: #0000dd;">free</span><span style="color: #008000;">&#40;</span>a<span style="color: #008000;">&#41;</span><span style="color: #008080;">;</span>
+	<span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span>
+<span style="color: #008000;">&#125;</span></pre>
+					</div>
+			</div>
+			<br><br>
 		</div>
+		<div class="pk" style="margin-top:1260px;height:2200px" id="rb">
+				<div  class="sticky" style="width:75%;margin:30px auto;" id ="rightblock">
+					<!-- Yandex.RTB R-A-1944727-2 -->
+						<div id="yandex_rtb_R-A-1944727-2"></div>
+						<script>window.yaContextCb.push(()=>{
+						  Ya.Context.AdvManager.render({
+							renderTo: 'yandex_rtb_R-A-1944727-2',
+							blockId: 'R-A-1944727-2'
+						  })
+						})</script>	
+				</div>
+			</div>
 		</div>
 
 		<br>
