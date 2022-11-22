@@ -264,7 +264,7 @@ nav a {
 #text2-2{
 	float:left;
 	width:90%;
-	margin-left:1vmax;
+	margin-left:0.5vmax;
 }
 .p1{
 	font-size:16.5px;
@@ -280,7 +280,7 @@ nav a {
 #rb{
 	width:27%;
 	float:right;
-	height:3100px;
+	height:1620px;
 	background-color:;
 }
 .sticky{
@@ -300,7 +300,6 @@ nav a {
 	border: 2px solid black;
 	background-color:#ebebeb;
 	z-index:99;
-
 }
 
 #quote{
